@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Login
+{% endblock%}
+
+{% block nav %}
+{% with nav_selection='logout' %}
+{{ block.super }}
+{% endwith %}
+{% endblock %}
+
+{% block content_title %}
+User logout
+{% endblock %}
+
+{% block content %}
+<div style="margin-left:3em">
+	You have been logged out.
+</div>
+{% endblock %}

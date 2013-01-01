@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Login
+{% endblock%}
+
+{% block nav %}
+{% with 'login' as nav_selection %}
+{{ block.super }}
+{% endwith %}
+{% endblock %}
+
+{% block content_title %}
+User login
+{% endblock %}
+
+{% block content %}
+
+<form method="post" class="form-horizontal"> {% csrf_token %}
+	<div style="margin-left:5em">
+		{{ form.errors }}
+		<div class="control-group">
+			<label class="control-label" for="id_username">Username:</label>
+			&nbsp;
+			{{ form.username }}
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="id_password">Password:</label>
+			&nbsp;
+			{{ form.password }}
+		</div>
+	</div>
+	<div class="pagination-centered">
+		<div class="btn-group">
+		  <button type="submit" class="btn btn-primary">Log me in</button>
+	  	<a href="{% url django.contrib.auth.views.password_reset %}" class="btn">Reset my password</a>
+		</div>
+	</div>
+	<input type="hidden" name="next" value="{% url membership.views.edit_member %}"/>
+</form>
+{% endblock %}

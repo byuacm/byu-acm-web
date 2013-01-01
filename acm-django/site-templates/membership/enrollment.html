@@ -1,0 +1,149 @@
+{% extends 'base.html' %}
+
+{% block title %}
+My Membership
+{% endblock %}
+
+{% block nav %}
+{% with nav_selection='membership' %}
+{{ block.super }}
+{% endwith %}
+{% endblock %}
+
+{% block content_title %}
+My Membership History
+{% endblock %}
+
+{% block content %}
+<form id="enroll_form" action="{% url membership.views.enroll %}" method="post" style="display:none">{% csrf_token %}
+	<input id="semester_pk" name="semester_pk" type="hidden"/>
+	<input id="shirt_size_pk" name="shirt_size_pk" type="hidden"/>
+</form>
+
+{% if available_semesters %}
+<div class="accordion-group">
+	<div class="accordion-heading">
+		<a class="accordion-toggle" data-toggle="collapse" data-target="#collapse_enroll"> 
+			New semester
+		</a>
+	</div>
+	<div id="collapse_enroll" class="accordion-body collapse">
+		<div class="accordion-inner">
+			<div class="form-horizontal">
+				<fieldset>
+					<div class="control-group">
+						<label class="control-label">
+							Semester
+						</label>
+						&nbsp;
+						<select id="new_semester_pk">
+							{% for semester in available_semesters %}
+							<option value="{{ semester.pk }}" >{{ semester.name }}</option>
+							{% endfor %}
+						</select>
+					</div>
+					<div class="control-group">
+						<label class="control-label">
+							Shirt Size
+						</label class="control-label">
+						&nbsp;
+						<select id="new_shirt_size_pk">
+							{% for shirt_size in shirt_sizes %}
+							<option value="{{ shirt_size.pk }}"{% if forloop.first %} selected="selected"{% endif %}>
+								{{ shirt_size.abbr_name }}
+							</option>
+							{% endfor %}
+						</select>
+					</div>
+					<button class="btn btn-primary" onclick="semester_pk.value=new_semester_pk.value;shirt_size_pk.value=new_shirt_size_pk.value;enroll_form.submit();">
+						Register
+					</button>
+				</fieldset>
+			</div>
+		</div>
+	</div>
+</div>
+{% endif %}
+
+{% if available_semesters and enrollments %}
+<hr style="color:#000000;"/>
+{% endif %}
+
+{% for enrollment in enrollments %}
+<div class="accordion-group">
+	<div class="accordion-heading">
+		<div class="row-fluid">
+			<div class="accordion-toggle pagination-centered">
+				<div class="span2">
+					<a data-toggle="collapse" data-target="#collapse_semester_{{ forloop.counter }}"> 
+						{{ enrollment.semester.name }}
+					</a>
+				</div>
+			   	<div class="span2">
+					Dues: {% if enrollment.paid_dues %}Yes{% else %}No{% endif %}
+				</div>
+				<div class="span2">
+					Shirt: {% if enrollment.received_shirt %}Yes{% else %}No{% endif %}
+				</div>
+				<div class="span3">
+					{% if enrollment.can_change_shirt_size %}
+					<div class="dropdown">
+						Shirt size:
+						<a class="dropdown-toggle" id="dLabel" role="button" data-toggle="dropdown">
+							{% if enrollment.shirt_size %}
+							{{ enrollment.shirt_size.abbr_name }}
+							{% else %}
+							___
+							{% endif %}
+							<b class="caret"></b>
+						</a>
+						<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+							{% for shirt_size in shirt_sizes %}
+							<li>
+								<a href="javascript:semester_pk.value='{{ enrollment.semester.pk }}';shirt_size_pk.value='{{ shirt_size.pk }}';enroll_form.submit();">{{ shirt_size.full_name }}</a>
+							</li>
+							{% endfor %}
+						</ul>
+					</div>
+					{% else %}
+						Shirt size:
+						{{ enrollment.shirt_size.abbr_name }}
+					{% endif %}
+				</div>
+				<div class="span3">
+					Attendance: {{ enrollment.attendance_proportion }}
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="collapse_semester_{{ forloop.counter }}" class="accordion-body collapse{% if not available_semesters and forloop.first %} in{% endif %}"> 
+		<div class="accordion-inner"> 
+			<table class="table table-bordered table-hover">
+				<thead>
+					<tr>
+						<td width=50%>Date</td>
+						<td wdith=50%>Attended</td>
+					</tr>
+				</thead>
+				{% for meeting in enrollment.semester.meeting_set.all %}
+					<tr>
+						<td>{{ meeting.datetime|date:"D m/d/Y, h:i A" }}</td>
+						<td>
+							{% if meeting in enrollment.profile.attendances.all %}
+							Yes
+							{% elif meeting.can_attend %}
+							<a class="btn btn-success" href="{% url membership.views.signin meeting=meeting.id %}">
+								Sign in
+							</a> 
+							{% elif meeting.in_past %}
+							No
+							{% endif %}
+						</td>
+					</tr>
+				{% endfor %}
+		   	</table>
+		</div>
+	</div> 
+</div>
+{% endfor %}
+{% endblock %}

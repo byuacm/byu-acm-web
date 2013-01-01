@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Register
+{% endblock %}
+
+{% block nav %}
+{% with nav_selection='register' %}
+{{ block.super }}
+{% endwith %}
+{% endblock %}
+{% block content_title %}
+New user registration
+{% endblock %}
+
+{% block content %}
+{% if uform.errors or pform.errors %}
+<div class="accordion-inner">
+	<div style="width:30em;margin-left:6em;margin-right:6em;color:#FF0000">
+	{{ uform.errors }}
+	{{ pform.errors }}
+	</div>
+</div>
+{% endif %}
+<form action="{{ request.url }}" method="post" class="form-horizontal"> {% csrf_token %}
+	<div style="width:30em;margin-left:4em;">
+		<div class="control-group">
+			<label class="control-label" for="id_username">Username:</label>
+			&nbsp;
+			{{ uform.username }}
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="id_first_name">First name:</label>
+			&nbsp;
+			{{ uform.first_name }}
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="id_last_name">Last name:</label>
+			&nbsp;
+			{{ uform.last_name }}
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="id_password1">Password:</label>
+			&nbsp;
+			{{ uform.password1 }}
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="id_password2">Confirm password:</label>
+			&nbsp;
+			{{ uform.password2 }}
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="id_email">Email:</label>
+			&nbsp;
+			{{ uform.email }}
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="id_is_byu">BYU Student:</label>
+			&nbsp;
+			{{ pform.is_byu }}
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="id_is_cd">CS Student:</label>
+			&nbsp;
+			{{ pform.is_cs }}
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="id_is_undergraduate">Undergraduate:</label>
+			&nbsp;
+			{{ pform.is_undergraduate }}
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="id_spoj_username"><a href="http://spoj.pl" target="_blank">SPOJ</a> username (if you have one):</label>
+			&nbsp;
+			{{ pform.spoj_username }}
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="id_highest_course">Highest CS course (current):</label>
+			&nbsp;
+			{{ pform.highest_course }}
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="id_graduation">Graduation:</label>
+			&nbsp;
+			{{ pform.graduation }}
+		</div>
+	</div>
+	<div class="pagination-centered">
+		<button class="btn btn-primary" type="submit">Register me!</button>
+	</div>
+	<input type="hidden" id="next" value="{{ next }}" />
+</form>
+{% endblock %}

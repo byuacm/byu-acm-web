@@ -1,3 +1,6 @@
+/acm/settings_private.*
+/acm/static/*
+
 *.py[cod]
 
 # C extensions

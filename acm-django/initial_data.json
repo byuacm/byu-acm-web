@@ -89,6 +89,24 @@
 			,"enrollment_end" : "2016-12-09 00:00:00"
 		}
 	}
+	,{
+		"model" : "membership.semester"
+		,"pk" : 10
+		,"fields" : {
+			"name" : "Test Semester A"
+			,"enrollment_start" : "2000-01-01 00:00:00"
+			,"enrollment_end" : "2020-01-01 00:00:00"
+		}
+	}
+	,{
+		"model" : "membership.semester"
+		,"pk" : 11
+		,"fields" : {
+			"name" : "Test Semester B"
+			,"enrollment_start" : "2001-01-01 00:00:00"
+			,"enrollment_end" : "2021-01-01 00:00:00"
+		}
+	}
 
 	,{
 		"model" : "membership.meeting"
@@ -104,9 +122,74 @@
 	}
 	,{
 		"model" : "membership.meeting"
-		,"pk" : 1
+		,"pk" : 2
 		,"fields" : {
-			"semester" : 2
+			"semester" : 10
+			,"name" : "Test Meeting A Past"
+			,"datetime" : "2000-01-01 19:00:00"
+			,"attendance_start" : "2000-01-01 00:00:00"
+			,"attendance_end" : "2001-01-01 00:00:00"
+			,"password" : null
+		}
+	}
+	,{
+		"model" : "membership.meeting"
+		,"pk" : 3
+		,"fields" : {
+			"semester" : 10
+			,"name" : "Test Meeting A Now"
+			,"datetime" : "2013-01-01 19:00:00"
+			,"attendance_start" : "2000-01-01 00:00:00"
+			,"attendance_end" : "2020-01-01 00:00:00"
+			,"password" : null
+		}
+	}
+	,{
+		"model" : "membership.meeting"
+		,"pk" : 4
+		,"fields" : {
+			"semester" : 10
+			,"name" : "Test Meeting A Future"
+			,"datetime" : "2020-01-01 19:00:00"
+			,"attendance_start" : "2019-01-01 00:00:00"
+			,"attendance_end" : "2020-01-01 00:00:00"
+			,"password" : null
+		}
+	}
+	,{
+		"model" : "membership.meeting"
+		,"pk" : 5
+		,"fields" : {
+			"semester" : 11
+			,"name" : "Test Meeting B Past"
+			,"datetime" : "2001-01-01 19:00:00"
+			,"attendance_start" : "2001-01-01 00:00:00"
+			,"attendance_end" : "2002-01-01 00:00:00"
+			,"password" : null
+		}
+	}
+	,{
+		"model" : "membership.meeting"
+		,"pk" : 6
+		,"fields" : {
+			"semester" : 11
+			,"name" : "Test Meeting B Now"
+			,"datetime" : "2013-01-02 19:00:00"
+			,"attendance_start" : "2001-01-01 00:00:00"
+			,"attendance_end" : "2021-01-01 00:00:00"
+			,"password" : null
+		}
+	}
+	,{
+		"model" : "membership.meeting"
+		,"pk" : 7
+		,"fields" : {
+			"semester" : 11
+			,"name" : "Test Meeting B Future"
+			,"datetime" : "2021-01-01 19:00:00"
+			,"attendance_start" : "2020-01-01 00:00:00"
+			,"attendance_end" : "2021-01-01 00:00:00"
+			,"password" : null
 		}
 	}
 

@@ -1,5 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
+from django.core.urlresolvers import reverse
 from django.shortcuts import render, redirect
 from django.utils import timezone
 from membership.forms import *
@@ -28,7 +29,7 @@ def new_member(request):
 	}
 	return render(request, 'membership/new_member.html', d)
 
-def signin(request, meeting=None):
+def signin(request, meeting_pk=None):
 	now = timezone.now()
 	if request.method == 'POST':
 		form = AttendanceForm(request.POST)
@@ -40,8 +41,8 @@ def signin(request, meeting=None):
 		 	a.member = member
 			a.save()
 			if not member.memberships.filter(enrollment__semester=a.meeting.semester).exists():
-				Enrollment(member=member, semester=semester).save()
-			return redirect('membership.views.member')
+				Enrollment(member_pk=member_pk, semester=semester).save()
+			return redirect(reverse('membership.views.enrollment'))
 	else:
 		initial = {}
 		if meeting is not None:
@@ -79,7 +80,7 @@ def enroll(request):
 		enrollment = Enrollment(member=member, semester=semester)
 	enrollment.shirt_size = shirt_size
 	enrollment.save()
-	return redirect('membership.views.member')
+	return redirect(reverse('membership.views.enrollment'))
 
 @login_required
 def edit_member(request):

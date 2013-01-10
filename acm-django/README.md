@@ -16,14 +16,25 @@ $ echo no | python manage.py syncdb
 $ python manage.py runserver [port]
 </pre>
 Point web browser to localhost:port. By default, port is 8000.
+
 This website is currently hosted by [AppFog](http://appfog.com) at [byuacm.aws.af.cm](http://byuacm.aws.af.cm). To put changes there,
 <pre>
+$ sudo apt-get install ruby1.9.3
 $ sudo apt-get install rubygems
-$ gem install af
+$ sudo gem install af
 $ af login
 $ af update byuacm 
 </pre>
 The af login requires authentication for the acm@byu.edu account.
+
+For tunneling (used to access the MySQL database),
+<pre>
+$ sudo apt-get install mysql-client-5.5
+$ sudo gem install event-machine
+$ sudo gem install caldecott
+$ af login
+$ af tunnel
+</pre>
 
 ## Notes
 

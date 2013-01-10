@@ -8,4 +8,6 @@ urlpatterns = patterns('membership.views',
     url(r'^signin/$', 'signin'),
     url(r'^signin/(?P<meeting>\d+)$', 'signin'),
     url(r'^enrollment/$', 'enrollment'),
+    url(r'^make_raffle/$', 'make_raffle'),
+    url(r'^raffle/(?P<meeting_pk>\d+)$', 'raffle'),
 )

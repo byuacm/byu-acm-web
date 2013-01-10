@@ -1,0 +1,36 @@
+<html>
+<head>
+	<title>Name Picker</title>
+	<script type="text/javascript" src="{{ STATIC_URL }}raffle/js/jquery-1.8.0.min.js"></script>	
+	<script src = '{{ STATIC_URL }}raffle/js/jquery-ui-1.8.23.custom.min.js'></script>
+	<script>
+		var colors = Array(8);
+		color[1] = "#9fd4d4";
+		color[2] = "#222288";
+		color[3] = "#882222";
+		color[4] = "#228822";
+		color[5] = "#FFA500";
+		color[6] = "#FFFF00";
+		color[7] = "#222222";
+		var imported = [
+			{% for attendance in attendances %}
+			{
+				name: '{{ attendance.member.user.first_name }} {{ attendance.member.user.last_name }}',
+				points: {{ attendance.points }}
+			}
+			{% if not forloop.last %},{% endif %}
+			{% endfor %}
+		];
+	</script>	
+	<script type="text/javascript" src="{{ STATIC_URL }}raffle/js/raffle.js"></script>	
+	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}raffle/css/style.css">
+	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}raffle/css/raffle.css">
+</head>
+<body>
+	<div class='enter-names'>
+		<p>Enter names separated by new lines:</p>
+		<textarea class='name-text-field'></textarea>
+		<button onclick="process();">Import</button>
+	</div>
+</body>
+</html>

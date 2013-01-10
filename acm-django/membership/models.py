@@ -48,8 +48,8 @@ class Enrollment(models.Model):
 
 class Meeting(models.Model):
 	semester = models.ForeignKey('Semester', verbose_name='Semester')
-	name = models.CharField('Name', max_length=40, null=True)
-	datetime = models.DateTimeField('Date/time', null=True)
+	name = models.CharField('Name', max_length=40, blank=True, null=True)
+	datetime = models.DateTimeField('Date/time')
 	attendance_start = models.DateTimeField('Attendance Start', blank=True, null=True)
 	attendance_end= models.DateTimeField('Attendance End', blank=True, null=True)
 	password = models.CharField('Password', max_length=20, blank=True, null=True)
@@ -66,7 +66,7 @@ class Meeting(models.Model):
 		return u'%s (%s)' % (self.datetime.strftime('%Y-%m-%d %a'), self.name,)
 		
 	class Meta:
-		ordering = ['semester', 'datetime',]
+		ordering = ['datetime',]
 
 class Semester(models.Model):
 	name = models.CharField('Name', max_length=12)

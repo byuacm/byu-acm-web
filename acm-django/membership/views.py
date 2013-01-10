@@ -1,4 +1,5 @@
 from django.contrib.auth.decorators import login_required
+from django.conf import settings
 from django.shortcuts import render, redirect
 from django.utils import timezone
 from membership.forms import *
@@ -102,3 +103,27 @@ def edit_member(request):
 def logout(request):
 	auth.logout(request)
 	return render(request, 'registration/logout.html',)
+
+def make_raffle(request):
+	if not request.user.is_staff:
+		return redirect(settings.LOGIN_URL)
+	now = timezone.now()
+	meetings = Meeting.objects.all()
+	try:
+		default_meeting = meetings.filter(datetime__lte=now).latest('datetime')
+	except Meeting.DoesNotExist:
+		default_meeting = None
+	d = {
+		'meetings' : meetings,
+		'default_meeting' : default_meeting,
+	}
+	return render(request, 'membership/make_raffle.html', d)
+
+def raffle(request, meeting_pk):
+	if not request.user.is_staff:
+		return redirect(settings.LOGIN_URL)
+	attendances = Attendance.objects.filter(meeting__pk = meeting_pk)
+	d = {
+		'attendances' : attendances,
+	}
+	return render(request, 'membership/raffle.html', d)

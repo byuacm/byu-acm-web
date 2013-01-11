@@ -1,7 +1,7 @@
 from django.conf.urls import *
 from django.conf.urls.defaults import *
 from django.core.urlresolvers import reverse
-import settings
+from django.conf import settings
 
 # Enables admin:
 from django.contrib import admin

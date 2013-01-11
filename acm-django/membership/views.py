@@ -5,6 +5,7 @@ from django.shortcuts import render, redirect
 from django.utils import timezone
 from membership.forms import *
 from membership.models import *
+from mailsnake import MailSnake
 import django.contrib.auth as auth
 
 def new_member(request):
@@ -19,6 +20,22 @@ def new_member(request):
 			member.save()
 			user = authenticate(username=uform.data['username'], password=uform.data['password1'])
 			auth.login(request, user)
+			
+			if settings.USE_MAILCHIMP:
+				ms = MailSnake(settings.MAILCHIMP_API_KEY)
+				lists = ms.lists()
+				ms.listSubscribe(
+					id = lists['data'][0]['id'], #TODO: assumes use of first list,
+					email_address = user.email,
+					merge_vars = {
+						'FNAME' : user.first_name,
+						'LNAME' : user.last_name,
+					},
+					update_existing = True,
+					double_optin = False, #no confirm message
+					send_welcome = True, #note: won't send if merely updates existing
+				)
+			
 			return redirect('membership.views.enrollment')
 	else:
 		uform = MyUserCreationForm()

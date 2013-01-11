@@ -1,5 +1,7 @@
+#Mine
 /acm/settings_private.*
 /acm/static/*
+*.db
 
 *.py[cod]
 

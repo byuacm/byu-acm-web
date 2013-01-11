@@ -4,12 +4,14 @@ This currently handles the membership portion of the [BYU ACM website](http://ac
 ## Getting started
 
 ### Linux
-To install Django,
+To install Python and necessary Python packages,
 <pre>
 $ sudo apt-get install python
-$ sudo apt-get install python-django
+$ sudo apt-get install python-pip
+$ sudo pip install -r requirements.txt
 </pre>
-To start the Django server, from the project root,
+
+To start the Django server,
 <pre>
 $ echo yes | python manage.py collectstatic
 $ echo no | python manage.py syncdb
@@ -17,13 +19,19 @@ $ python manage.py runserver [port]
 </pre>
 Point web browser to localhost:port. By default, port is 8000.
 
-This website is currently hosted by [AppFog](http://appfog.com) at [byuacm.aws.af.cm](http://byuacm.aws.af.cm). To put changes there,
+## Hosting
+
+This website is currently hosted by [AppFog](http://appfog.com) at [byuacm.aws.af.cm](http://byuacm.aws.af.cm).
+
+### Linux
+To put changes there,
 <pre>
+$ python manage.py collectstatic
 $ sudo apt-get install ruby1.9.3
 $ sudo apt-get install rubygems
 $ sudo gem install af
 $ af login
-$ af update byuacm 
+$ af update byuacm
 </pre>
 The af login requires authentication for the acm@byu.edu account.
 

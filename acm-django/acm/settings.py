@@ -48,6 +48,10 @@ EMAIL_USE_TLS   = True
 DEFAULT_FROM_EMAIL  = 'acm@byu.edu'
 SERVER_EMAIL    = 'acm@byu.edu'
 
+# For development, set to USE_MAILCHIMP False
+USE_MAILCHIMP = True
+MAILCHIMP_API_KEY = 'key'
+
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # although not all choices may be available on all operating systems.

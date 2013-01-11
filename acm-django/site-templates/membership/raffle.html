@@ -5,13 +5,13 @@
 	<script src = '{{ STATIC_URL }}raffle/js/jquery-ui-1.8.23.custom.min.js'></script>
 	<script>
 		var colors = Array(8);
-		color[1] = "#9fd4d4";
-		color[2] = "#222288";
-		color[3] = "#882222";
-		color[4] = "#228822";
-		color[5] = "#FFA500";
-		color[6] = "#FFFF00";
-		color[7] = "#222222";
+		colors[1] = "#9fd4d4";
+		colors[2] = "#222288";
+		colors[3] = "#882222";
+		colors[4] = "#228822";
+		colors[5] = "#FFA500";
+		colors[6] = "#FFFF00";
+		colors[7] = "#222222";
 		var imported = [
 			{% for attendance in attendances %}
 			{

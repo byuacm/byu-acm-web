@@ -19,7 +19,7 @@ def new_member(request):
 			member.save()
 			user = authenticate(username=uform.data['username'], password=uform.data['password1'])
 			auth.login(request, user)
-			return redirect('membership.views.edit_member')
+			return redirect('membership.views.enrollment')
 	else:
 		uform = MyUserCreationForm()
 		pform = MemberForm()
@@ -31,6 +31,7 @@ def new_member(request):
 
 def signin(request, meeting_pk=None):
 	now = timezone.now()
+	initial = {}
 	if request.method == 'POST':
 		form = AttendanceForm(request.POST)
 		form.fields['meeting'].queryset = Meeting.objects.filter(attendance_start__lte=now, attendance_end__gt=now)
@@ -39,18 +40,17 @@ def signin(request, meeting_pk=None):
 			member = Member.objects.get(user__username=request.POST['username'])
 		 	a = form.save(commit=False)
 		 	a.member = member
-			a.save()
-			if not member.memberships.filter(enrollment__semester=a.meeting.semester).exists():
-				Enrollment(member_pk=member_pk, semester=semester).save()
-			return redirect(reverse('membership.views.enrollment'))
-	else:
-		initial = {}
-		if meeting is not None:
-			initial['meeting'] = Meeting.objects.get(id=meeting)
-		if request.user.is_authenticated():
-			initial['username'] = request.user.username
-		form = AttendanceForm(initial=initial)
-		form.fields['meeting'].queryset = Meeting.objects.filter(attendance_start__lte=now, attendance_end__gt=now)
+		 	if not Attendance.objects.filter(meeting=a.meeting).filter(member=a.member).exists():
+				a.save()
+				if not member.memberships.filter(enrollment__semester=a.meeting.semester).exists():
+					Enrollment(member_pk=member_pk, semester=semester).save()
+		meeting_pk = form.data['meeting']
+	elif request.user.is_authenticated():
+		initial['username'] = request.user.username
+	if meeting_pk is not None:
+		initial['meeting'] = Meeting.objects.get(pk=meeting_pk)
+	form = AttendanceForm(initial=initial)
+	form.fields['meeting'].queryset = Meeting.objects.filter(attendance_start__lte=now, attendance_end__gt=now)
 	d = {
 		'form':form
 	}
@@ -87,7 +87,7 @@ def edit_member(request):
 	user = request.user
 	member = Member.objects.get(user=user)
 	if request.method == 'POST':
-		uform = MemberChangeForm(request.POST, instance=user)
+		uform = MyUserChangeForm(request.POST, instance=user)
 		pform = MemberForm(request.POST, instance=member)
 		if uform.is_valid() and pform.is_valid():
 			uform.save()

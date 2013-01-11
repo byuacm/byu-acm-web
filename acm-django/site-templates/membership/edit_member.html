@@ -46,6 +46,11 @@ My user info
 			{{ uform.email }}
 		</div>
 		<div class="control-group">
+			<label class="control-label" for="id_website">Website:</label>
+			&nbsp;
+			{{ pform.website }}
+		</div>
+		<div class="control-group">
 			<label class="control-label" for="id_password">Password:</label>
 			&nbsp;
 			<a href="{% url django.contrib.auth.views.password_change %}">

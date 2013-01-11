@@ -105,6 +105,7 @@ class Member(models.Model):
 	is_cs = models.BooleanField('Is CS Student', default=True)
 	is_undergraduate = models.BooleanField('Is Undergraduate', default=True)
 	highest_course = models.ForeignKey('Course', verbose_name='Highest CS Course', blank=True, null=True)
+	website = models.CharField('Website', max_length=200, blank=True, null=True)
 
 	def __unicode__(self):
 		return self.user.get_full_name()

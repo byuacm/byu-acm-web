@@ -76,4 +76,6 @@ def member_list(request, semester_pk):
 			for enrollment
 			in Enrollment.objects.filter(semester=semester).filter(paid_dues=True).order_by('member__user__last_name').order_by('member__user__first_name')
 	]
-	return HttpResponse(json.dumps(d), content_type="application/json")
+	response = HttpResponse(json.dumps(d), content_type="application/json")
+	response['Access-Control-Allow-Origin'] = '*'
+	return response

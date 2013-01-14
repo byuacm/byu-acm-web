@@ -3,14 +3,13 @@ from django.contrib.auth.decorators import login_required
 from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.db.models import *
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.utils import timezone
 from membership.models import *
 import django.contrib.auth as auth
-
-@staff_member_required
-def dashboard(request):
-	return render(request, 'dashboard/dashboard.html')
+import django.utils.simplejson as json
+import time
 
 @staff_member_required
 def raffle(request, meeting_pk=None):
@@ -55,3 +54,26 @@ def shirt_sizes(request, semester_pk=None):
 		'shirt_sizes' : shirt_sizes,
 	}
 	return render(request, 'dashboard/shirt_sizes.html', d)
+
+@staff_member_required
+def make_member_list(request):
+	semesters = Semester.objects.all()
+	d = {
+		'semesters' : semesters,
+	}
+	return render(request, 'dashboard/make_member_list.html', d)
+
+def utc_millis(dt):
+	seconds = time.mktime(dt.now().timetuple())
+	return int(round(seconds * 1000))
+
+def member_list(request, semester_pk):
+	semester = Semester.objects.get(pk=semester_pk)
+	d = {}
+	d['semester'] = {'name':semester.name, 'start_utc':utc_millis(semester.enrollment_start), 'end_utc':utc_millis(semester.enrollment_end),}
+	d['members'] = [
+		{'first_name':enrollment.member.user.first_name, 'last_name':enrollment.member.user.last_name, 'website':enrollment.member.website}
+			for enrollment
+			in Enrollment.objects.filter(semester=semester).filter(paid_dues=True).order_by('member__user__last_name').order_by('member__user__first_name')
+	]
+	return HttpResponse(json.dumps(d), content_type="application/json")

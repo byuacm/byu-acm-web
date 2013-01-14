@@ -10,3 +10,7 @@ class Raffle(models.Model):
 class ShirtSize(models.Model):
 	class Meta:
 		managed = False
+
+class MemberList(models.Model):
+	class Meta:
+		managed = False

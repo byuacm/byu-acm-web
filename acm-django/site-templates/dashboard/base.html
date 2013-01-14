@@ -7,6 +7,9 @@
 <li class="{% ifequal nav_selection 'shirt_sizes' %}active{% endifequal %}">
 	<a href="{% url dashboard.views.shirt_sizes %}">Shirt Size Counts</a>
 </li>
+<li class="{% ifequal nav_selection 'member_list' %}active{% endifequal %}">
+	<a href="{% url dashboard.views.make_member_list %}">Member List</a>
+</li>
 <li class="{% ifequal nav_selection 'more' %}active{% endifequal %}">
 	<a href="/admin/">More</a>
 </li>

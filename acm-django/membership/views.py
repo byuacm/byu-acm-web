@@ -57,10 +57,10 @@ def signin(request, meeting_pk=None):
 			member = Member.objects.get(user__username=request.POST['username'])
 		 	a = form.save(commit=False)
 		 	a.member = member
-		 	if not Attendance.objects.filter(meeting=a.meeting).filter(member=a.member).exists():
+		 	if not a.member.attendances.filter(meeting=a.meeting).exists():
 				a.save()
-				if not member.memberships.filter(enrollment__semester=a.meeting.semester).exists():
-					Enrollment(member_pk=member_pk, semester=semester).save()
+				if not member.memberships.filter(semester=a.meeting.semester).exists():
+					Enrollment(member_pk=member_pk, semester=meeting.semester).save()
 		meeting_pk = form.data['meeting']
 	elif request.user.is_authenticated():
 		initial['username'] = request.user.username

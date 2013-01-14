@@ -22,6 +22,7 @@ Point web browser to localhost:port. By default, port is 8000.
 ## Hosting
 
 This website is currently hosted by [AppFog](http://appfog.com) at [byuacm.aws.af.cm](http://byuacm.aws.af.cm).
+IMPORTANT: Do not make changes that would cause Django's syncdb to erase data in the database.
 
 ### Linux
 To put changes there,
@@ -30,10 +31,10 @@ $ python manage.py collectstatic
 $ sudo apt-get install ruby1.9.3
 $ sudo apt-get install rubygems
 $ sudo gem install af
-$ af login
+$ af login acm@byu.edu
 $ af update byuacm
 </pre>
-The af login requires authentication for the acm@byu.edu account.
+The af login requires password authentication.
 
 For tunneling (used to access the MySQL database),
 <pre>
@@ -43,6 +44,7 @@ $ sudo gem install caldecott
 $ af login
 $ af tunnel
 </pre>
+Tunneling has been know to be buggy. The glitches might be related to the proxy settings of BYU's network.
 
 ## Notes
 

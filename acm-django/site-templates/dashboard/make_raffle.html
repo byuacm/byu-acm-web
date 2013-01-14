@@ -1,0 +1,32 @@
+{% extends 'dashboard/base.html' %}
+
+{% block title %}
+Raffle
+{% endblock %}
+
+{% block nav %}
+{% with nav_selection='raffle' %}
+{{ block.super }}
+{% endwith %}
+{% endblock %}
+
+{% block content_title %}
+Raffle
+{% endblock %}
+
+{% block content %}
+<div class="control-group">
+	<label class="control-label" for="meeting_raffle">Choose meeting:</label>
+	&nbsp;
+	<select id="meeting_raffle">
+		{% for meeting in meetings %}
+		<option value="{% url dashboard.views.raffle meeting.pk %}"{% ifequal meeting default_meeting %} selected{% endifequal %}>
+			{{ meeting }}
+		</option>
+		{% endfor %}
+	</select>
+</div>
+<button id="button" class="btn btn-success" onclick="window.location = meeting_raffle.value">
+	Make raffle
+</button>
+{% endblock %}

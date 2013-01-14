@@ -1,0 +1,80 @@
+{% extends 'dashboard/base.html' %}
+
+{% block title %}
+Raffle
+{% endblock %}
+
+{% block nav %}
+{% with nav_selection='shirt_sizes' %}
+{{ block.super }}
+{% endwith %}
+{% endblock %}
+
+{% block content_title %}
+Shirt Size Counts
+{% endblock %}
+
+{% block content %}
+<div class="control-group">
+	<label class="control-label" for="semester_shirt_sizes">Choose semester:</label>
+	&nbsp;
+	<select id="semester_shirt_sizes" onchange="window.location = this.value"}>
+		{% for semester_option in semesters %}
+		<option value="{% url dashboard.views.shirt_sizes semester_option.pk %}"{% ifequal semester_option semester %} selected{% endifequal %}>
+				{{ semester_option }}
+		</option>
+		{% endfor %}
+	</select>
+</div>
+<table class="table table-bordered table-hover" style="margin-left:auto;margin-right:auto;width:40em">
+	<thead>
+		<tr>
+			<td width=25% style="vertical-align:middle">
+				<div class="pagination-centered">
+					Size
+				</div>
+			</td>
+			<td width=25% style="vertical-align:middle">
+				<div class="pagination-centered">
+					Size
+				</div>
+			</td>
+			<td width=25% style="vertical-align:middle">
+				<div class="pagination-centered">
+					Paid
+				</div>
+			</td>
+			<td width=25% style="vertical-align:middle">
+				<div class="pagination-centered">
+					Paid &amp;
+					<br/>not received
+				</div>
+			</td>
+		</tr>
+	</thead>
+	{% for shirt_size in shirt_sizes %}
+	<tr>
+		<td>
+			<div class="pagination-left">
+				{{ shirt_size.full_name }}
+			</div>
+		</td>
+		<td>
+			<div class="pagination-centered">
+				{{ shirt_size.all__count }}
+			</div>
+		</td>
+		<td>
+			<div class="pagination-centered">
+				{{ shirt_size.paid__count }}
+			</div>
+		</td>
+		<td>
+			<div class="pagination-centered">
+				{{ shirt_size.paid_unreceived__count }}
+			</div>
+		</td>
+	</tr>
+	{% endfor %}
+</table>
+{% endblock %}

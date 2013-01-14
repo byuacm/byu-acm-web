@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block nav %}
+<li class="{% ifequal nav_selection 'raffle' %}active{% endifequal %}">
+	<a href="{% url dashboard.views.raffle %}">Raffle</a>
+</li>
+<li class="{% ifequal nav_selection 'shirt_sizes' %}active{% endifequal %}">
+	<a href="{% url dashboard.views.shirt_sizes %}">Shirt Size Counts</a>
+</li>
+<li class="{% ifequal nav_selection 'more' %}active{% endifequal %}">
+	<a href="/admin/">More</a>
+</li>
+{% endblock %}

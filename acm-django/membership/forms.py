@@ -25,7 +25,7 @@ class MyUserChangeForm(UserChangeForm):
 		
 	class Meta:
 		model = User
-		exclude = ('is_staff', 'is_superuser', 'password', 'last_login', 'date_joined',)
+		exclude = ('is_active', 'is_staff', 'is_superuser', 'password', 'last_login', 'date_joined',)
 
 class MemberForm(forms.ModelForm):
 	class Meta:

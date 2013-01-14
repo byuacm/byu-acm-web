@@ -11,34 +11,22 @@
 			<div class="navbar">
 				<div class="navbar-inner">
 					<div style="margin-left:1%; margin-right:1%;">
-					<ul class="nav">
-						<a class="brand" style="color:#3355FF;" href="http://acm.byu.edu">BYU ACM</a>
-						{% block nav %}
-							<li class="{% ifequal nav_selection 'register' %}active{% endifequal %}">
-								<a href="{% url membership.views.new_member %}">Register</a>
-							</li>
-							<li class="{% ifequal nav_selection 'login' %}active{% endifequal %}">
-								<a href="{% url django.contrib.auth.views.login %}">Login</a>
-							</li>
-							<li class="{% ifequal nav_selection 'account' %}active{% endifequal %}">
-								<a href="{% url membership.views.edit_member %}">My Account</a>
-							</li>
-							<li class="{% ifequal nav_selection 'membership' %}active{% endifequal %}">
-								<a href="{% url membership.views.enrollment %}">My Membership</a>
-							</li>
-							<li class="{% ifequal nav_selection 'signin' %}active{% endifequal %}">
-								<a href="{% url membership.views.signin %}">Meeting Sign In</a>
-							</li>
-						{% endblock %}
-					</ul>
-				</div>
+						<ul class="nav">
+							<a class="brand" style="color:#3355FF;" href="http://acm.byu.edu">BYU ACM</a>
+							{% block nav %}{% endblock %}
+						</ul>
 				</div>
 			</div>
 
 		  <div class="container" style="width:48em;">
 				<div class="pagination-right">
 					{% if user.is_authenticated %}
-					You are logged in as {{ user.username }} ({{ user.get_full_name }}). <a href="{% url membership.views.logout %}" >(logout)</a>
+					You are logged in as {{ user.username }} ({{ user.get_full_name }}).
+					{% if user.is_staff %}
+					- <a href="/membership/">Public Site</a>
+		  			- <a href="/dashboard/">Dashboard</a>
+		  			{% endif %}
+					- <a href="{% url membership.views.logout %}" >Logout</a>
 					{% endif %}
 				</div>
 				<div class="accordion-group">

@@ -44,7 +44,6 @@ def shirt_sizes(request, semester_pk=None):
 			shirt_size.all__count = enrollments.filter(shirt_size=shirt_size).count()
 			shirt_size.paid__count = enrollments.filter(shirt_size=shirt_size).filter(paid_dues=True).count()
 			shirt_size.paid_unreceived__count = enrollments.filter(shirt_size=shirt_size).filter(paid_dues=True).filter(received_shirt=False).count()
-			print shirt_size.all__count
 	except Semester.DoesNotExist:
 		semester = None
 		shirt_size_counts = None

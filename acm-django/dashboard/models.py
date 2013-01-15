@@ -7,7 +7,7 @@ class Raffle(models.Model):
 	class Meta:
 		managed = False
 
-class ShirtSize(models.Model):
+class ShirtSizeCount(models.Model):
 	class Meta:
 		managed = False
 

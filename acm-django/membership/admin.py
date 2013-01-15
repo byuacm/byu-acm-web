@@ -20,12 +20,30 @@ class MyUserAdmin(UserAdmin):
 	inlines = [MemberInline]
 	actions = [make_admin,]
 
+class AttendanceAdmin(admin.ModelAdmin):
+	list_display = ('meeting', 'member', 'has_shirt', 'points')
+
+class CourseAdmin(admin.ModelAdmin):
+	list_display = ('name', 'sequence', 'is_active',)
+
+class EnrollmentAdmin(admin.ModelAdmin):
+	list_display = ('semester', 'member', 'shirt_size', 'paid_dues', 'received_shirt')
+
+class MeetingAdmin(admin.ModelAdmin):
+	list_display = ('name', 'datetime', 'attendance_start', 'attendance_end',)
+
+class SemesterAdmin(admin.ModelAdmin):
+	list_display = ('name', 'enrollment_start', 'enrollment_end',)
+
+class ShirtSizeAdmin(admin.ModelAdmin):
+	list_display = ('full_name', 'abbr_name', 'sequence', 'is_active',)
+
 admin.site.unregister(User)
 admin.site.register(User, MyUserAdmin)
 
-admin.site.register(Attendance)
-admin.site.register(Course)
-admin.site.register(Enrollment)
-admin.site.register(Meeting)
-admin.site.register(Semester)
-admin.site.register(ShirtSize)
+admin.site.register(Attendance, AttendanceAdmin)
+admin.site.register(Course, CourseAdmin)
+admin.site.register(Enrollment, EnrollmentAdmin)
+admin.site.register(Meeting, MeetingAdmin)
+admin.site.register(Semester, SemesterAdmin)
+admin.site.register(ShirtSize, ShirtSizeAdmin)

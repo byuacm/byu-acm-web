@@ -14,7 +14,7 @@ class RaffleAdmin(LinkAdmin):
 	def changelist_view(self, request, extra_context=None):
 		return redirect(reverse('dashboard.views.raffle'))
 
-class ShirtSizeAdmin(LinkAdmin):
+class ShirtSizeCountAdmin(LinkAdmin):
 	def changelist_view(self, request, extra_context=None):
 		return redirect(reverse('dashboard.views.shirt_sizes'))
 
@@ -23,5 +23,5 @@ class MemberListAdmin(LinkAdmin):
 		return redirect(reverse('dashboard.views.make_member_list'))
 
 admin.site.register(Raffle, RaffleAdmin)
-admin.site.register(ShirtSize, ShirtSizeAdmin)
+admin.site.register(ShirtSizeCount, ShirtSizeCountAdmin)
 admin.site.register(MemberList, MemberListAdmin)

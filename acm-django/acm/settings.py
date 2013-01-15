@@ -1,45 +1,20 @@
-# Django settings for acm project.
+## Django settings for acm project.
 
+# Always use absolute directories
 import os
-
 ROOT = lambda base : os.path.join(os.path.dirname(__file__)+"/../", base)
+
+# Debugging
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
+# Receive errors from logging
 ADMINS = (
-    ('ACM', 'acm@byu.edu'),
+    ('Paul', 'paulddraper@gmail.com'),
 )
-
 MANAGERS = ADMINS
 
-if 'VCAP_SERVICES' in os.environ:
-    import json
-    vcap_services = json.loads(os.environ['VCAP_SERVICES'])
-    # XXX: avoid hardcoding here
-    mysql_srv = vcap_services['mysql-5.1'][0]
-    cred = mysql_srv['credentials']
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.mysql',
-            'NAME': cred['name'],
-            'USER': cred['user'],
-            'PASSWORD': cred['password'],
-            'HOST': cred['hostname'],
-            'PORT': cred['port'],
-            }
-        }
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-            'NAME': ROOT('acm/data.db'),            # Or path to database file if using sqlite3.
-            'USER': '',                      # Not used with sqlite3.
-            'PASSWORD': '',                  # Not used with sqlite3.
-            'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
-            'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
-        }
-    }
-
+# Email
 EMAIL_HOST      = 'smtp.gmail.com'
 EMAIL_HOST_PASSWORD = 'password'
 EMAIL_HOST_USER = 'cs.byu.acm@gmail.com'
@@ -48,13 +23,11 @@ EMAIL_USE_TLS   = True
 DEFAULT_FROM_EMAIL  = 'acm@byu.edu'
 SERVER_EMAIL    = 'acm@byu.edu'
 
-# For development, set to USE_MAILCHIMP False
-USE_MAILCHIMP = True
+USE_MAILCHIMP = False
 MAILCHIMP_API_KEY = 'key'
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
-# although not all choices may be available on all operating systems.
 # In a Windows environment this must be set to your system time zone.
 TIME_ZONE = 'America/Denver'
 
@@ -64,41 +37,26 @@ LANGUAGE_CODE = 'en-us'
 
 SITE_ID = 1
 
-# If you set this to False, Django will make some optimizations so as not
-# to load the internationalization machinery.
-USE_I18N = True
+# Do not use internationalization (optimizes)
+USE_I18N = False
 
-# If you set this to False, Django will not format dates, numbers and
-# calendars according to the current locale.
+# Use local datetime formatting.
 USE_L10N = True
 
-# If you set this to False, Django will not use timezone-aware datetimes.
+# Use timezone-aware datetimes.
 USE_TZ = True
-
-# Absolute filesystem path to the directory that will hold user-uploaded files.
-# Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = ''
-
-# URL that handles the media served from MEDIA_ROOT. Make sure to use a
-# trailing slash.
-# Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
-MEDIA_URL = ''
 
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
-# Example: "/home/media/media.lawrence.com/static/"
 STATIC_ROOT = ROOT('acm/static')
 
 # URL prefix for static files.
-# Example: "http://media.lawrence.com/static/"
 STATIC_URL = '/static/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
-    # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
     ROOT('static'),
 )
 
@@ -106,11 +64,11 @@ STATICFILES_DIRS = (
 # various locations.
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+#    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
-# Make this unique, and don't share it with anybody.
+# Security depends on this being secret
 SECRET_KEY = 'secret'
 
 # List of callables that know how to import templates from various sources.
@@ -205,5 +163,37 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.messages.context_processors.messages',
 )
 
-# Secure settings
+# If hosted on AppFog
+if 'VCAP_SERVICES' in os.environ:
+    #DEBUG = False
+    USE_MAILCHIMP = True
+
+    import json
+    vcap_services = json.loads(os.environ['VCAP_SERVICES'])
+    mysql_srv = vcap_services['mysql-5.1'][0]
+    cred = mysql_srv['credentials']
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': cred['name'],
+            'USER': cred['user'],
+            'PASSWORD': cred['password'],
+            'HOST': cred['hostname'],
+            'PORT': cred['port'],
+            }
+        }
+# If local
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': ROOT('acm/data.db'),     # Path to database file with sqlite3.
+            'USER': '',                      # Not used with sqlite3.
+            'PASSWORD': '',                  # Not used with sqlite3.
+            'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
+            'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
+        }
+    }
+
+# Redefine secure settings
 from settings_private import *

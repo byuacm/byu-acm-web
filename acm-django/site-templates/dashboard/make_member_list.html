@@ -1,0 +1,30 @@
+{% extends 'dashboard/base.html' %}
+
+{% block title %}
+Member List
+{% endblock %}
+
+{% block nav %}
+{% with nav_selection='member_list' %}
+{{ block.super }}
+{% endwith %}
+{% endblock %}
+
+{% block content_title %}
+Member List
+{% endblock %}
+
+{% block content %}
+<div class="control-group">
+	<label class="control-label" for="semester_member_list">Choose semester:</label>
+	&nbsp;
+	<select id="semester_member_list" onchange="window.location = this.value"}>
+		<option selected>------</option>
+		{% for semester_option in semesters %}
+		<option value="{% url dashboard.views.member_list semester_option.pk %}">
+			{{ semester_option }}
+		</option>
+		{% endfor %}
+	</select>
+</div>
+{% endblock %}

@@ -6,8 +6,8 @@
 	<li class="{% ifequal nav_selection 'login' %}active{% endifequal %}">
 		<a href="{% url django.contrib.auth.views.login %}">Login</a>
 	</li>
-	<li class="{% ifequal nav_selection 'account' %}active{% endifequal %}">
-		<a href="{% url membership.views.edit_member %}">My Account</a>
+	<li class="{% ifequal nav_selection 'profile' %}active{% endifequal %}">
+		<a href="{% url membership.views.edit_member %}">My Profile</a>
 	</li>
 	<li class="{% ifequal nav_selection 'membership' %}active{% endifequal %}">
 		<a href="{% url membership.views.enrollment %}">My Membership</a>

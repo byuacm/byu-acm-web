@@ -7,6 +7,7 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.utils import timezone
 from membership.models import *
+from urlparse import urlparse
 import django.contrib.auth as auth
 import django.utils.simplejson as json
 import time
@@ -70,11 +71,23 @@ def member_list(request, semester_pk):
 	semester = Semester.objects.get(pk=semester_pk)
 	d = {}
 	d['semester'] = {'name':semester.name, 'start_utc':utc_millis(semester.enrollment_start), 'end_utc':utc_millis(semester.enrollment_end),}
-	d['members'] = [
-		{'first_name':enrollment.member.user.first_name, 'last_name':enrollment.member.user.last_name, 'website':enrollment.member.website}
-			for enrollment
-			in Enrollment.objects.filter(semester=semester).filter(paid_dues=True).order_by('member__user__last_name').order_by('member__user__first_name')
+	d['members'] = [ {
+			'first_name':enrollment.member.user.first_name
+			, 'last_name':enrollment.member.user.last_name
+			, 'website':clean_web_url(enrollment.member.website)
+		}
+		for enrollment
+		in Enrollment.objects.filter(semester=semester).filter(paid_dues=True).order_by('member__user__last_name').order_by('member__user__first_name')
 	]
 	response = HttpResponse(json.dumps(d), content_type="application/json")
 	response['Access-Control-Allow-Origin'] = '*'
 	return response
+
+def clean_web_url(url):
+	if url:
+		parse = urlparse(url)
+		if not parse.scheme:
+			url = 'http://'+url
+		elif parse.scheme == 'javascript':
+			url = None
+	return url

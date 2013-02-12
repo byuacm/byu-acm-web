@@ -49,6 +49,7 @@ def new_member(request):
 def signin(request, meeting_pk=None):
 	now = timezone.now()
 	initial = {}
+	d = {'success_':None}
 	if request.method == 'POST':
 		form = AttendanceForm(request.POST)
 		form.fields['meeting'].queryset = Meeting.objects.filter(attendance_start__lte=now, attendance_end__gt=now)
@@ -57,10 +58,11 @@ def signin(request, meeting_pk=None):
 			member = Member.objects.get(user__username=request.POST['username'])
 		 	a = form.save(commit=False)
 		 	a.member = member
-		 	if not a.member.attendances.filter(meeting=a.meeting).exists():
+		 	if not Attendance.objects.filter(member=member, meeting=a.meeting).exists():
 				a.save()
 				if not member.memberships.filter(semester=a.meeting.semester).exists():
 					Enrollment(member_pk=member_pk, semester=meeting.semester).save()
+				d['success_'] = member.user.get_full_name()
 		meeting_pk = form.data['meeting']
 	elif request.user.is_authenticated():
 		initial['username'] = request.user.username
@@ -68,9 +70,7 @@ def signin(request, meeting_pk=None):
 		initial['meeting'] = Meeting.objects.get(pk=meeting_pk)
 	form = AttendanceForm(initial=initial)
 	form.fields['meeting'].queryset = Meeting.objects.filter(attendance_start__lte=now, attendance_end__gt=now)
-	d = {
-		'form':form
-	}
+	d['form'] = form
 	return render(request, 'membership/signin.html', d)
 
 @login_required

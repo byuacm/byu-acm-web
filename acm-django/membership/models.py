@@ -11,6 +11,9 @@ class Attendance(models.Model):
 
 	def __unicode__(self):
 		return u'%s - %s' % (self.meeting, self.member,)
+		
+	class Meta:
+		ordering = ['-pk']
 
 class Course(models.Model):
 	name = models.CharField('Name', max_length=50)

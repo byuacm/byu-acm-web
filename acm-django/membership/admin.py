@@ -20,8 +20,33 @@ class MyUserAdmin(UserAdmin):
 	inlines = [MemberInline]
 	actions = [make_admin,]
 
+def make_point_0(modeladmin, request, queryset):
+	for attendance in queryset:
+		attendance.points = 0
+		attendance.save()
+make_point_0.short_description = 'Change to no points'
+
+def make_point_1(modeladmin, request, queryset):
+	for attendance in queryset:
+		attendance.points = 1
+		attendance.save()
+make_point_1.short_description = 'Change to 1 point'
+
+def make_point_2(modeladmin, request, queryset):
+	for attendance in queryset:
+		attendance.points = 2
+		attendance.save()
+make_point_2.short_description = 'Change to 2 points'
+
+def make_point_3(modeladmin, request, queryset):
+	for attendance in queryset:
+		attendance.points = 3
+		attendance.save()
+make_point_3.short_description = 'Change to 3 points'
+
 class AttendanceAdmin(admin.ModelAdmin):
 	list_display = ('meeting', 'member', 'has_shirt', 'points')
+	actions = [make_point_0, make_point_1, make_point_2, make_point_3,]
 
 class CourseAdmin(admin.ModelAdmin):
 	list_display = ('name', 'sequence', 'is_active',)

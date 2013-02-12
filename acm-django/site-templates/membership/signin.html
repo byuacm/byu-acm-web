@@ -22,6 +22,9 @@ Sign in for meeting
 	</div>
 </div>
 {% endif %}
+{% if success_ %}
+{{ success_ }} signed in to the meeting.
+{% endif %}
 <form action="{{ request.url }}" method="post" class="form-horizontal"> {% csrf_token %}
 	<div style="width:30em;margin-left:4em;">
 		<div class="control-group">
@@ -34,7 +37,7 @@ Sign in for meeting
 			&nbsp;
 			{{ form.meeting }}
 		</div>
-		<div class="control-group">
+		<div class="control-group" style="display:none">
 			<label class="control-label" for="id_has_shirt">Wearing your ACM shirt?</label>
 			&nbsp;
 			{{ form.has_shirt }}

@@ -91,3 +91,19 @@ def clean_web_url(url):
 		elif parse.scheme == 'javascript':
 			url = None
 	return url
+
+'''
+@staff_member_required
+def add_points(request, meeting_pk=None):
+	now = timezone.now()
+	if meeting_pk is not None
+		meeting = Meeting.objects.get(pk=meeting_pk)
+	else
+		meeting = Meeting.objects.filter(datetime__lte=now).order_by('datetime')[0]
+	if request.method == 'POST'
+		member = Member.objects.get(pk=form.data['meeting']
+	d = {
+		Attendance.objects.filter(meeting=meeting)
+	}
+'''
+

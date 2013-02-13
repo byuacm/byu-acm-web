@@ -92,18 +92,19 @@ def clean_web_url(url):
 			url = None
 	return url
 
-'''
 @staff_member_required
-def add_points(request, meeting_pk=None):
+def points(request):
 	now = timezone.now()
-	if meeting_pk is not None
-		meeting = Meeting.objects.get(pk=meeting_pk)
-	else
-		meeting = Meeting.objects.filter(datetime__lte=now).order_by('datetime')[0]
-	if request.method == 'POST'
-		member = Member.objects.get(pk=form.data['meeting']
+	
+	if request.method == 'POST':
+		a = Attendance.objects.get(pk=request.POST['attendance_pk'])
+		a.points = request.POST['points']
+		a.save()
+	
+	meeting = Meeting.objects.filter(datetime__lte=now).order_by('-datetime')[0]
+	attendances = Attendance.objects.filter(meeting=meeting).order_by('member__user__first_name', 'member__user__last_name')
 	d = {
-		Attendance.objects.filter(meeting=meeting)
+		'attendances' : attendances,
 	}
-'''
+	return render(request, 'dashboard/points.html', d)
 

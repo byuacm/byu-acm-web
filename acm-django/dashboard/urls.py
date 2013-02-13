@@ -8,4 +8,5 @@ urlpatterns = patterns('dashboard.views',
     url(r'^shirt_sizes/(?P<semester_pk>\d+)/$', 'shirt_sizes'),
     url(r'^member_list/$', 'make_member_list'),
     url(r'^member_list/(?P<semester_pk>\d+)/$', 'member_list'),
+    url(r'^points/$', 'points'),
 )

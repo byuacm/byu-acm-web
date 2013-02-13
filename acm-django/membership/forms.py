@@ -33,7 +33,12 @@ class MemberForm(forms.ModelForm):
 		exclude = ('user',)
 
 class AttendanceForm(forms.ModelForm):
-	username = forms.ChoiceField(choices=User.objects.values_list('username','username'), widget=widgets.TextInput)
+	username = forms.ChoiceField(choices=(), widget=widgets.TextInput)
+	
+	def __init__(self, *args, **kwargs):
+		super(forms.ModelForm, self).__init__(*args, **kwargs)
+		self.fields['username'].choices = User.objects.values_list('username','username')
+		
 	class Meta:
 		model = Attendance
 		exclude = ('member', 'points',)

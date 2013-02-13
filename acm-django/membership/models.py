@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.template import defaultfilters as filters
 from django.utils import timezone
 from datetime import datetime
 
@@ -66,7 +67,7 @@ class Meeting(models.Model):
 		return self.attendance_start <= now and now < self.attendance_end
 
 	def __unicode__(self):
-		return u'%s (%s)' % (self.datetime.strftime('%Y-%m-%d %a'), self.name,)
+		return u'%s (%s)' % (filters.date(timezone.localtime(self.datetime), 'Y-m-d D'), self.name,)
 		
 	class Meta:
 		ordering = ['datetime',]

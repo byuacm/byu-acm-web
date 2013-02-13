@@ -127,7 +127,7 @@ My Membership History
 				</thead>
 				{% for meeting in enrollment.semester.meeting_set.all %}
 					<tr>
-						<td>{{ meeting.datetime|date:"D m/d/Y, h:i A" }}</td>
+						<td>{{ meeting.datetime|date:"D m/d/Y, f A" }}</td>
 						<td>
 							{% if meeting in enrollment.member.attendances.all %}
 							Yes

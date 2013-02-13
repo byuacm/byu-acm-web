@@ -22,8 +22,8 @@ Sign in for meeting
 	</div>
 </div>
 {% endif %}
-{% if success_ %}
-{{ success_ }} signed in to the meeting.
+{% if success %}
+Thanks for coming, {{ success }}.
 {% endif %}
 <form action="{{ request.url }}" method="post" class="form-horizontal"> {% csrf_token %}
 	<div style="width:30em;margin-left:4em;">

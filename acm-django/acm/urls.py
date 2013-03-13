@@ -26,6 +26,9 @@ urlpatterns = patterns('',
     # Dashboard
     url(r'^dashboard/', include('dashboard.urls')),
 
+    # Dashboard
+    url(r'^problems/', include('problems.urls')),
+
     # Admin documentation:
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 

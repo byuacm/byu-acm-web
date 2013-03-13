@@ -123,6 +123,7 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
     'membership',
     'dashboard',
+    'problems',
 )
 
 # A sample logging configuration. The only tangible logging

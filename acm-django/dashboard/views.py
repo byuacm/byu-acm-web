@@ -12,6 +12,8 @@ import django.contrib.auth as auth
 import django.utils.simplejson as json
 import time
 
+from problems.models import SubmissionStatus
+
 @staff_member_required
 def raffle(request, meeting_pk=None):
 	if meeting_pk is None:
@@ -28,6 +30,12 @@ def raffle(request, meeting_pk=None):
 		return render(request, 'dashboard/make_raffle.html', d)
 	else:
 		attendances = Attendance.objects.filter(meeting__pk = meeting_pk)
+		for attendance in attendances:
+			try:
+				attendance.points = 1 + SubmissionStatus.objects.get(member=attendance.member).points
+				attendance.save()
+			except:
+				pass
 		d = {
 			'attendances' : attendances,
 		}

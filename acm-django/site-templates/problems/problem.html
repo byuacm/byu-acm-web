@@ -1,0 +1,32 @@
+{% extends 'membership/base.html' %}
+
+{% block title %}
+Problems
+{% endblock %}
+
+{% block nav %}
+{% with nav_selection='problem' %}
+{{ block.super }}
+{% endwith %}
+{% endblock %}
+
+{% block content_title %}
+{{ problem.name }}
+{% endblock %}
+
+{% block content %}
+{% if score != -1 %}
+You scored {{ score }} points.
+<br/>
+{% endif %}
+{{ problem.body|safe }}
+{{ forms.errors }}
+<form method="POST" action="."> {% csrf_token %}
+	<div>
+		{{ form }}
+	</div>
+	<div>
+		<input type="submit" class="btn btn-success"/>
+	</div>
+</form>
+{% endblock %}

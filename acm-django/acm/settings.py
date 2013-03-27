@@ -5,7 +5,7 @@ import os
 ROOT = lambda base : os.path.join(os.path.dirname(__file__)+"/../", base)
 
 # Debugging
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 # Receive errors from logging

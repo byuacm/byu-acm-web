@@ -15,4 +15,7 @@
 	<li class="{% ifequal nav_selection 'signin' %}active{% endifequal %}">
 		<a href="{% url membership.views.signin %}">Meeting Sign In</a>
 	</li>
+	<li class="{% ifequal nav_selection 'problems' %}active{% endifequal %}">
+		<a href="{% url problems.views.problems %}">Problems</a>
+	</li>
 {% endblock %}

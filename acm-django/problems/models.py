@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 from membership.models import Member
 
@@ -8,6 +9,9 @@ class Problem(models.Model):
 	end = models.DateTimeField()
 	name = models.CharField(max_length=50)
 	body = models.CharField(max_length=32000)
+	
+	def is_active(self):
+		return self.start <= timezone.now() < self.end
 
 class Question(models.Model):
 	problem_set = models.ForeignKey(Problem)

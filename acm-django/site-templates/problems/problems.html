@@ -1,0 +1,38 @@
+{% extends 'membership/base.html' %}
+
+{% block title %}
+Problems
+{% endblock %}
+
+{% block nav %}
+{% with nav_selection='problems' %}
+{{ block.super }}
+{% endwith %}
+{% endblock %}
+
+{% block content_title %}
+Problem list
+{% endblock %}
+
+{% block content %}
+<table class="table table-bordered table-hover">
+	<thead>
+		<td width=60%>Name</td>
+		<td width=20%>Start</td>
+		<td width=20%>End</td>
+	</thead>
+	{% for problem in problems %}
+	<tr>
+		<td>
+			{% if problem.is_active %}
+			<a href="{% url problems.view.problem problem.code %}">{{ problem.name }}</a>
+			{% else %}
+			{{ problem.name }}
+			{% endif %}
+		</td>
+		<td>{{ problem.start }}</td>
+		<td>{{ problem.end }}</td>
+	</tr>
+	{% endfor %}
+</table>
+{% endblock %}

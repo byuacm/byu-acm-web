@@ -30,3 +30,9 @@ def problem(request, code):
 		'score' : score,
 	}
 	return render(request, 'problems/problem.html', d)
+	
+def problems(request):
+	now = timezone.now()
+	d = {'problems' : Problem.objects.filter(start__lte=now)}
+	return render(request, 'problems/problems.html', d)
+

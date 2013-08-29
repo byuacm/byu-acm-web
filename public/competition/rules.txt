@@ -1,0 +1,77 @@
+BYU Winter 2013 Team Programming Contest
+
+Participation:
+    Open to all college students.
+
+Teams:
+    Each team may consist of at most three members.
+
+Materials:
+    Each team will be provided 1 computer.
+    No electronic devices (calculator, cell phone, etc) are permitted.
+    No books or notes are allowed. Paper and writing instruments will be provided.
+    Language documentation will be provided.
+    
+Problems:
+    There will be 8-10 problems, which will vary in difficulty. The problems will focus on reasoning, critical thinking, and algorithmic problem solving. For each problem, you will be provided a description, the format of input, the format of output, sample I/O, and a (generous) time limit for your solution.
+   
+Time:
+    You will have 4 hours to solve as many of the problems as you can, in whatever order you wish.
+    
+Questions:
+    During the competition, clarification may be requested about the problems. If an ambiguity or error is discovered, all contestants will be notified of the clarification.
+
+Submissions
+    Your submission will consist of your source code, which must be in one file.
+    
+Languages:
+    Submissions may be made in C++03, Java 6, or Python (2.7 or 3.2).
+    All standard libraries are available for use, unless specifically stated otherwise in the problem.
+    Input will be provided through the standard input, and output should be printed to standard output.
+   
+Judging:
+    Submissions are tested when they are received, and the outcome will be available to the submitting team. If the submission was judged incorrect, the reason given will be one of the following
+        - Compile-time error
+        - Run-time error
+        - Time limit exceeded
+        - Wrong answer
+    Well-written code will be easier for your team to debug, but it will not matter for scoring.
+    
+Scoring:
+    Scoring is by the number of problems solved.
+    Ties are broken by time. A team's time is calculated as the total for each correctly solved problem of
+        1. The time taken to solve the problem (as measured from the beginning of the contest).
+        2. Twenty minutes for each incorrect submission for the problem.
+    (Note that incorrect submissions of problems never solved do not contribute to this total.)
+    
+Example problem:
+    
+    ANAGRAMS
+    
+    Description
+    An anagram is a rearrangement of the letters of an existing phrase to create a new phrase. For example, ananagram of "Tom Marvolo Riddle" is "I Am Lord Voldemort".
+
+    Given two phrases, answer whether they are anagrams. The phrases will be given in the lowercase letters a-z with spaces removed.
+
+    (For this problem, every phrase is considered to be an anagram of itself.)
+
+    Input
+    The first line is an integer T (between 1 to 20, inclusive), which is the number of supposed anagram pairs to follow.
+
+    On the next T lines will be two sequences of lowercase letters. These are the two phrases. Neither will exceed 10000 characters.
+
+    Output
+    For each supposed anagram pair, print a line with "true" if they are anagrams and "false" otherwise.
+
+    Example input:
+    3
+    tommarvoloriddle iamlordvoldemort
+    aaa aba
+    iamaweakishspeller williamshakespeare
+
+    Example output:
+    true
+    false
+    true
+    
+Good sources of practice problems are livearchive.onlinejudge.org and spoj.pl.

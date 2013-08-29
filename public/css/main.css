@@ -400,10 +400,11 @@ nav a.selected {
 	text-align: center;
 }
 
-#current-contributors h2{
+#current-contributors h4{
 
 	display:block;
 	text-align:left;
+	padding-left: 40px;
 }
 
 #current-contributors img {

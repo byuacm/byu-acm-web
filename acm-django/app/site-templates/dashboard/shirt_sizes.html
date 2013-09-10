@@ -20,7 +20,7 @@ Shirt Size Counts
 	&nbsp;
 	<select id="semester_shirt_sizes" onchange="window.location = this.value"}>
 		{% for semester_option in semesters %}
-		<option value="{% url dashboard.views.shirt_sizes semester_option.pk %}"{% ifequal semester_option semester %} selected{% endifequal %}>
+		<option value="{% url 'dashboard.views.shirt_sizes' semester_option.pk %}"{% ifequal semester_option semester %} selected{% endifequal %}>
 				{{ semester_option }}
 		</option>
 		{% endfor %}

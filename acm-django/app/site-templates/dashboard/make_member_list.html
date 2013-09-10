@@ -21,7 +21,7 @@ Member List
 	<select id="semester_member_list" onchange="window.location = this.value"}>
 		<option selected>------</option>
 		{% for semester_option in semesters %}
-		<option value="{% url dashboard.views.member_list semester_option.pk %}">
+		<option value="{% url 'dashboard.views.member_list' semester_option.pk %}">
 			{{ semester_option }}
 		</option>
 		{% endfor %}

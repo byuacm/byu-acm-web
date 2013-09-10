@@ -33,9 +33,9 @@ User login
 	<div class="pagination-centered">
 		<div class="btn-group">
 		  <button type="submit" class="btn btn-primary">Log me in</button>
-	  	<a href="{% url django.contrib.auth.views.password_reset %}" class="btn">Reset my password</a>
+	  	<a href="{% url 'django.contrib.auth.views.password_reset' %}" class="btn">Reset my password</a>
 		</div>
 	</div>
-	<input type="hidden" name="next" value="{% url membership.views.edit_member %}"/>
+	<input type="hidden" name="next" value="{% url 'membership.views.edit_member' %}"/>
 </form>
 {% endblock %}

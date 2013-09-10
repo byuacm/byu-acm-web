@@ -20,7 +20,7 @@ Raffle
 	&nbsp;
 	<select id="meeting_raffle">
 		{% for meeting in meetings %}
-		<option value="{% url dashboard.views.raffle meeting.pk %}"{% ifequal meeting default_meeting %} selected{% endifequal %}>
+		<option value="{% url 'dashboard.views.raffle' meeting.pk %}"{% ifequal meeting default_meeting %} selected{% endifequal %}>
 			{{ meeting }}
 		</option>
 		{% endfor %}

@@ -16,7 +16,7 @@ Problems
 
 {% block content %}
 {% if score != -1 %}
-You scored {{ score }} points.
+<h1 class="text-{% if score > 0%}success{% else %}error{% endif %}">You scored {{ score }} point{% if score != 1 %}s{% endif %}.</h1>
 <br/>
 {% endif %}
 {{ problem.body|safe }}

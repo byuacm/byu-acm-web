@@ -6,6 +6,7 @@ from django.db.models import *
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.utils import timezone
+from django.views.decorators.csrf import csrf_exempt
 from membership.models import *
 from urlparse import urlparse
 import django.contrib.auth as auth
@@ -100,19 +101,22 @@ def clean_web_url(url):
 			url = None
 	return url
 
+@csrf_exempt
 @staff_member_required
-def points(request):
+def points(request, meeting_pk=None):
 	now = timezone.now()
 	
 	if request.method == 'POST':
 		a = Attendance.objects.get(pk=request.POST['attendance_pk'])
 		a.points = request.POST['points']
 		a.save()
+		return HttpResponse()
 	
-	meeting = Meeting.objects.filter(datetime__lte=now).order_by('-datetime')[0]
+	meeting = Meeting.objects.get(pk=meeting_pk) if meeting_pk is not None     \
+		else Meeting.objects.filter(datetime__lte=now).order_by('-datetime')[0]
 	attendances = Attendance.objects.filter(meeting=meeting).order_by('member__user__first_name', 'member__user__last_name')
 	d = {
-		'attendances' : attendances,
+		'meeting':meeting,
+		'attendances' : attendances
 	}
 	return render(request, 'dashboard/points.html', d)
-

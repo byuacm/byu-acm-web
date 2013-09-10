@@ -1,9 +1,9 @@
 #data
-/acm/static/*
+/app/acm/static/*
 *.db
 
 #private
-/acm/settings_private.*
+/app/acm/settings_private.*
 
 #backup
 *.*~

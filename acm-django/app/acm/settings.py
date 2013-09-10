@@ -2,6 +2,7 @@
 
 # Always use absolute directories
 import os
+import sys
 ROOT = lambda base : os.path.join(os.path.dirname(__file__)+"/../", base)
 
 # Debugging
@@ -207,4 +208,7 @@ else:
     }
 
 # Redefine secure settings
-from settings_private import *
+try:
+    from settings_private import *
+except ImportError:
+    pass

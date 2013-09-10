@@ -8,11 +8,12 @@ To install Python and necessary Python packages,
 <pre>
 $ sudo apt-get install python
 $ sudo apt-get install python-pip
-$ sudo pip install -r requirements.txt
+$ sudo pip install -r app/requirements.txt
 </pre>
 
 To start the Django server,
 <pre>
+$ cd app
 $ echo yes | python manage.py collectstatic
 $ echo no | python manage.py syncdb
 $ python manage.py runserver [port]
@@ -27,6 +28,7 @@ IMPORTANT: Do not make changes that would cause Django's syncdb to erase data in
 ### Linux
 To put changes there,
 <pre>
+$ cd app
 $ python manage.py collectstatic
 $ sudo apt-get install ruby1.9.3
 $ sudo apt-get install rubygems

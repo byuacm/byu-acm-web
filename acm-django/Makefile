@@ -8,7 +8,8 @@ PORT ?= 8000
 
 APPFOG := af
 APPFOG_USER := acm@byu.edu
-APPFOG_SERVICE := byuacm-mysql-62643
+APPFOG_APP := byuacm
+APPFOG_SERVICE := byuacm-mysql
 
 static:
 	echo yes | $(DJANGO_MANAGE) collectstatic
@@ -28,7 +29,7 @@ run: static db
 	$(DJANGO_MANAGE) runserver $(PORT)
 
 deploy: login static
-	$(APPFOG) update byuacm
+	cd $(APP); $(APPFOG) update $(APPFOG_APP)
 
 tunnel: login
 	$(APPFOG) tunnel $(APPFOG_SERVICE) mysql

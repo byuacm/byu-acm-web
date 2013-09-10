@@ -5,8 +5,10 @@ import os
 import sys
 ROOT = lambda base : os.path.join(os.path.dirname(__file__)+"/../", base)
 
+APPFOG = 'VCAP_SERVICES' in os.environ
+
 # Debugging
-DEBUG = False
+DEBUG = True#not APPFOG
 TEMPLATE_DEBUG = DEBUG
 
 # Receive errors from logging
@@ -24,7 +26,7 @@ EMAIL_USE_TLS   = True
 DEFAULT_FROM_EMAIL  = 'acm@byu.edu'
 SERVER_EMAIL    = 'acm@byu.edu'
 
-USE_MAILCHIMP = False
+USE_MAILCHIMP = not DEBUG
 MAILCHIMP_API_KEY = 'key'
 
 # Local time zone for this installation. Choices can be found here:
@@ -118,18 +120,13 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.forms',
-    # Uncomment the next line to enable the admin:
     'django.contrib.admin',
-    # Uncomment the next line to enable admin documentation:
     'django.contrib.admindocs',
     'membership',
     'dashboard',
     'problems',
 )
 
-# A sample logging configuration. The only tangible logging
-# performed by this configuration is to send an email to
-# the site admins on every HTTP 500 error when DEBUG=False.
 # See http://docs.djangoproject.com/en/dev/topics/logging for
 # more details on how to customize your logging configuration.
 LOGGING = {
@@ -175,11 +172,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.messages.context_processors.messages',
 )
 
-# If hosted on AppFog
-if 'VCAP_SERVICES' in os.environ:
-    #DEBUG = False
-    USE_MAILCHIMP = True
-
+if APPFOG:
     import json
     vcap_services = json.loads(os.environ['VCAP_SERVICES'])
     mysql_srv = vcap_services['mysql-5.1'][0]
@@ -211,4 +204,4 @@ else:
 try:
     from settings_private import *
 except ImportError:
-    pass
+    print 'Private settings not found'

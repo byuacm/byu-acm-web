@@ -58,10 +58,10 @@ def signin(request, meeting_pk=None):
 			a = form.save(commit=False)
 			a.member = Member.objects.get(user__username=request.POST['username'])
 			if not Attendance.objects.filter(member=a.member, meeting=a.meeting).exists():
-				if not Enrollment(member=a.member, semester=a.meeting.semester).exists():
+				if not Enrollment.objects.filter(member=a.member, semester=a.meeting.semester).exists():
 					Enrollment(member=a.member, semester=a.meeting.semester).save()
 				a.save()
-			d['success'] = member.user.get_full_name()
+			d['success'] = a.member.user.get_full_name()
 		else:
 			d['form'] = form
 			return render(request, 'membership/signin.html', d)

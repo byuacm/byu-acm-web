@@ -24,4 +24,5 @@ class SubmissionStatus(models.Model):
 	member = models.ForeignKey(Member)
 	score = models.IntegerField()
 
-
+	class Meta:
+		verbose_name_plural = 'Submission statuses'

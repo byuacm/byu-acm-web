@@ -1,6 +1,7 @@
 #data
 /app/acm/static/*
 *.db
+*.sql
 
 #private
 /app/acm/settings_private.*

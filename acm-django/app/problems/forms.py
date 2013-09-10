@@ -7,4 +7,4 @@ class ProblemForm(forms.Form):
         for field, value in fields.items():
             self.fields[field] = forms.CharField()
             self.fields[field].initial = value
-            self.fields['usernames'] = forms.CharField()
+            self.fields['usernames (seperated by whitespace)'] = forms.CharField()

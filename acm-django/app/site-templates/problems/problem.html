@@ -18,6 +18,14 @@ Problems
 {% if score != -1 %}
 <h1 class="text-{% if score > 0%}success{% else %}error{% endif %}">You scored {{ score }} point{% if score != 1 %}s{% endif %}.</h1>
 <br/>
+	{% if invalid_names%}
+		<h4 class="text-error">Invalid usernames submitted:</h4>
+		<ul>
+		{% for name in invalid_names %}
+			<li>{{name}}</li>
+		{% endfor %}
+		</ul>
+	{% endif %}
 {% endif %}
 {{ problem.body|safe }}
 {{ forms.errors }}

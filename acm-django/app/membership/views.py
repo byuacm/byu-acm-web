@@ -55,22 +55,19 @@ def signin(request, meeting_pk=None):
 		form.fields['meeting'].queryset = Meeting.objects.filter(attendance_start__lte=now, attendance_end__gt=now)
 		form.fields['meeting'].empty_label = None
 		if form.is_valid():
-			member = Member.objects.get(user__username=request.POST['username'])
-		 	a = form.save(commit=False)
-		 	a.member = member
-		 	d['success'] = member.user.get_full_name()
-		 	if not Attendance.objects.filter(member=member, meeting=a.meeting).exists():
+			a = form.save(commit=False)
+			a.member = Member.objects.get(user__username=request.POST['username'])
+			if not Attendance.objects.filter(member=a.member, meeting=a.meeting).exists():
+				if not Enrollment(member=a.member, semester=a.meeting.semester).exists():
+					Enrollment(member=a.member, semester=a.meeting.semester).save()
 				a.save()
-				if not Enrollment(member=member, semester=a.semester).exists():
-					Enrollment(member=member, semester=meeting.semester).save()
-				raise Exception()
+			d['success'] = member.user.get_full_name()
 		else:
-			raise Exception(form.errors)
-		meeting_pk = form.data['meeting']
+			d['form'] = form
+			return render(request, 'membership/signin.html', d)
+		initial['meeting'] = Meeting.objects.get(pk=form.data['meeting'])
 	elif request.user.is_authenticated():
 		initial['username'] = request.user.username
-	if meeting_pk is not None:
-		initial['meeting'] = Meeting.objects.get(pk=meeting_pk)
 	form = AttendanceForm(initial=initial)
 	form.fields['meeting'].queryset = Meeting.objects.filter(attendance_start__lte=now, attendance_end__gt=now)
 	d['form'] = form

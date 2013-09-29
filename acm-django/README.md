@@ -36,16 +36,19 @@ For tunneling (used to access the MySQL database), first run
 $ sudo apt-get install mysql-client
 $ sudo gem install --no-ri --no-rdoc caldecott
 </pre>
-To open a connection to the MySQL database, use `make tunnel`.
-Or to generate a MySQL dump, use `make backup`.
-Tunneling has been know to be buggy.
+If you wish to use `make download-db` (see Persistence), edit `/var/lib/gems/1.8/gems/af-0.3.18.12/config/clients.yml` (or the equivalent). Change the `mysql` line to read
+<pre>
+  mysqldump: --protocol=TCP --host=${host} --port=${port} --user=${user} --password=${password} --compatible=ansi --skip-extended-insert --compact ${name} | tee ${Output file} | less
+</pre>
 
 ## Notes
 
-### Data Persistance
+### Data Persistence
 IMPORTANT: Do not make changes that would cause Django's syncdb to erase data in the database.
 TODO: Use South to make migrations possible.
-To make a backup, run `make BACKUP=some_file.sql backup`. The default backup location is `backup.sql`.
+To make a backup on AppFog's servers, run `make backup`. If you would like to import the mysql data to the local sqlite database for testing, run `make download-db`.
+To open a connection to the MySQL database, use `make sql-tunnel`.
+Tunneling has been know to be buggy.
 
 ### Static Files
 The Django server is used to serve all files, including static ones (not best practice, but easiest).

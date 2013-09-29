@@ -1,3 +1,5 @@
+SHELL := /bin/bash
+
 MAKEFLAGS = -j4
 
 APP := app
@@ -12,6 +14,8 @@ APPFOG_APP := byuacm
 APPFOG_SERVICE := byuacm-mysql
 
 BACKUP ?= backup.sql
+
+SQLITE_DB := $(APP)/acm/data.db
 
 static:
 	echo yes | $(DJANGO_MANAGE) collectstatic
@@ -33,10 +37,17 @@ run: static db
 deploy: login static
 	cd $(APP); $(APPFOG) update $(APPFOG_APP)
 
-tunnel: login
+sql-tunnel: login
 	$(APPFOG) tunnel $(APPFOG_SERVICE) mysql
 
-backup: $(BACKUP)
+backup: login
+	$(APPFOG) export-service $(APPFOG_SERVICE)
+
+local-backup: $(BACKUP)
+
+local-import: $(BACKUP)
+	$(RM) $(SQLITE_DB)
+	$(SHELL) util/mysql2sqlite.sh < $< | sqlite3 $(SQLITE_DB)
 
 $(BACKUP): login
-	echo $@ | $(APPFOG) tunnel $(APPFOG_SERVICE) mysqldump
+	echo $(BACKUP) | $(APPFOG) tunnel $(APPFOG_SERVICE) mysqldump

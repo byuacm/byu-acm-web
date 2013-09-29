@@ -11,6 +11,8 @@ APPFOG_USER := acm@byu.edu
 APPFOG_APP := byuacm
 APPFOG_SERVICE := byuacm-mysql
 
+BACKUP ?= backup.sql
+
 static:
 	echo yes | $(DJANGO_MANAGE) collectstatic
 
@@ -34,5 +36,7 @@ deploy: login static
 tunnel: login
 	$(APPFOG) tunnel $(APPFOG_SERVICE) mysql
 
-backup: login
-	echo backup.sql | $(APPFOG) tunnel $(APPFOG_SERVICE) mysqldump
+backup: $(BACKUP)
+
+$(BACKUP): login
+	echo $@ | $(APPFOG) tunnel $(APPFOG_SERVICE) mysqldump

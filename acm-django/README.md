@@ -21,7 +21,6 @@ Then point your web browser to `localhost:port`.
 ## Hosting
 
 This website is currently hosted by [AppFog](http://appfog.com) at [byuacm.aws.af.cm](http://byuacm.aws.af.cm).
-IMPORTANT: Do not make changes that would cause Django's syncdb to erase data in the database.
 
 ### Linux
 To put changes therem
@@ -42,6 +41,11 @@ Or to generate a MySQL dump, use `make backup`.
 Tunneling has been know to be buggy.
 
 ## Notes
+
+### Data Persistance
+IMPORTANT: Do not make changes that would cause Django's syncdb to erase data in the database.
+TODO: Use South to make migrations possible.
+To make a backup, run `make BACKUP=some_file.sql backup`. The default backup location is `backup.sql`.
 
 ### Static Files
 The Django server is used to serve all files, including static ones (not best practice, but easiest).

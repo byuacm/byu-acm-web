@@ -22,8 +22,11 @@ Then point your web browser to `localhost:port`.
 
 This website is currently hosted by [AppFog](http://appfog.com) at [byuacm.aws.af.cm](http://byuacm.aws.af.cm).
 
-### Linux
-To put changes therem
+### Setup
+
+####Linux
+
+To make changes to the hosted site
 <pre>
 $ sudo apt-get install ruby rubygems
 $ sudo gem install --no-ri --no-rdoc af
@@ -36,19 +39,21 @@ For tunneling (used to access the MySQL database), first run
 $ sudo apt-get install mysql-client
 $ sudo gem install --no-ri --no-rdoc caldecott
 </pre>
-If you wish to use `make download-db` (see Persistence), edit `/var/lib/gems/1.8/gems/af-0.3.18.12/config/clients.yml` (or the equivalent). Change the `mysql` line to read
+If you wish to use `make local-import` (see [Persistence](#data-persistence)), edit `/var/lib/gems/1.8/gems/af-0.3.18.12/config/clients.yml` (or the equivalent). Change the mysql line to
 <pre>
   mysqldump: --protocol=TCP --host=${host} --port=${port} --user=${user} --password=${password} --compatible=ansi --skip-extended-insert --compact ${name} | tee ${Output file} | less
 </pre>
 
-## Notes
-
 ### Data Persistence
 IMPORTANT: Do not make changes that would cause Django's syncdb to erase data in the database.
-TODO: Use South to make migrations possible.
-To make a backup on AppFog's servers, run `make backup`. If you would like to import the mysql data to the local sqlite database for testing, run `make download-db`.
+(TODO: Use South to make migrations possible.)
+
 To open a connection to the MySQL database, use `make sql-tunnel`.
-Tunneling has been know to be buggy.
+To make a backup on AppFog's servers, run `make backup`.
+If you would like to import the mysql data to the local sqlite database for testing, run `make local-import`.
+Tunneling has been known to be buggy.
+
+## Notes
 
 ### Static Files
 The Django server is used to serve all files, including static ones (not best practice, but easiest).

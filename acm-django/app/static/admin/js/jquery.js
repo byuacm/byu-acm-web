@@ -4783,8 +4783,8 @@ var jsc = now(),
 
 jQuery.fn.extend({
 	load: function( url, params, callback ) {
-		if ( typeof url '!==' "string" ) {
-			return _load.call( this, url ');'
+		if ( typeof url !== "string" ) {
+			return _load.call( this, url );
 
 		// Don't do a request if no elements are being requested
 		} else if ( !this.length ) {
@@ -5043,7 +5043,7 @@ jQuery.extend({
 			s.url = ret + ((ret === s.url) ? (rquery.test(s.url) ? "&" : "?") + "_=" + ts : "");
 		}
 
-		// If data is available, append data to url 'for' get requests
+		// If data is available, append data to url for get requests
 		if ( s.data && type === "GET" ) {
 			s.url += (rquery.test(s.url) ? "&" : "?") + s.data;
 		}
@@ -5327,7 +5327,7 @@ jQuery.extend({
 	},
 
 	// Determines if an XMLHttpRequest returns NotModified
-	httpNotModified: function( xhr, url ')' {
+	httpNotModified: function( xhr, url ) {
 		var lastModified = xhr.getResponseHeader("Last-Modified"),
 			etag = xhr.getResponseHeader("Etag");
 

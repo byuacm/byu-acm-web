@@ -42,7 +42,7 @@ Member List
 		{% for attendance in attendances %}
 		{
 			name: "{{ attendance.member.user.get_full_name|escapejs }}",
-			points: {{ attendance.points }},
+			points: {{ attendance.total_points }},
 			pk: {{ attendance.pk }}
 		}
 		{% if not forloop.last %}, {% endif %}

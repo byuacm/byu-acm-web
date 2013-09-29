@@ -4,11 +4,20 @@ from django.template import defaultfilters as filters
 from django.utils import timezone
 from datetime import datetime
 
+import problems.models
+
 class Attendance(models.Model):
 	member = models.ForeignKey('Member', verbose_name='Member')
 	meeting = models.ForeignKey('Meeting', verbose_name='Meeting')
 	has_shirt = models.BooleanField('Wearing ACM Shirt')
 	points = models.IntegerField('Points', default=1)
+
+	@property
+	def total_points(self):
+		try:
+			return max(self.points, problems.models.SubmissionStatus.objects.filter(problem_set__meeting=self.meeting, member=self.member).aggregate(models.Sum('score')) + 1)
+		except problems.models.SubmissionStatus.DoesNotExist:
+			return self.points
 
 	def __unicode__(self):
 		return u'%s - %s' % (self.meeting, self.member,)

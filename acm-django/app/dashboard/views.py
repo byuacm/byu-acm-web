@@ -113,7 +113,7 @@ def points(request, meeting_pk=None):
 		return HttpResponse()
 	
 	meeting = Meeting.objects.get(pk=meeting_pk) if meeting_pk is not None     \
-		else Meeting.objects.filter(datetime__lte=now).order_by('-datetime')[0]
+		else Meeting.objects.filter(attendance_start__lte=now).order_by('-datetime')[0]
 	attendances = Attendance.objects.filter(meeting=meeting).order_by('member__user__first_name', 'member__user__last_name')
 	d = {
 		'meeting':meeting,

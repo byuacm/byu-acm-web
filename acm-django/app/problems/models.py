@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils import timezone
 
-from membership.models import Member
+from membership.models import Meeting, Member
 
 class Problem(models.Model):
 	code = models.CharField(primary_key=True, max_length=12)
@@ -9,15 +9,22 @@ class Problem(models.Model):
 	end = models.DateTimeField()
 	name = models.CharField(max_length=50)
 	body = models.CharField(max_length=32000)
-	
+	meeting = models.ForeignKey(Meeting)
+
 	def is_active(self):
 		return self.start <= timezone.now() < self.end
+
+	def __unicode__(self):
+		return self.name;
 
 class Question(models.Model):
 	problem_set = models.ForeignKey(Problem)
 	field = models.CharField(max_length=50)
 	judge = models.CharField(max_length=32000)
 	seq = models.IntegerField()
+
+	def __unicode__(self):
+		return self.problem_set.name + ' ' + self.field
 
 class SubmissionStatus(models.Model):
 	problem_set = models.ForeignKey(Problem)

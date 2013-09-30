@@ -20,13 +20,20 @@ Raffle
 	&nbsp;
 	<select id="meeting_raffle">
 		{% for meeting in meetings %}
-		<option value="{% url 'dashboard.views.raffle' meeting.pk %}"{% ifequal meeting default_meeting %} selected{% endifequal %}>
+		<option value="{% url 'dashboard.views.raffle' meeting.pk %}"
+				{% ifequal meeting default_meeting %} selected{% endifequal %}>
 			{{ meeting }}
 		</option>
 		{% endfor %}
 	</select>
 </div>
-<button id="button" class="btn btn-success" onclick="window.location = meeting_raffle.value">
+<button id="button" class="btn btn-success" onclick="goToRaffle()">
 	Make raffle
 </button>
+<script>
+	function goToRaffle() {
+		console.log('hi');
+		window.location = meeting_raffle.value;
+	}
+</script>
 {% endblock %}

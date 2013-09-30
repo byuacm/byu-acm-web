@@ -3,12 +3,13 @@
 # Always use absolute directories
 import os
 import sys
-ROOT = lambda base : os.path.join(os.path.dirname(__file__)+"/../", base)
+
+ROOT = lambda base: os.path.join(os.path.dirname(__file__)+"/../", base)
 
 APPFOG = 'VCAP_SERVICES' in os.environ
 
 # Debugging
-DEBUG = True#not APPFOG
+DEBUG = not APPFOG
 TEMPLATE_DEBUG = DEBUG
 
 # Receive errors from logging
@@ -19,7 +20,7 @@ MANAGERS = ADMINS
 
 # Email
 EMAIL_HOST      = 'smtp.gmail.com'
-EMAIL_HOST_PASSWORD = 'password'
+EMAIL_HOST_PASSWORD = 'password' #redefind in settings_private
 EMAIL_HOST_USER = 'cs.byu.acm@gmail.com'
 EMAIL_PORT      = 587
 EMAIL_USE_TLS   = True
@@ -27,7 +28,7 @@ DEFAULT_FROM_EMAIL  = 'acm@byu.edu'
 SERVER_EMAIL    = 'acm@byu.edu'
 
 USE_MAILCHIMP = not DEBUG
-MAILCHIMP_API_KEY = 'key'
+MAILCHIMP_API_KEY = 'key' #redefined in settings_private
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -72,7 +73,7 @@ STATICFILES_FINDERS = (
 )
 
 # Security depends on this being secret
-SECRET_KEY = 'secret'
+SECRET_KEY = 'secret' #redefined in settings_private
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -126,6 +127,8 @@ INSTALLED_APPS = (
     'dashboard',
     'problems',
 )
+
+APPEND_SLASH = True
 
 # See http://docs.djangoproject.com/en/dev/topics/logging for
 # more details on how to customize your logging configuration.
@@ -193,14 +196,10 @@ else:
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
             'NAME': ROOT('acm/data.db'),     # Path to database file with sqlite3.
-            'USER': '',                      # Not used with sqlite3.
-            'PASSWORD': '',                  # Not used with sqlite3.
-            'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
-            'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
         }
     }
 
-# Redefine secure settings
+# Secure settings
 try:
     from settings_private import *
 except ImportError:

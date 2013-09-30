@@ -55,9 +55,16 @@ My Membership History
 							{% endfor %}
 						</select>
 					</div>
-					<button class="btn btn-primary" onclick="semester_pk.value=new_semester_pk.value;shirt_size_pk.value=new_shirt_size_pk.value;enroll_form.submit();">
+					<button class="btn btn-primary" onclick="submit()">
 						Register
 					</button>
+					<script>
+						function submit() {
+							semester_pk.value = new_semester_pk.value;
+							shirt_size_pk.value = new_shirt_size_pk.value;
+							enroll_form.submit();
+						});
+					</script>
 				</fieldset>
 			</div>
 		</div>

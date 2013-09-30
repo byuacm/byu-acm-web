@@ -1,22 +1,22 @@
-from django.conf.urls import *
-from django.conf.urls.defaults import *
-from django.core.urlresolvers import reverse
 from django.conf import settings
-
-# Enables admin:
+from django.conf.urls import include, patterns, url
 from django.contrib import admin
+from django.core.urlresolvers import reverse
+
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    # Static
-    url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
+    # Static - there is a better way to do this (use Apache), but this is easiest
+    url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {
+        'document_root': settings.STATIC_ROOT
+    }),
 
     # Login accounts
     url(r'^$', 'membership.views.enrollment'),
     url(r'^accounts/login/', 'django.contrib.auth.views.login'),
     url(r'^accounts/logout/', 'membership.views.logout'),
     url(r'^accounts/password_change/', 'django.contrib.auth.views.password_change', {'post_change_redirect':'/'}),
-    url(r'^accounts/password_reset_confirm/(?P<uidb36>[0-9A-Za-z]{1,13})-(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,25})/$', 'django.contrib.auth.views.password_reset_confirm'),
+    url(r'^accounts/password_reset_confirm/(?P<uidb36>\w+)-(?P<token>\w+-\w+)/$', 'django.contrib.auth.views.password_reset_confirm'),
     url(r'^accounts/password_reset/', 'django.contrib.auth.views.password_reset', {'post_reset_redirect':'edit_member/'}),
     url(r'^accounts/password_reset_complete/', 'django.contrib.auth.views.password_reset_complete'),
 

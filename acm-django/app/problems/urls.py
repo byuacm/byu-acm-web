@@ -1,6 +1,6 @@
-from django.conf.urls.defaults import *
+from django.conf.urls import patterns, url
 
 urlpatterns = patterns('problems.views',
-	url(r'^(\w+)/$', 'problem'),
-	url(r'^$', 'problems'),
+    url(r'^(\w+)/$', 'problem'),
+    url(r'^$', 'problems'),
 )

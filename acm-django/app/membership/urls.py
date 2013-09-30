@@ -1,8 +1,8 @@
-from django.conf.urls.defaults import *
+from django.conf.urls import patterns, url
 
 urlpatterns = patterns('membership.views',
-	url(r'^$', 'enrollment'),
-	url(r'^enroll/$', 'enroll'),
+    url(r'^$', 'enrollment'),
+    url(r'^enroll/$', 'enroll'),
     url(r'^new_user/$', 'new_member'),
     url(r'^edit_user/$', 'edit_member'),
     url(r'^new_user/?show_error=(?P<show_error>\w+)$', 'new_member'),

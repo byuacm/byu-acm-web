@@ -10,7 +10,7 @@
 
 # Thanks to and @artemyk and @gkuenning for their nice tweaks.
 
-sed 's/COLLATE \S*,/,/g' | awk '
+awk '
 
 BEGIN {
 	FS=",$"
@@ -60,15 +60,16 @@ inTrigger != 0 { print; next }
 # Get rid of field lengths in KEY lines
 / KEY/ { gsub(/\([0-9]+\)/, "") }
 
-# Print all fields definition lines except the `KEY` lines.
+# Printp all fields definition lines except the `KEY` lines.
 /^  / && !/^(  KEY|\);)/ {
 	gsub( /AUTO_INCREMENT|auto_increment/, "" )
 	gsub( /(CHARACTER SET|character set) [^ ]+ /, "" )
 	gsub( /DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP|default current_timestamp on update current_timestamp/, "" )
-	gsub( /(COLLATE|collate) [^ ]+ /, "" )
+	gsub( /(COLLATE|collate) [^ ]+/, "" )
 	gsub(/(ENUM|enum)[^)]+\)/, "text ")
 	gsub(/(SET|set)\([^)]+\)/, "text ")
 	gsub(/UNSIGNED|unsigned/, "")
+	gsub(/int\([0-9]+\)/, "INTEGER")
 	if (prev) print prev ","
 	prev = $1
 }

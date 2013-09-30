@@ -31,7 +31,8 @@ Member List
 
 {% block content %}
 <div class="control-group">
-	<input id="name_search" type="text" class="span3 search-query" style="margin-bottom:5px" placeholder="Search for name..."/>
+	<input id="name_search" type="text" class="span3 search-query" style="margin-bottom:5px"
+		placeholder="Search for name..."/>
 	<table id="attendence_table" class="table table-bordered"/>
 </div>
 {% endblock %}
@@ -60,11 +61,15 @@ Member List
 					{val:2, text: '2 pts'},
 					{val:3, text: '3 pts'},
 				].map(function(option) {
-					var button = $('<button class="btn point-button' + (datum.points == option.val ? ' btn-info' : '') + '"/>')
-						.text(option.text)
+					var button = $(
+							'<button class="btn point-button'
+							+ (datum.points == option.val ? ' btn-info' : '')
+							+ '"/>'
+						).text(option.text)
 						.click(function() {
 							jqXHR && jqXHR.abort();
-							var old = $(this).parent().siblings().children('button.btn-info').removeClass('btn-info'),
+							var old = $(this).parent().siblings().children('button.btn-info')
+									.removeClass('btn-info'),
 								new_ = $(this).addClass('btn-info').css({'opacity':.5});
 							$.ajax(location.href, {
 								type: 'POST',
@@ -92,9 +97,9 @@ Member List
 		var table = $('#attendence_table');
 		table.empty();
 		rows.forEach(function(row) {
-			row = row.toLowerCase();
+			var name = row.name.toLowerCase();
 			if(keys.every(function(key) {
-					return row.name.indexOf(key) >= 0;
+					return name.indexOf(key) >= 0;
 				})) {
 				table.append(row.dom);
 			}

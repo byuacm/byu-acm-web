@@ -27,10 +27,6 @@ Problems
 		</ul>
 	{% endif %}
 {% endif %}
-{% if badUsernames %}
-Invalid usernames: {{ badUsernames }}
-<br/>
-{% endif %}
 {{ problem.body|safe }}
 {{ forms.errors }}
 <form method="POST" action="."> {% csrf_token %}

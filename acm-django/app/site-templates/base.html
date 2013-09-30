@@ -2,34 +2,23 @@
 <html lang="en">
 	<head>
 		<title>BYU ACM - {% block title %}{% endblock %}</title>
-		<link href="{{ STATIC_URL }}bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 		<link rel="shortcut icon" href="{{ STATIC_URL }}images/icons/acm_logo.ico"/>
-		<style type="text/css">
-			a:focus {
-				outline: none;
-			}
-			button:focus {
-				outline: none;
-			}
-			.title {
-				color:#444;
-			}
-		</style>
+
+		<link href="{{ STATIC_URL }}bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+		<link href="{{ STATIC_URL }}byuacm/css/byuacm.css" rel="stylesheet" type="text/css"/>
 		{% block css %}{% endblock %}
 	</head>
 
 	<body>
-		<div class="container" style="width:56em;">
-			<div class="navbar" style="margin:0">
+		<div class="container page-container">
+			<div class="navbar page-navbar">
 				<div class="navbar-inner">
-					<div style="margin-left:1%; margin-right:1%;">
-						<ul class="nav">
-							<a class="brand" style="color:#3355FF;" href="http://acm.byu.edu" target="_blank">
-								BYU ACM
-							</a>
-							{% block nav %}{% endblock %}
-						</ul>
-					</div>
+					<ul class="nav">
+						<a class="brand" style="color:#3355FF;" href="http://acm.byu.edu" target="_blank">
+							BYU ACM
+						</a>
+						{% block nav %}{% endblock %}
+					</ul>
 				</div>
 			</div>
 

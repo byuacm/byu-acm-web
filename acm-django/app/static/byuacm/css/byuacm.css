@@ -1,0 +1,38 @@
+a:focus {
+	outline: none;
+}
+
+button:focus {
+	outline: none;
+}
+
+.page-container {
+	width: 56em;
+}
+
+.page-navbar {
+	width: 53em;
+	margin: 8px auto 3px auto;
+}
+
+
+/* Bootstrap */
+
+.navbar-inner {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.title {
+	color: #444;
+}
+
+.navbar .navbar-inner {
+    text-align: center;
+    height: 40px;
+}
+.navbar .navbar-inner .nav {
+    float: none;
+    display:inline-block;
+    margin: 0;
+}

@@ -39,7 +39,11 @@ class AttendanceForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(forms.ModelForm, self).__init__(*args, **kwargs)
         self.fields['username'].choices = User.objects.values_list('username','username')
-        
+        current_meetings = Meeting.current()
+        self.fields['meeting'].queryset = current_meetings
+        if current_meetings:
+            self.fields['meeting'].empty_label = None #http://stackoverflow.com/questions/739260/customize-remove-django-select-box-blank-option
+
     class Meta:
         model = Attendance
         exclude = ('member', 'points',)

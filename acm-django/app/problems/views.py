@@ -21,7 +21,7 @@ def problem(request, code):
 
         judge = eval(question.judge)
         score = sum(judge(request.POST[question.field]) for question in questions)
-        for username in request.POST['usernames (seperated by whitespace)'].split():
+        for username in request.POST['usernames'].split():
             try:
                 member = Member.objects.get(user__username=username)
             except Member.DoesNotExist:
@@ -36,7 +36,7 @@ def problem(request, code):
 
     fields = {question.field:request.POST.get(question.field, '') for question in questions}
     form = ProblemForm(fields)
-    form.fields['usernames (seperated by whitespace)'].initial = request.POST.get('usernames', '')
+    form.fields['usernames'].initial = request.POST.get('usernames', '')
 
     return render(request, 'problems/problem.html', {
         'problem' : problem,

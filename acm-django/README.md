@@ -59,6 +59,8 @@ Tunneling has been known to be buggy.
 The Django server is used to serve all files, including static ones (not best practice, but easiest).
 The `make static` command collects all files from the locations in `STATIC_DIRS` into `STATIC_ROOT`, defined in acm/settings.py.
 
+FYI, static files are gzipped only when `DEBUG` is `False`. (Use `python app/manage.py run --nostatic` to gzip while debugging.)
+
 ### Security
 Because this repository is public, private info such as `EMAIL_HOST_PASSWORD` and `SECRET_KEY` are redefined in `settings_private.py`, which has not been added to this repository.
 

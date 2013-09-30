@@ -50,10 +50,14 @@ class Enrollment(models.Model):
         )
 
     def attendance_proportion(self):
-        num_attended = Attendance.objects.filter(member__enrollment=self).count()
+        num_attended = (
+            Attendance.objects
+                .filter(member=self.member, meeting__semester=self.semester)
+                .count()
+        )
         num_meetings = (
             Meeting.objects
-                .filter(semester__enrollment=self, datetime__lte=timezone.now())
+                .filter(semester=self.semester, datetime__lte=timezone.now())
                 .count()
         )
         return '{0}/{1}'.format(num_attended, num_meetings)

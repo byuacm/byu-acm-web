@@ -67,6 +67,11 @@ FYI, static files are gzipped only when `DEBUG` is `False`. (Use `python app/man
 ### Security
 Because this repository is public, private info such as `EMAIL_HOST_PASSWORD` and `SECRET_KEY` are redefined in `settings_private.py`, which has not been added to this repository.
 
+To get this, from the root of the project run
+<pre>
+scp acm@schizo.cs.byu.edu:django-site/settings_private.py app/acm/settings_private.py
+</pre>
+
 ### Administration
 The admin website (URL admin/) is necessary to add semesters, meetings, etc.
 A superuser is created with acm/startup.py (imported by `acm/urls.py`). The username is admin, and the password is the same as `EMAIL_HOST_PASSWORD`.

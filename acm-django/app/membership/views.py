@@ -56,10 +56,17 @@ def signin(request, meeting_pk=None):
                 'form': form,
             })
         initial['meeting'] = Meeting.objects.get(pk=form.data['meeting'])
-    elif request.user.is_authenticated():
-        initial['username'] = request.user.username
+    else:
+        if request.user.is_authenticated():
+            initial['username'] = request.user.username
+        try:
+            initial['meeting'] = (
+                Meeting.objects.get(pk=meeting_pk) if meeting_pk is not None
+                else Meeting.most_recent()
+            )
+        except Meeting.DoesNotExist:
+            pass
     form = AttendanceForm(initial=initial)
-    form.fields['meeting'].queryset = Meeting.current()
     return render(request, 'membership/signin.html', {
         'success': success,
         'form': form
@@ -84,7 +91,11 @@ def __add_to_mailchimp(user):
 @login_required
 def enrollment(request):
     now = timezone.now()
-    enrollments = Enrollment.objects.filter(member__user=request.user)
+    enrollments = (
+        Enrollment.objects
+            .filter(member__user=request.user)
+            .order_by('-semester__enrollment_start')
+    )
     available_semesters = (
         Semester.objects.filter(enrollment_start__lte=now)
             .filter(enrollment_end__gt=now)
@@ -113,7 +124,7 @@ def enroll(request):
         response.reason_phrase = 'Unprocessable Entry'
         return response
     
-    enrollment, _ = Enrollment.get_or_create(member=member, semester=semester)
+    enrollment, _ = Enrollment.objects.get_or_create(member=member, semester=semester)
     enrollment.shirt_size = shirt_size
     enrollment.save()
     return redirect(reverse('membership.views.enrollment'))

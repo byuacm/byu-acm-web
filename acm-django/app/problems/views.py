@@ -19,8 +19,7 @@ def problem(request, code):
         if not (problem.start <= timezone.now() <= problem.end):
             return HttpResponseForbidden()
 
-        judge = eval(question.judge)
-        score = sum(judge(request.POST[question.field]) for question in questions)
+        score = sum(eval(question.judge)(request.POST[question.field]) for question in questions)
         for username in request.POST['usernames'].split():
             try:
                 member = Member.objects.get(user__username=username)

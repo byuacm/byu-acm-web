@@ -86,12 +86,6 @@ My Membership History
 						{{ enrollment.semester.name }}
 					</a>
 				</div>
-			   	<div class="span2">
-					Dues: {% if enrollment.paid_dues %}Yes{% else %}No{% endif %}
-				</div>
-				<div class="span2">
-					Shirt: {% if enrollment.received_shirt %}Yes{% else %}No{% endif %}
-				</div>
 				<div class="span3">
 					{% if enrollment.can_change_shirt_size %}
 					<div class="dropdown">
@@ -116,6 +110,12 @@ My Membership History
 						Shirt size:
 						{{ enrollment.shirt_size.abbr_name }}
 					{% endif %}
+				</div>
+				<div class="span2">
+					Dues: {% if enrollment.paid_dues %}Yes{% else %}No{% endif %}
+				</div>
+				<div class="span2">
+					Shirt: {% if enrollment.received_shirt %}Yes{% else %}No{% endif %}
 				</div>
 				<div class="span3">
 					Attendance: {{ enrollment.attendance_proportion }}

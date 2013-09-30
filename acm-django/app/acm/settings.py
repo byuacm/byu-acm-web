@@ -41,6 +41,10 @@ LANGUAGE_CODE = 'en-us'
 
 SITE_ID = 1
 
+ALLOWED_HOSTS = [
+    'byuacm.aws.af.cm',
+]
+
 # Do not use internationalization (optimizes)
 USE_I18N = False
 

@@ -6,7 +6,7 @@ from django.core.urlresolvers import reverse
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    # Static - there is a better way to do this (use Apache), but this is easiest
+    # Static - there is a better way to do this, but it requires access to webserver
     url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {
         'document_root': settings.STATIC_ROOT
     }),

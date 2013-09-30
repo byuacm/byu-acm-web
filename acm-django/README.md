@@ -1,9 +1,14 @@
 # BYU ACM Website
 This currently handles the membership portion of the [BYU ACM website](http://acm.byu.edu).
 
+## Compatibility
+
+The included Makefile assumes Linux, and the instructions below assume a Debian distro.
+
+However, Django, SQLite, and AppFog are cross-platform, so the project can be run on Windows or Mac OS, though the instructions will differ slightly.
+
 ## Getting started
 
-### Linux
 To install Python and necessary Python packages,
 <pre>
 $ sudo apt-get install python
@@ -24,8 +29,6 @@ This website is currently hosted by [AppFog](http://appfog.com) at [byuacm.aws.a
 
 ### Setup
 
-####Linux
-
 To make changes to the hosted site
 <pre>
 $ sudo apt-get install ruby rubygems
@@ -41,7 +44,7 @@ $ sudo gem install --no-ri --no-rdoc caldecott
 </pre>
 If you wish to use `make local-import` (see [Persistence](#data-persistence)), edit `/var/lib/gems/1.8/gems/af-0.3.18.12/config/clients.yml` (or the equivalent). Change the mysql line to
 <pre>
-  mysqldump: --protocol=TCP --host=${host} --port=${port} --user=${user} --password=${password} --compatible=ansi --skip-extended-insert --compact ${name} | tee ${Output file} | less
+  mysqldump: --protocol=TCP --host=${host} --port=${port} --user=${user} --password=${password} --compatible=ansi --skip-extended-insert --compact ${name} | tee ${Output file}; (exit $PIPESTATUS)
 </pre>
 
 ### Data Persistence

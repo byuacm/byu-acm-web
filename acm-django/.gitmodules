@@ -1,3 +1,0 @@
-[submodule "lib/python-mailsnake"]
-	path = lib/python-mailsnake
-	url = https://github.com/michaelhelmick/python-mailsnake.git

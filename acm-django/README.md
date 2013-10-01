@@ -11,8 +11,7 @@ However, Django, SQLite, and AppFog are cross-platform, so the project can be ru
 
 To install Python and necessary Python packages,
 <pre>
-$ sudo apt-get install python
-$ sudo apt-get install python-pip
+$ sudo apt-get install python python-pip
 $ sudo pip install -r app/requirements.txt
 </pre>
 
@@ -42,9 +41,9 @@ For tunneling (used to access the MySQL database), first run
 $ sudo apt-get install mysql-client
 $ sudo gem install --no-ri --no-rdoc caldecott
 </pre>
-If you wish to use `make local-import` (see [Persistence](#data-persistence)), edit `/var/lib/gems/1.8/gems/af-0.3.18.12/config/clients.yml` (or the equivalent). Change the mysql line to
+If you wish to use `make local-import` (see [Persistence](#data-persistence)), edit `/var/lib/gems/1.8/gems/af-0.3.18.12/config/clients.yml` (or the equivalent). Change the mysqldump line to
 <pre>
-  mysqldump: --protocol=TCP --host=${host} --port=${port} --user=${user} --password=${password} --compatible=ansi --skip-extended-insert --compact ${name} | tee ${Output file}; (exit $PIPESTATUS)
+  mysqldump: --protocol=TCP --host=${host} --port=${port} --user=${user} --password=${password} | tee ${Output file}; (exit $PIPESTATUS)
 </pre>
 
 ### Data Persistence
@@ -69,9 +68,9 @@ Because this repository is public, private info such as `EMAIL_HOST_PASSWORD` an
 
 To get this, from the root of the project run
 <pre>
-scp acm@schizo.cs.byu.edu:django-site/settings_private.py app/acm/settings_private.py
+$ scp acm@schizo.cs.byu.edu:django-site/settings_private.py app/acm/settings_private.py
 </pre>
 
 ### Administration
-The admin website (URL admin/) is necessary to add semesters, meetings, etc.
-A superuser is created with acm/startup.py (imported by `acm/urls.py`). The username is admin, and the password is the same as `EMAIL_HOST_PASSWORD`.
+Django admin website (at `/admin`) is used to add semesters, meetings, etc.
+On startup, a superuser will be created with username "admin", and password `settings.EMAIL_HOST_PASSWORD`. Log in to `/admin` with these credentials. You make make other users superusers from here.

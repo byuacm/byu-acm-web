@@ -4,14 +4,7 @@
 	<script type="text/javascript" src="{{ STATIC_URL }}raffle/js/jquery-1.8.0.min.js"></script>	
 	<script src = '{{ STATIC_URL }}raffle/js/jquery-ui-1.8.23.custom.min.js'></script>
 	<script>
-		var colors = Array(8);
-		colors[1] = "#9fd4d4";
-		colors[2] = "#222288";
-		colors[3] = "#882222";
-		colors[4] = "#228822";
-		colors[5] = "#FFA500";
-		colors[6] = "#FFFF00";
-		colors[7] = "#222222";
+		var colors = ["#D1E4F6", "#ABC8E4","#628CB6","#003366","#001948","#001948","#001948","#001948"];
 		var imported = [
 			{% for attendance in attendances %}
 			{
@@ -27,6 +20,9 @@
 	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}raffle/css/raffle.css">
 </head>
 <body>
+	<div class="header">
+		<span>Participants:<b id="participant-number"></b></span>
+	</div>
 	<div class='enter-names'>
 		<p>Enter names separated by new lines:</p>
 		<textarea class='name-text-field'></textarea>

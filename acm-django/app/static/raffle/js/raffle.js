@@ -26,12 +26,17 @@ function shuffle(array) {
   return array;
 }
 
+function getNames() {
+	return $('.name-text-field').val().split('\n').filter(function(name) {
+		return name;
+	});
+}
+
 function process(){
 	var names = $('.name-text-field').val().split('\n');
 	imported = [];
-	map(names, function(name){
-		if(name.length>0)
-			imported.push({'name':name});
+	map(getNames(), function(name){
+		imported.push({'name':name});
 	});
 	$('.enter-names').hide(500, function(){
 		makeTicketsWithPoints();
@@ -39,12 +44,15 @@ function process(){
 }
 
 $(document).ready(function(){
-	if(imported && imported.length > 0){
-		$('.loading').hide();
+	if(imported && imported.length > 0) {
 		$('.enter-names').hide();
 
 		makeTicketsWithPoints();
 	}
+
+	$('.name-text-field').on('input', function() {
+		$('#participant-number').text(getNames().length || '');
+	});
 });
 var ticketNames;
 var ticketPoints;
@@ -83,22 +91,25 @@ function Ticket(name, points){
 			'top': me.dom.offset().top,
 			'left':me.dom.offset().left,
 			'background': colors.length > me.points ? colors[me.points] : "rgb(" + Math.floor(Math.random()*256) + "," + Math.floor(Math.random()*256) + "," + Math.floor(Math.random()*256) + ")" 
-		}).click(function(){
-			pickName();
 		});
 	};
 	this.decrement = function(length, callback){
 		var me = this;
 		this.points--;
 		if(this.points == 0){
-			this.dom.hide('puff', {}, length == 2 ? 1000 : 3000/length, function(){
+			var directions = ['up', 'down', 'left', 'right'];
+			this.dom.css({'background-color':colors[0]}).hide('drop', {direction:directions[length%directions.length]}, length == 2 ? 1000 : 3000/length, function(){
 				callback();
 			});
+			$('#participant-number').text(length - 1 + '/' + tickets.length);
 		}
 		else{
-			$(this.dom).animate({'backgroundColor':colors.length > me.points ? colors[me.points] : "rgb(" + Math.floor(Math.random()*256) + "," + Math.floor(Math.random()*256) + "," + Math.floor(Math.random()*256) + ")"}, length == 2 ? 1000 : 6000/length, function(){
+			this.dom.css({
+				'background-color':colors.length > me.points ? colors[me.points] : "rgb(" + Math.floor(Math.random()*256) + "," + Math.floor(Math.random()*256) + "," + Math.floor(Math.random()*256) + ")"
+			})
+			setTimeout(function() {
 				callback();
-			});
+			}, length == 2 ? 1000 : 3000/length);
 		}
 	}
 }
@@ -121,12 +132,15 @@ var makeTicketsWithPoints = function(){
 		size--;
 		$('.ticket').css('font-size', size + 'px');
 	}
-	// tickets.reverse();
+
+	$('#participant-number').css('width', '').text(tickets.length);
 	setTimeout(function() {
 		map(tickets, function(ticket){
 			ticket.fixPosition();
 		});
 		$('body').unbind('click').click(function(){
+			var width = $('#participant-number').text(tickets.length + '/' + tickets.length).width();
+			$('#participant-number').css('width', width + 'px'); //keep position consistent during countdown
 			pickName();
 		});
 	}, 500);
@@ -143,7 +157,7 @@ var getChoices = function(){
 
 $(window).resize(function(){
 	if(!inProgress)
-		makeTickets(tickets);
+		makeTicketsWithPoints(tickets);
 });
 
 

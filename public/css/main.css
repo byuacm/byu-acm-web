@@ -434,7 +434,7 @@ nav a.selected {
 
 #calendar {
 
-	padding:50px;
+	padding: 50px;
 }
 
 #calendar a {
@@ -454,6 +454,11 @@ nav a.selected {
 #calendar iframe {
 
 	margin-top:20px;
+}
+
+#icpc {
+
+	padding: 50px;
 }
 
 /*******************************************************

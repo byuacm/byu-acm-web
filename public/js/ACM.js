@@ -12,7 +12,9 @@ app.config(['$routeProvider', function($routeProvider,$locationProvider) {
   	  when('/members', {templateUrl: 'html/members.html', controller:MemberCtrl}).
   	  when('/contributors/:id', {templateUrl: 'html/sponsors.html', controller:SponsorCtrl}).
   	  when('/members/:id', {templateUrl: 'html/members.html', controller:MemberCtrl}).
-  	  when('/events', {templateUrl: 'html/events.html', controller:EventCtrl});
+  	  when('/events', {templateUrl: 'html/events.html', controller:EventCtrl}).
+          // Temporary page. Remove after ICPC.
+          when('/icpc', {templateUrl: 'html/icpc.html', controller:IcpcCtrl});
 }]);
 
 //*****************************************************************************
@@ -239,4 +241,13 @@ function MemberCtrl($scope, $routeParams) {
 function EventCtrl($scope, $routeParams) {
 
 	$scope.setPageName('Events');
+}
+
+//*****************************************************************************
+//  ICPC CONTROLLER
+//*****************************************************************************
+
+function IcpcCtrl($scope, $routeParams) {
+
+	$scope.setPageName('ICPC');
 }

@@ -27,8 +27,9 @@ EMAIL_USE_TLS   = True
 DEFAULT_FROM_EMAIL  = 'acm@byu.edu'
 SERVER_EMAIL    = 'acm@byu.edu'
 
-USE_MAILCHIMP = not DEBUG
+MAILCHIMP_AUTO_SUBSCRIBE = not DEBUG
 MAILCHIMP_API_KEY = 'key' #redefined in settings_private
+MAILCHIMP_LIST_ID = 3411312468
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name

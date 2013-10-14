@@ -75,9 +75,8 @@ def signin(request, meeting_pk=None):
 def __add_to_mailchimp(user):
     if settings.USE_MAILCHIMP:
         ms = MailSnake(settings.MAILCHIMP_API_KEY)
-        lists = ms.lists()
         ms.listSubscribe(
-            id = lists['data'][0]['id'], #TODO: assumes use of first list,
+            id = 3411312468,
             email_address = user.email,
             merge_vars = {
                 'FNAME': user.first_name,

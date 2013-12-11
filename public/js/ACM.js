@@ -14,7 +14,8 @@ app.config(['$routeProvider', function($routeProvider,$locationProvider) {
   	  when('/members/:id', {templateUrl: 'html/members.html', controller:MemberCtrl}).
   	  when('/events', {templateUrl: 'html/events.html', controller:EventCtrl}).
           // Temporary page. Remove after ICPC.
-          when('/icpc', {templateUrl: 'html/icpc.html', controller:IcpcCtrl});
+          // when('/icpc', {templateUrl: 'html/icpc.html', controller:IcpcCtrl}).
+      when('/vote', {templateUrl: 'html/vote.html', controller:VoteCtrl});
 }]);
 
 //*****************************************************************************
@@ -250,4 +251,13 @@ function EventCtrl($scope, $routeParams) {
 function IcpcCtrl($scope, $routeParams) {
 
 	$scope.setPageName('ICPC');
+}
+
+//*****************************************************************************
+//  VOTING CONTROLLER
+//*****************************************************************************
+
+function VoteCtrl($scope, $routeParams) {
+
+	$scope.setPageName('Voting');
 }

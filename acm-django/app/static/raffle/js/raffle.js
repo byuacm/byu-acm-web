@@ -46,8 +46,9 @@ function process(){
 $(document).ready(function(){
 	if(imported && imported.length > 0) {
 		$('.enter-names').hide();
-
-		makeTicketsWithPoints();
+		setTimeout(function() {
+			makeTicketsWithPoints();
+		}, 50);
 	}
 
 	$('.name-text-field').on('input', function() {

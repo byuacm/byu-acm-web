@@ -1,0 +1,12 @@
+<html>
+<head>
+	<title>Attendance</title>
+	<script type="text/javascript" src="{{ STATIC_URL }}raffle/js/jquery-1.8.0.min.js"></script>	
+	<script src = '{{ STATIC_URL }}raffle/js/jquery-ui-1.8.23.custom.min.js'></script>
+</head>
+<body>
+	{% for attendance in attendances %}
+	<p>{{ attendance.member.user.first_name }} {{ attendance.member.user.last_name }}: {{ attendance.member.user.email }}</p>
+	{% endfor %}
+</body>
+</html>

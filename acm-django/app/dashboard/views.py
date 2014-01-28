@@ -30,6 +30,22 @@ def raffle(request, meeting_pk=None):
         })
 
 @staff_member_required
+def attendance(request, meeting_pk=None):
+    if meeting_pk is None:
+        try:
+            default_meeting = Meeting.most_recent()
+        except Meeting.DoesNotExist:
+            default_meeting = None
+        return render(request, 'dashboard/attendance.html', {
+            'attendances':[],
+            })
+    else:
+        attendances = Attendance.objects.filter(meeting__pk=meeting_pk)
+        return render(request, 'dashboard/attendance.html', {
+            'attendances': attendances,
+            })
+
+@staff_member_required
 def shirt_sizes(request, semester_pk=None):
     semesters = Semester.objects.all()
     try:

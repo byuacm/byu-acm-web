@@ -24,8 +24,8 @@ db:
 	echo no | $(DJANGO_MANAGE) syncdb
 
 login:
-	@if [ -z `af user | grep [$(APPFOG_USER)]` ];  \
-		then $(APPFOG) login $(APPFOG_USER);       \
+	@if [ -z `af user | grep \[$(APPFOG_USER)\]` ];  \
+		then $(APPFOG) login $(APPFOG_USER);         \
 	fi
 
 logout:

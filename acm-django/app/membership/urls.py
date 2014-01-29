@@ -1,7 +1,9 @@
 from django.conf.urls import patterns, url
+from django.core.urlresolvers import reverse_lazy
+from util.views import redirect_view
 
 urlpatterns = patterns('membership.views',
-    url(r'^$', 'enrollment'),
+    url(r'^$', redirect_view('membership.views.enrollment')),
     url(r'^enroll/$', 'enroll'),
     url(r'^new_user/$', 'new_member'),
     url(r'^edit_user/$', 'edit_member'),

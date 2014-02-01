@@ -1,0 +1,119 @@
+<h4 class="move-right" ng-click="toggleOfficers()" title="Click to toggle Officers">BYU ACM Officers <div class="officer-arrow drop-arrow">^</div></h4>
+<div class="officers">
+	<div class="officer">
+		<h3>Wade Anderson</h3>
+		<h3>President</h3>
+		<img src="img/officer/web/wade.jpg">
+		<h5>Officer Bio</h5>
+		<p>
+			Wade is from South Jordan, Utah majoring in Computer Science, with a Business Management minor. He plans on graduating in April 2014. Wade has an emerging strategy for the future, but he’s been sure ever since he could pronounce the word that he wants to be an entrepreneur.  He loves innovation and learning, and loves thinking up consumer pains and possible solutions. If you are interested in leadership and want to make a difference in the BYU ACM world please come to ACM and talk to him.
+		</p>
+	</div>
+	<div class="officer">
+		<h3>Dallin Christensen</h3>
+		<h3>Vice President</h3>
+		<img src="img/officer/web/dallin.jpg">
+		<h5>Officer Bio</h5>
+		<p>
+			Dallin is a junior majoring in Computer Science and minoring in Japanese, with plans to graduate in April 2014. When he's not busy solving programming problems, Dallin enjoys snowboarding, football, and playing the piano. As Vice President, Dallin helps oversee the management and activities of ACM. He also handles most email responses and is the liaison with BYU faculty. 
+		</p>
+	</div>
+	<div class="officer">
+		<h3>Mike Brodie</h3>
+		<h3>Treasurer</h3>
+		<img src="img/officer/web/mike.jpg">
+		<h5>Officer Bio</h5>
+		<p>
+			Mike is a senior studying Arabic and Computer Science. He will graduate in April 2014 and plans to pursue a Masters in CS post-graduation. Currently, Mike is the Treasurer for ACM—and handles the chapter’s budget and finances.
+		</p>
+	</div>
+	<div class="officer">
+		<h3>Christine Kendall</h3>
+		<h3>Membership Officer</h3>
+		<img src="img/officer/web/christine.jpg">
+		<h5>Officer Bio</h5>
+		<p>
+			Christine is a junior in the computer science program and minoring in nonprofit management. She works as a web developer on BYU's Learning Suite, specifically on the syllabus and grade book. She is a former Microsoft intern and hopes to attend graduate school in machine learning upon graduating. In her spare time, Christine enjoys practicing yoga, reading, and working with Students for International Development. She currently serves as the president of the Women in CS club, so feel to come to her with any suggestions or questions about the club.
+		</p>
+	</div>
+	<div class="officer">
+		<h3>Stephen Clarkson</h3>
+		<h3>Contributions Coordinator</h3>
+		<img src="img/officer/web/stephen.jpg">
+		<h5>Officer Bio</h5>
+		<p>
+			Stephen is a Computer Science major, minoring in Mathematics and will graduate in April 2014. Steve is interested in everything from Artificial Intelligence to the rounded corners and shadow boxes from CSS3. After graduation, he plans to study Machine Learning in Medical Software Development. If you have any suggestions about companies that would make BYU ACM a better organization, let him know.
+		</p>
+	</div>
+	<div class="officer">
+		<h3>Mark Woo</h3>
+		<h3>Meeting Coordinator</h3>
+		<img src="img/officer/web/mark.jpg">
+		<h5>Officer Bio</h5>
+		<p>
+			Mark is a Sophmore in the Computer Science program. He works as a Teaching Assistant for CS235. As the Meeting Coordinator for ACM  he sends out email reminders and makes sure that meetings run smoothly, including scheduling presentations and bringing the pizza to the meetings. In his spare time he enjoys doing triathlons and other physical activities. 
+		</p>
+	</div>
+	<div class="officer">
+		<h3>Mario Garcia</h3>
+		<h3>Publicity Director</h3>
+		<img src="img/officer/web/mario.jpg">
+		<h5>Officer Bio</h5>
+		<p>
+			Mario is a Sophmore in the Computer Science program. Currently he is working for the Living Scriptures College Program. Some of his personal projects are developing iOS applications and learning JavaScript. As the publicity coordinator for ACM, he is looking for individuals that want to get involved and make BYU ACM one of the best known clubs at BYU.
+		</p>
+	</div>
+	<div class="officer">
+		<h3>Ryan Stringham</h3>
+		<h3>Programming Team Captain</h3>
+		<img src="img/officer/web/ryan.jpg">
+		<h5>Officer Bio</h5>
+		<p>
+			Ryan is a student studying for a double major in Computer Science and Mathematics. He is planning on graduating in April 2014. He loves solving problems and puzzles. He enjoys serving others and telling jokes. As a co-captain for the BYU ACM programming team, Ryan helps organize BYU invitational competitions. Ryan is from West Jordan, Utah, and is currently working for Lucidchart as a software engineer.
+		</p>
+	</div>
+	<div class="officer">
+		<h3>Nathan Watterson</h3>
+		<h3>Swag Master</h3>
+		<img src="img/officer/web/nate.jpg">
+		<h5>Officer Bio</h5>
+		<p>
+			Nathan works as CS 235 - Data Structures Teaching Assistant. As SWAG Master he is in charge of our classy apparel and providing excellent prizes for those excelling in coding competitions. If you or a loved one would like some SWAG feel free to come to the ACM.
+		</p>
+	</div>
+	<div class="officer">
+		<h3>Stephen Rollins</h3>
+		<h3>TBD</h3>
+		<img src="img/officer/web/stephen-rollins.jpg">
+		<h5>Officer Bio</h5>
+		<p>
+			Stephen is a Junior in the Computer Science major who is currently working for Lucidchart. He enjoys learning new things about how computers function and has broad interests in the programming field. When he's not learning about Linux or trying to program a game, he enjoys reading and even does a little writing and drawing. Stephen's role in ACM leadership is still being determined, but for now he will be helping out Connor with the web site.
+		</p>
+	</div>
+	<div class="officer">
+		<h3>Connor Smith</h3>
+		<h3>Web Master</h3>
+		<img src="img/officer/web/connor.jpg">
+		<h5>Officer Bio</h5>
+		<p>
+			Connor is a Sophomore in the Electrical Engineering major and minoring in Mathematics. He currently works as a Teaching Assistant for CS100. He enjoys all things electrical, especially programming. As Web Master, Connor is responsible for keeping the ACM web site up to date and functioning properly.
+		</p>
+	</div>
+</div>
+<br><br>
+<hr>
+<h4 class="move-right" title="Click to toggle members" ng-click="toggleMembers()">Current Members <div class="member-arrow drop-arrow">^</div></h4>
+<div class="members">
+	<span>[
+		<label ng-repeat="object in members" ng-class='{hide: object.people.length == 0}'>
+			<a ng-click="scrollTo(this)">{{object.letter}}</a>
+		</label>
+		]
+	</span>
+	<div class="member-letter" ng-repeat="object in members">
+		<h3 id="jump-{{object.letter}}" ng-class="{hide: object.people.length == 0}">{{object.letter}}</h3>
+		<div class="member" ng-repeat="member in object.people">
+			<a target='_blank' href="{{member.website}}" ng-class="{nosite: member.website == ''}">{{member.last_name}}, {{member.first_name}}</a>
+		</div>
+	</div>
+</div>

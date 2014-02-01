@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="ACM">
+<head>
+	<link href="css/main.css" rel="stylesheet" type="text/css" />
+	<link href="css/bootstrap.css" rel="stylesheet">
+	<link rel="icon"  type="image/png" href="img/favicon.ico">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta charset="UTF-8" />
+	<meta name="google" content="notranslate">
+	<meta http-equiv="Content-Language" content="en" />
+
+	<script src="js/vendor/angular.min.js"></script>
+	<script src="js/vendor/jquery1.8.3.min.js"></script>
+	<script language="javascript" type="text/javascript" src="js/jquery.slidingGallery-1.2.js"></script>
+    <script language="javascript" type="text/javascript">
+        $(function() {
+			var zoomFunc = function(dimension) {
+                return dimension * 1.5;
+            }
+            var shrinkFunc = function(dimension) {
+                return dimension * 0.5;
+            }
+            $('div.gallery img').slidingGallery({
+				container: $('div.gallery'),
+				'Lzoom':zoomFunc,
+				'Pzoom':zoomFunc,
+				'Lshrink':shrinkFunc,
+				'Pshrink':shrinkFunc,
+				'Pheight':150,
+				'Pwidth':200,
+				'Lheight':150,
+				'Lwidth':200,
+			});
+        });
+    </script>
+	<script> 
+		//$.noConflict(); // Deactivate $ for jQuery, use for Angular
+		var MEMBERS;
+		jQuery(function() {
+			jQuery(window).resize(function(){
+				if(jQuery(window).height() > jQuery('html').height())
+					jQuery('html').height(jQuery(window).height());
+			});
+		});
+
+	</script> 
+	<script src="js/ACM.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	
+	<title>BYU ACM - {{pageName}}</title>
+</head>
+<body>
+	<!--[if gte IE 9]>
+		<style type="text/css">
+			.gradient {
+				filter: none;
+			}
+		</style>
+	<![endif]-->
+	<div class="main-content">
+		<header>
+			<img id="acm-diamond-logo" src="img/acm_logo.png" />
+			<a id="acm-logo" href="#home">
+				<h1><b>BYU</b>ACM</h1>
+				<p>Association of Computing Machinery</p>
+			</a>
+			<span>
+				<a href="/membership/enrollment/">
+					<h3>Member Login</h3>
+				</a>
+				&nbsp;|&nbsp;
+				<a href="/membership/new_user/">
+					<h3>Sign Up</h3>
+				</a>
+				&nbsp;|&nbsp;
+				<a href="http://www.spoj.com/BYUP2/problems">
+					<h3>Algorithms</h3>
+				</a>
+			</span>
+		</header>
+		<nav>
+			<a href="#/home" ng-class="{selected: pageName == 'Home'}">Home</a>
+			<a href="#/about" ng-class="{selected: pageName == 'About'}">About</a>
+			<a href="#/contributors" ng-class="{selected: pageName == 'Contributors'}">Contributors</a>
+			<a href="#/members" ng-class="{selected: pageName == 'Membership'}">Membership</a>
+			<a href="#/events" ng-class="{selected: pageName == 'Events'}">Events</a>
+		</nav>
+		<div id="page-content" ng-view>
+		</div>
+		<footer>
+			<h3>Thanks to those who have contributed:</h3>
+			<div class="gallery" style="width:900px; height:170px;">
+			<!--	<a href="http://www.ooyala.com/" target="_blank"><img src="img/sponsor-logos/ooyala.gif" /></a> -->
+			<!--	<a href="http://www.exxonmobil.com" target="_blank"><img src="img/sponsor-logos/exxon.gif" /></a> -->
+			<!--	<a href="http://www.domo.com" target="_blank"><img src="img/sponsor-logos/domo.gif" /></a> -->
+				<a href="http://www.adobe.com"><img src="img/sponsor-logos/adobe.png"></a>
+				<a href="http://www.epic.com" target="_blank"><img src="img/sponsor-logos/epic.jpg" /></a>
+				<a href="http://www.fastenterprises.com" target="_blank"><img src="img/sponsor-logos/fastEnterprises.jpg" /></a>
+			<!--	<a href="http://www.google.com" target="_blank"><img src="img/sponsor-logos/google.jpg" /></a> -->
+				<a href="http://www.lucidchart.com" target="_blank"><img src="img/sponsor-logos/Lucidchart.png" class="start" /></a>
+			<!--	<a href="http://www.microsoft.com" target="_blank"><img src="img/sponsor-logos/microsoft.jpg" /></a> -->
+				<a href="http://www.parivedasolutions.com" target="_blank"><img src="img/sponsor-logos/pariveda-solutions.jpg" /></a>
+				<a href="http://wwww.walmart.com" target="_blank"><img src="img/sponsor-logos/walmart.png" /></a>
+				<a href="http://www.qualtrics.com" target="_blank"><img src="img/sponsor-logos/qualtrics.png" /></a>
+			<!--	<a href="http://www.soteradefense.com" target="_blank"><img src="img/sponsor-logos/sotera.png" /></a> -->
+			</div>
+			<div class="copyright">
+				&copy; 2013 BYU Association for Computing Machinery
+			</div>
+		</footer>
+	</div>
+</body>
+</html>

@@ -6,11 +6,9 @@ import sys
 
 ROOT = lambda base: os.path.join(os.path.dirname(__file__)+"/../", base)
 
-APPFOG = 'VCAP_SERVICES' in os.environ
-
 # Debugging
-DEBUG = not APPFOG
-TEMPLATE_DEBUG = DEBUG
+DEBUG = True
+TEMPLATE_DEBUG = True
 
 # Receive errors from logging
 ADMINS = (
@@ -27,7 +25,7 @@ EMAIL_USE_TLS   = True
 DEFAULT_FROM_EMAIL  = 'acm@byu.edu'
 SERVER_EMAIL    = 'acm@byu.edu'
 
-MAILCHIMP_AUTO_SUBSCRIBE = not DEBUG
+MAILCHIMP_AUTO_SUBSCRIBE = False
 MAILCHIMP_API_KEY = 'key' #redefined in settings_private
 MAILCHIMP_LIST_ID = 3411312468
 
@@ -43,7 +41,9 @@ LANGUAGE_CODE = 'en-us'
 SITE_ID = 1
 
 ALLOWED_HOSTS = [
-    'byuacm.aws.af.cm',
+    'acm.byu.edu',
+    'acm-new.byu.edu',
+    'localhost',
 ]
 
 # Do not use internationalization (optimizes)
@@ -181,29 +181,12 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.messages.context_processors.messages',
 )
 
-if APPFOG:
-    import json
-    vcap_services = json.loads(os.environ['VCAP_SERVICES'])
-    mysql_srv = vcap_services['mysql-5.1'][0]
-    cred = mysql_srv['credentials']
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.mysql',
-            'NAME': cred['name'],
-            'USER': cred['user'],
-            'PASSWORD': cred['password'],
-            'HOST': cred['hostname'],
-            'PORT': cred['port'],
-            }
-        }
-# If local
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': ROOT('acm/data.db'),     # Path to database file with sqlite3.
-        }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': ROOT('acm/data.db'),     # Path to database file with sqlite3.
     }
+}
 
 # Secure settings
 try:

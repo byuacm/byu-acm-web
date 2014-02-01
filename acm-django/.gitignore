@@ -2,6 +2,7 @@
 /app/acm/static/*
 *.db
 *.sql
+/deploy/supervisor/log
 
 #private
 /app/acm/settings_private.*

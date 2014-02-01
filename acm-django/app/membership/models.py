@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
 
-import problems.models
+import problems
 
 class Attendance(models.Model):
     member = models.ForeignKey('Member', verbose_name='Member')

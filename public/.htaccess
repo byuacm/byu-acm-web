@@ -1,9 +1,0 @@
-#mod_proxy does not seem to work
-RewriteEngine On
-RewriteCond %{REQUEST_URI} ^/(admin|accounts|dashboard|membership|problems|static)/?.*
-RewriteRule ^(.*)$ http://byuacm.aws.af.cm/$1 [P]
-<IfModule mod_proxy.c>
-	#ProxyPassReverse / http://byuacm.aws.af.cm/
-</IfModule>
-#ProxyPassReverse / https://byuacm.aws.af.cm
-

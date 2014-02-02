@@ -14,6 +14,16 @@
 	<script language="javascript" type="text/javascript" src="js/jquery.slidingGallery-1.2.js"></script>
     <script language="javascript" type="text/javascript">
         $(function() {
+            //randomize sponsor logos
+            var elems = $('div.gallery > *').detach().get().map(function(elem) {
+                return {elem:elem, rank:Math.random()};
+            }).sort(function(a, b) {
+                return a.rank - b.rank;
+            }).map(function(obj) {
+                return obj.elem;
+            });
+            $(elems).appendTo('div.gallery').first().find('img').addClass('start');
+
 			var zoomFunc = function(dimension) {
                 return dimension * 1.5;
             }
@@ -97,7 +107,7 @@
 				<a href="http://www.epic.com" target="_blank"><img src="img/sponsor-logos/epic.jpg" /></a>
 				<a href="http://www.fastenterprises.com" target="_blank"><img src="img/sponsor-logos/fastEnterprises.jpg" /></a>
 			<!--	<a href="http://www.google.com" target="_blank"><img src="img/sponsor-logos/google.jpg" /></a> -->
-				<a href="http://www.lucidchart.com" target="_blank"><img src="img/sponsor-logos/Lucidchart.png" class="start" /></a>
+				<a href="http://www.lucidchart.com" target="_blank"><img src="img/sponsor-logos/Lucidchart.png"/></a>
 			<!--	<a href="http://www.microsoft.com" target="_blank"><img src="img/sponsor-logos/microsoft.jpg" /></a> -->
 				<a href="http://www.parivedasolutions.com" target="_blank"><img src="img/sponsor-logos/pariveda-solutions.jpg" /></a>
 				<a href="http://wwww.walmart.com" target="_blank"><img src="img/sponsor-logos/walmart.png" /></a>

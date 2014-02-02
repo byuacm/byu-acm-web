@@ -46,6 +46,9 @@ ALLOWED_HOSTS = [
     'localhost',
 ]
 
+# Returns 304 based on content hashes
+USE_ETAGS = True
+
 # Do not use internationalization (optimizes)
 USE_I18N = False
 
@@ -97,7 +100,7 @@ PASSWORD_HASHERS = (
 )
 
 MIDDLEWARE_CLASSES = (
-    'django.middleware.gzip.GZipMiddleware',
+    # 'django.middleware.gzip.GZipMiddleware', # currently, web server does this
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',

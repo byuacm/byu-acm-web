@@ -2,7 +2,7 @@ from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
 from django.http import *
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.utils import timezone
 import django.utils.simplejson as json
 from django.views.decorators.csrf import csrf_exempt
@@ -84,26 +84,21 @@ def utc_millis(dt):
     seconds = time.mktime(dt.now().timetuple())
     return int(round(seconds * 1000))
 
-def member_list(request, semester_pk):
+def member_list(request, semester_pk=None):
+    if semester_pk is None:
+        return redirect('dashboard.views.member_list', semester_pk=Semester.most_recent().pk)
     semester = Semester.objects.get(pk=semester_pk)
-    d = {
-        'semester': {
-            'name': semester.name,
-            'start_utc': utc_millis(semester.enrollment_start),
-            'end_utc': utc_millis(semester.enrollment_end),
-        },
-        'members': [
-            {
-                'first_name': enrollment.member.user.first_name,
-                'last_name': enrollment.member.user.last_name,
-                'website': clean_web_url(enrollment.member.website),
-            } for enrollment in (
-                Enrollment.objects
-                    .filter(semester=semester, paid_dues=True)
-                    .order_by('member__user__last_name', 'member__user__first_name')
-            )
-        ],
-    }
+    d = [
+        {
+            'first_name': enrollment.member.user.first_name,
+            'last_name': enrollment.member.user.last_name,
+            'website': clean_web_url(enrollment.member.website),
+        } for enrollment in (
+            Enrollment.objects
+                .filter(semester=semester, paid_dues=True)
+                .order_by('member__user__last_name', 'member__user__first_name')
+        )
+    ]
     response = HttpResponse(json.dumps(d), content_type='application/json')
     response['Access-Control-Allow-Origin'] = '*'
     return response

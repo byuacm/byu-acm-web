@@ -68,7 +68,7 @@ app.run(function($rootScope) {
 	$rootScope.hasList = false;
 	$rootScope.setMembers = function(list) {
 		if(!$rootScope.hasList)
-			$rootScope.organizeMembers(list.members);
+			$rootScope.organizeMembers(list);
 		
 		$rootScope.hasList = true;
 	}
@@ -221,8 +221,9 @@ function MemberCtrl($scope, $routeParams) {
 	
 	$scope.members = [];
 	if(!$scope.hasMemberList())
-	{	
-		$.ajax({ url: 'http://byuacm.aws.af.cm/dashboard/member_list/11/', success:function(data) {
+	{
+		//TODO: update semester
+		$.ajax({ url: '/dashboard/member_list/11/', success:function(data) {
 
 				$scope.setMembers(data);
 				$scope.members = $scope.getMembers();

@@ -2,7 +2,7 @@
 
 NAME=acm-django
 
-DJANGO_DIR=/usr/local/src/byu-acm-web/acm-django/app
+DJANGO_DIR=/var/www/acm-django
 SOCK=/var/run/acm-django.sock
 
 WORKERS=4

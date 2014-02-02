@@ -68,6 +68,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     # Always use forward slashes, even on Windows.
     ROOT('static'),
+    ROOT('../../public'),
 )
 
 # List of finder classes that know how to find static files in
@@ -114,7 +115,7 @@ ROOT_URLCONF = 'acm.urls'
 WSGI_APPLICATION = 'acm.wsgi.application'
 
 TEMPLATE_DIRS = (
-    ROOT('site-templates/')
+    ROOT('site-templates/'),
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.

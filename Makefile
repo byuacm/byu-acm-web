@@ -72,6 +72,9 @@ deploy-django: /var/www/acm-django /etc/supervisor/conf.d/acm-django.conf /var/l
 	cp $< $@
 	$(ENSURE_PYTHON) supervisorctl reread
 
+/usr/local/bin/acm-django-start: acm-django/deploy/acm-django-start.sh
+	cp $< $@
+
 /var/log/acm-django:
 	mkdir $@
 

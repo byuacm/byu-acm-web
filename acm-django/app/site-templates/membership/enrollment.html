@@ -16,8 +16,8 @@ My Membership History
 
 {% block content %}
 <form id="enroll_form" action="{% url 'membership.views.enroll' %}" method="post" style="display:none">{% csrf_token %}
-	<input id="semester_pk" name="semester_pk" type="hidden"/>
-	<input id="shirt_size_pk" name="shirt_size_pk" type="hidden"/>
+	<input id="semester_pk" name="semester_pk" type="hidden">
+	<input id="shirt_size_pk" name="shirt_size_pk" type="hidden">
 </form>
 
 {% if available_semesters %}
@@ -73,7 +73,7 @@ My Membership History
 {% endif %}
 
 {% if available_semesters and enrollments %}
-<hr style="color:#000000;"/>
+<hr style="color:#000000;">
 {% endif %}
 
 {% for enrollment in enrollments %}

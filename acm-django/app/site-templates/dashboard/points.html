@@ -15,7 +15,7 @@ Member List
 {% endblock %}
 
 {% block css %}
-<style type="text/css">
+<style>
 	.point-button {
 		width: 80%;
 	}
@@ -32,13 +32,13 @@ Member List
 {% block content %}
 <div class="control-group">
 	<input id="name_search" type="text" class="span3 search-query" style="margin-bottom:5px"
-		placeholder="Search for name..."/>
-	<table id="attendence_table" class="table table-bordered"/>
+		placeholder="Search for name...">
+	<table id="attendence_table" class="table table-bordered">
 </div>
 {% endblock %}
 
 {% block javascript %}
-<script type="text/javascript">
+<script>
 	var rows = [
 		{% for attendance in attendances %}
 		{

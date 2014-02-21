@@ -17,7 +17,7 @@ Problems
 {% block content %}
 {% if score != -1 %}
 <h1 class="text-{% if score > 0%}success{% else %}error{% endif %}">You scored {{ score }} point{% if score != 1 %}s{% endif %}.</h1>
-<br/>
+<br>
 	{% if invalid_names%}
 		<h4 class="text-error">Invalid usernames submitted:</h4>
 		<ul>
@@ -34,7 +34,7 @@ Problems
 		{{ form }}
 	</div>
 	<div>
-		<input type="submit" class="btn btn-success"/>
+		<input type="submit" class="btn btn-success">
 	</div>
 </form>
 {% endblock %}

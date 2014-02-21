@@ -3,9 +3,9 @@
 require('problem2.php');
 ?>
 <head>
-	<script type="text/javascript" src="jquery-1.8.0.min.js"></script>	
-	<script type="text/javascript" src="script.js"></script>
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="jquery-1.8.0.min.js"></script>	
+	<script src="script.js"></script>
+	<link rel="stylesheet" href="style.css">
 </head>
 
 <body>

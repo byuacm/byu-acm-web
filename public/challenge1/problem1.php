@@ -18,7 +18,7 @@ if (!$_SESSION['loggedIn']): ?>
 <html>
 <head>
   <title>Challenge Problem 1</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
   <body>
     <div class='container'>
@@ -39,7 +39,7 @@ if (!$_SESSION['loggedIn']): ?>
           <h3>Answer:</h3>
         </div>
         <div class="inputs">
-          <input type="info" name="answer" placeholder="Answer"> <br />
+          <input type="info" name="answer" placeholder="Answer"> <br>
           <input type="submit" name="submit" value="Submit" id="submit">
         </div>
       </form>

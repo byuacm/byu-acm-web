@@ -2,10 +2,10 @@
 <html lang="en">
 	<head>
 		<title>BYU ACM - {% block title %}{% endblock %}</title>
-		<link rel="shortcut icon" href="{{ STATIC_URL }}images/icons/acm_logo.ico"/>
+		<link rel="shortcut icon" href="{{ STATIC_URL }}images/icons/acm_logo.ico">
 
-		<link href="{{ STATIC_URL }}bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-		<link href="{{ STATIC_URL }}byuacm/css/byuacm.css" rel="stylesheet" type="text/css"/>
+		<link href="{{ STATIC_URL }}bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<link href="{{ STATIC_URL }}byuacm/css/byuacm.css" rel="stylesheet">
 		{% block css %}{% endblock %}
 	</head>
 
@@ -46,8 +46,8 @@
 			</div>
 		</div>
 	    
-		<script type="text/javascript" src="{{ STATIC_URL }}jquery/js/jquery.js"></script>
-		<script type="text/javascript" src="{{ STATIC_URL }}bootstrap/js/bootstrap.min.js"></script>
+		<script src="{{ STATIC_URL }}jquery/js/jquery.js"></script>
+		<script src="{{ STATIC_URL }}bootstrap/js/bootstrap.min.js"></script>
 		{% block javascript %}{% endblock %}
 	</body>
 </html>

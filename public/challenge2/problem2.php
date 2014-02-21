@@ -33,7 +33,7 @@ if (!$enter): ?>
 <html>
 <head>
   <title>Challenge Problem 2</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
   <body>
     <div class='container'>
@@ -46,21 +46,21 @@ if (!$enter): ?>
        <p style='color:#660000; font-weight:bold;'>1 point</p>
       <p>If all the numbers from 1 to 50 (fifty) inclusive were written out in words, how many letters would be used?</p>
       <div class="inputs">
-        <input type="info" name="answer1" placeholder="Answer 1"> <br />
+        <input type="info" name="answer1" placeholder="Answer 1"> <br>
       </div>
        <p style='color:#660000; font-weight:bold;'>1 point for #2 and #3</p>
       <p>If all the numbers from 1 to 5,000 (five thousand) inclusive were written out in words, how many letters would be used?</p>
       <div class="inputs">
-        <input type="info" name="answer2" placeholder="Answer 2"> <br />
+        <input type="info" name="answer2" placeholder="Answer 2"> <br>
 	</div>
       <p>If all the numbers from 1 to 50,000 (fifty thousand) inclusive were written out in words, how many letters would be used?</p>
       <div class="inputs">
-        <input type="info" name="answer3" placeholder="Answer 3"> <br />
+        <input type="info" name="answer3" placeholder="Answer 3"> <br>
       </div>
        <p style='color:#660000; font-weight:bold;'>1 point</p>
       <p>If all the primes from 1 to 100,000 (one hundred thousand) were written out in words, how many letters would be used?</p>
       <div class="inputs">
-        <input type="info" name="answer4" placeholder="Answer 4"> <br />
+        <input type="info" name="answer4" placeholder="Answer 4"> <br>
       </div>
       <p><b>NOTE: Do not count spaces or hyphens. For example, 342 (three hundred and forty-two) contains 23 letters and 115 (one hundred and fifteen) contains 20 letters. The use of "and" when writing out numbers is in compliance with British usage.</b></p>
 

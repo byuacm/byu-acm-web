@@ -64,7 +64,7 @@ deploy-nginx: /etc/nginx/conf.d/byu-acm.conf
 deploy-django: /var/www/acm-django /etc/supervisor/conf.d/acm-django.conf /var/log/acm-django
 	$(SUPERVISORCTL) restart acm-django
 
-.PHONY: /var/www/acm-django/acm/wsgi.py #for now
+.PHONY: /var/www/acm-django
 /var/www/acm-django:
 	rsync -r --update --delete --exclude='*.pyc' acm-django/app/ $@/
 

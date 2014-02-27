@@ -40,8 +40,8 @@ class Enrollment(models.Model):
     member = models.ForeignKey('Member', verbose_name='Member')
     semester = models.ForeignKey('Semester', verbose_name='Semester')
     shirt_size = models.ForeignKey('ShirtSize', verbose_name='Shirt Size', blank=True, null=True)
-    paid_dues = models.BooleanField('Paid Dues')
-    received_shirt = models.BooleanField('Received Shirt')
+    paid_dues = models.BooleanField('Paid Dues', default=False)
+    received_shirt = models.BooleanField('Received Shirt', default=False)
 
     def can_change_shirt_size(self):
         return (

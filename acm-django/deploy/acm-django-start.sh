@@ -11,7 +11,7 @@ source /opt/rh/python27/enable
 
 export PYTHONPATH=$DJANGO_DIR:$PYTHONPATH
 
-gunicorn acm.wsgi:application  \
+exec gunicorn acm.wsgi:application  \
   --name "$NAME"               \
   --workers $WORKERS           \
   --user acm                   \

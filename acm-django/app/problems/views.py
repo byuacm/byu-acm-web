@@ -33,7 +33,7 @@ def problem(request, code):
                     status.score = score
                     status.save()
 
-    fields = {question.field:request.POST.get(question.field, '') for question in questions}
+    fields = {question.field:request.POST.get(question.field, '') for question in sorted(questions, key=lambda q: q.seq)}
     form = ProblemForm(fields)
     form.fields['usernames'].initial = request.POST.get('usernames', '')
 

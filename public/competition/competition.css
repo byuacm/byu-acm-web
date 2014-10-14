@@ -309,7 +309,7 @@ input:-moz-placeholder {
     margin:0;
 }
 
-button{
+.button{
     width: 100%;
     /*margin-top: 20px;*/
     padding: 15px 0;
@@ -349,7 +349,7 @@ button{
     cursor: pointer; 
 }
 
-button:hover {
+.button:hover {
     background: -moz-linear-gradient(
         top,
         #a4b0cb 0%,

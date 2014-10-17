@@ -50,8 +50,9 @@ function process(){
 $(document).ready(function(){
 	if(imported && imported.length > 0) {
 		$('.enter-names').hide();
-
-		makeTicketsWithPoints();
+		setTimeout(function() {
+			makeTicketsWithPoints();
+		}, 50);
 	}
 
 	$('.name-text-field').on('input', function() {
@@ -102,7 +103,7 @@ function Ticket(name, points){
 		this.points--;
 		if(this.points == 0){
 			var directions = ['up', 'down', 'left', 'right'];
-			this.dom.css({'background-color':colors[0]}).hide('drop', {direction:directions[length%directions.length]}, length <= 5 ? 2000 : 3000/length, function(){
+			this.dom.css({'background-color':colors[0]}).hide('drop', {direction:directions[length%directions.length]}, length == 2 ? 1000 : 3000/length, function(){
 				callback();
 			});
 			$('#participant-number').text(length - 1 + '/' + tickets.length);

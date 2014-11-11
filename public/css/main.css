@@ -484,6 +484,10 @@ nav a.selected {
 	cursor:pointer;
 }
 
+.officers{
+	padding: 20px;
+}
+
 .officer img {
 
     width: 150px;

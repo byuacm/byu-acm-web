@@ -60,6 +60,7 @@ body {
 .marketing {
   margin: 40px 0;
   color: #BCBDBC;
+  font-size: 15px;
 }
 .marketing p + h4 {
   margin-top: 28px;

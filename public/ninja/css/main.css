@@ -1,8 +1,10 @@
 /* Space out content a bit */
 body {
+  font-family: 'Arvo', serif;
   padding-top: 20px;
   padding-bottom: 20px;
   color: #337ab7;
+  background-color: #000000;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -47,6 +49,7 @@ body {
 .jumbotron {
   text-align: center;
   border-bottom: 1px solid #e5e5e5;
+  background-color: #1F1F1F
 }
 .jumbotron .btn {
   font-size: 21px;
@@ -56,7 +59,7 @@ body {
 /* Supporting marketing content */
 .marketing {
   margin: 40px 0;
-  color: #4C4D4C;
+  color: #BCBDBC;
 }
 .marketing p + h4 {
   margin-top: 28px;
@@ -90,6 +93,11 @@ body {
 
 }
 
+
 .instructure-container{
   height: 5em;
+}
+
+.top-banner{
+  padding: 2em;
 }

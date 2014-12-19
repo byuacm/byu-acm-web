@@ -99,6 +99,14 @@ body {
   height: 5em;
 }
 
+.instructure-logo{
+  position: relative;
+  width: 269px;
+  height: 64;
+  top: -4px;
+
+}
+
 .top-banner{
   padding: 2em;
 }

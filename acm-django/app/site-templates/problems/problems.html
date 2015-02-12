@@ -22,7 +22,11 @@ Puzzle list
 		<td width=20%>End</td>
 	</thead>
 	{% for problem in problems %}
+	{% if problem.is_active %}
+	<tr style="font-weight:bold">
+	{% else %}
 	<tr>
+	{% endif %}
 		<td>
 			<a href="{% url 'problems.views.problem' problem.code %}">{{ problem.name }}</a>
 		</td>

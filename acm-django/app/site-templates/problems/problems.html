@@ -24,11 +24,7 @@ Puzzle list
 	{% for problem in problems %}
 	<tr>
 		<td>
-			{% if problem.is_active %}
 			<a href="{% url 'problems.views.problem' problem.code %}">{{ problem.name }}</a>
-			{% else %}
-			{{ problem.name }}
-			{% endif %}
 		</td>
 		<td>{{ problem.start }}</td>
 		<td>{{ problem.end }}</td>

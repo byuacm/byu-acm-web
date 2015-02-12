@@ -45,7 +45,7 @@ def problem(request, code):
     })
     
 def problems(request):
-    problems = Problem.objects.filter(start__lte=timezone.now())
+    problems = Problem.objects.filter(start__lte=timezone.now()).order_by('-start')
     return render(request, 'problems/problems.html', {
         'problems': problems
     })

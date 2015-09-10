@@ -123,8 +123,6 @@ function HomeCtrl($scope, $routeParams) {
 
 		{ url: 'img/meetings/opening_social_winter_2013-1-cropped.jpg',
 			photoText: 'Come check out a meeting.  Food, prizes, awesome demos.  You will love it!' },
-		{ url: 'img/officer/high_res/group-cropped.jpg',
-			photoText: 'Come hang out with the ACM Officers.  Who knows, maybe you will be one someday!' },
 		{ url: 'img/meetings/opening_social_winter_2013-4-cropped.jpg',
 			photoText: 'Google gave us an inside look at what it\'s like to work there!' }
 	];

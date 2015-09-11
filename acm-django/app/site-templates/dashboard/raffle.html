@@ -10,7 +10,7 @@
 			{
 				name: '{{ attendance.member.user.first_name }} {{ attendance.member.user.last_name }}',
 				points: {{ attendance.total_points }},
-				username: {{ attendance.member.user.username }},
+				username: '{{ attendance.member.user.username }}',
 			}
 			{% if not forloop.last %},{% endif %}
 			{% endfor %}

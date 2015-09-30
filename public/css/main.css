@@ -62,24 +62,27 @@ h4 {
 }
 
 h5 {
-	font-size:16px;
-	color:#2BBAE4;
+    font-size:16px;
+    color:#2BBAE4;
 }
 
 article {
-    text-align: center;
-	padding: 20px 20px 20px 40px;
+    padding: 20px 20px 20px 40px;
 }
 
 p {
-	font-size:16px;
-	color:#777;
-	margin: 15px;
-	line-height: 22px;
+    font-size:16px;
+    color:#777;
+    margin: 15px;
+    line-height: 22px;
 }
 
 .hide {
 	display: none;
+}
+
+.center {
+    text-align: center;
 }
 
 /*******************************************************

@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Kevin Reece",
+    "title": "President",
+    "img": "kevin.jpg",
+    "bio": ""
+  },
+  {
+    "name": "Connor Smith",
+    "title": "Vice President, Internal Operations",
+    "img": "connor.jpg",
+    "bio": "Connor is a Senior majoring in Computer Engineering and minoring in Computer Science and Mathematics. He currently works as a research assistant in the BARDD group, researching automatic parallel optimization in compilers. Connor has a passion for the intersection of hardware and software, including the areas of computer architecture, operating systems, and compilers. As the Vice President of Internal Operations, he is responsible for managing and coordinating with the Chief Finance Officer and Chief Technology Officer."
+  },
+  {
+    "name": "Caleb Tonkinson",
+    "title": "Vice President, External Operations",
+    "img": "caleb.jpg",
+    "bio": "Caleb is currently getting a Bachelors in Computer Science with a minor in Business Management and is planning on getting an MBA a couple years after graduation. He currently works as a Business Intelligence Engineer for the LDS Church. He is a voracious reader of books about practically any subject and enjoys playing soccer, traveling and discussing and researching business ideas with his brother and friends."
+  },
+  {
+    "name": "Josh Parsons",
+    "title": "Chief Experience Officer",
+    "img": "josh.jpg",
+    "bio": "Joshua is a Junior in the Computer Science Program. He is passionate about computer programming and learning new skills that will help him succeed. He is always looking for new opportunities to be involved in programming outside of class. He enjoys participating in programming competitions and other events that test the skills that he has developed. He looks forward to helping the BYU chapter of ACM to grow and expand. In his spare time Joshua likes to be with his family and friends, listen to music,  go on outdoor adventures, play ping pong, soccer, basketball, and snowboard."
+  },
+  {
+    "name": "Adrian Foong",
+    "title": "Chief Networking Officer",
+    "img": "adrian.jpg",
+    "bio": ""
+  },
+  {
+    "name": "Kyle Pontius",
+    "title": "Chief Financial Officer",
+    "img": "kyle.jpg",
+    "bio": ""
+  },
+  {
+    "name": "Jared Neil",
+    "title": "Chief Technology Officer",
+    "img": "jared.jpg",
+    "bio": "Jared is a Computer Science major planning to graduate in April 2017. He has been in the ACM leadership since 2013. He loves to participate in programming competitions, and has participated in the ICPC three times. His spare time is filled with YouTube, games, and ultimate frisbee."
+  },
+  {
+    "name": "Emma Reece",
+    "title": "Chief Marketing Officer",
+    "img": "emma.jpg",
+    "bio": "Emma is a Advertising major and is a Junior at BYU. She has been the Program Director of Advertising and Branding Research at BYUSA for the past year and is excited to apply her knowledge of branding, advertising, design, and marketing to BYU ACM."
+  }
+]

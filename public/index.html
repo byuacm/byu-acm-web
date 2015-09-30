@@ -59,13 +59,6 @@
 	<title>BYU ACM - {{pageName}}</title>
 </head>
 <body>
-	<!--[if gte IE 9]>
-		<style type="text/css">
-			.gradient {
-				filter: none;
-			}
-		</style>
-	<![endif]-->
 	<div class="main-content">
 		<header>
 			<img id="acm-diamond-logo" src="img/acm_logo.png">
@@ -85,10 +78,10 @@
 		</header>
 		<nav>
 			<a href="#/home" ng-class="{selected: pageName == 'Home'}">Home</a>
-			<a href="#/about" ng-class="{selected: pageName == 'About'}">About</a>
-			<a href="#/contributors" ng-class="{selected: pageName == 'Contributors'}">Contributors</a>
-			<a href="#/members" ng-class="{selected: pageName == 'Membership'}">Membership</a>
 			<a href="#/events" ng-class="{selected: pageName == 'Events'}">Events</a>
+			<a href="#/contributors" ng-class="{selected: pageName == 'Contributors'}">Contributors</a>
+			<a href="#/leaders" ng-class="{selected: pageName == 'Leadership'}">Leadership</a>
+			<a href="#/about" ng-class="{selected: pageName == 'About'}">About</a>
 		</nav>
 		<div id="page-content" ng-view>
 		</div>
@@ -110,7 +103,7 @@
 			<!--	<a href="http://www.soteradefense.com" target="_blank"><img src="img/sponsor-logos/sotera.png"></a> -->
 			</div>
 			<div class="copyright">
-				&copy; 2014 BYU Association for Computing Machinery
+				&copy; 2015 BYU Association for Computing Machinery
 			</div>
 		</footer>
 	</div>

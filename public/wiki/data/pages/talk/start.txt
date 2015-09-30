@@ -1,7 +1,0 @@
-[[start:|Main Page]]
-  * [[wiki:Programming_Contest|Programming Contest]]
-  * [[wiki:programming_contest_tutorial|How to Submit Your Code Online]]
-  * [[wiki:about|About BYU ACM]]
-  * [[wiki:contact|Contact]]
-\\
-  * [[wiki:syntax|Wiki Syntax]]

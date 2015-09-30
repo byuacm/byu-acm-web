@@ -9,9 +9,8 @@ app.config(['$routeProvider', function($routeProvider,$locationProvider) {
   	  when('/home', {templateUrl: 'html/home.html', controller:HomeCtrl}).
   	  when('/about', {templateUrl: 'html/about.html', controller:AboutCtrl}).
   	  when('/contributors', {templateUrl: 'html/sponsors.html', controller:SponsorCtrl}).
-  	  when('/members', {templateUrl: 'html/members.html', controller:MemberCtrl}).
+  	  when('/leaders', {templateUrl: 'html/leaders.html', controller:LeaderCtrl}).
   	  when('/contributors/:id', {templateUrl: 'html/sponsors.html', controller:SponsorCtrl}).
-  	  when('/members/:id', {templateUrl: 'html/members.html', controller:MemberCtrl}).
   	  when('/events', {templateUrl: 'html/events.html', controller:EventCtrl}).
           // Temporary page. Remove after ICPC.
           // when('/icpc', {templateUrl: 'html/icpc.html', controller:IcpcCtrl}).
@@ -37,74 +36,17 @@ app.run(function($rootScope) {
 		clearTimeout($rootScope.slideshow);
 	}
 
-	// member list
-	$rootScope.members = [{ letter: 'a', people: []}
-						 ,{ letter: 'b', people: []}
-						 ,{ letter: 'c', people: []}
-						 ,{ letter: 'd', people: []}
-						 ,{ letter: 'e', people: []}
-						 ,{ letter: 'f', people: []}
-						 ,{ letter: 'g', people: []}
-						 ,{ letter: 'h', people: []}
-						 ,{ letter: 'i', people: []}
-						 ,{ letter: 'j', people: []}
-						 ,{ letter: 'k', people: []}
-						 ,{ letter: 'l', people: []}
-						 ,{ letter: 'm', people: []}
-						 ,{ letter: 'n', people: []}
-						 ,{ letter: 'o', people: []}
-						 ,{ letter: 'p', people: []}
-						 ,{ letter: 'q', people: []}
-						 ,{ letter: 'r', people: []}
-						 ,{ letter: 's', people: []}
-						 ,{ letter: 't', people: []}
-						 ,{ letter: 'u', people: []}
-						 ,{ letter: 'v', people: []}
-						 ,{ letter: 'w', people: []}
-						 ,{ letter: 'x', people: []}
-						 ,{ letter: 'y', people: []}
-						 ,{ letter: 'z', people: []}];
-
+    $rootScope.leaders = [];
 	$rootScope.hasList = false;
-	$rootScope.setMembers = function(list) {
-		if(!$rootScope.hasList)
-			$rootScope.organizeMembers(list);
-		
+	$rootScope.setLeaders = function(list) {
+        $rootScope.leaders = list;
 		$rootScope.hasList = true;
 	}
-	$rootScope.getMembers = function() {
-		return $rootScope.members;
+	$rootScope.getLeaders = function() {
+		return $rootScope.leaders;
 	}
-	$rootScope.hasMemberList = function() {
+	$rootScope.hasLeaderList = function() {
 		return $rootScope.hasList;
-	}
-	$rootScope.organizeMembers = function(list) {
-
-		for (var i = 0; i < list.length; i++) {
-
-			for (var j = 0; j < $rootScope.members.length; j++) {
-
-				var let = $rootScope.members[j].letter;
-				var name = list[i].last_name.toLowerCase();
-
-				// if person last name starts with letter, put in this array
-				if (name.charAt(0) == let) {
-					$rootScope.members[j].people.push(list[i]);
-				}
-			}
-		}
-
-		for (var i = 0; i < $rootScope.members.length; i++) {
-
-			$rootScope.members[i].people.sort(function(a, b) { 
-
-				if (a.last_name.toLowerCase() == b.last_name.toLowerCase()) {
-					return a.first_name.toLowerCase() > b.first_name.toLowerCase();
-				} else {
-					return a.last_name.toLowerCase() > b.last_name.toLowerCase();
-				}
-			});
-		}
 	}
 
 });
@@ -176,7 +118,6 @@ function HomeCtrl($scope, $routeParams) {
 //*****************************************************************************
 
 function AboutCtrl($scope, $routeParams) {
-
 	$scope.setPageName('About');
 }
 
@@ -185,51 +126,35 @@ function AboutCtrl($scope, $routeParams) {
 //*****************************************************************************
 
 function SponsorCtrl($scope, $routeParams) {
-
 	$scope.setPageName('Contributors');
 }
 
 //*****************************************************************************
-//  MEMBER CONTROLLER
+//  LEADER CONTROLLER
 //*****************************************************************************
 
-function MemberCtrl($scope, $routeParams) {
-
-	$scope.setPageName('Membership');
-
-	$scope.toggleOfficers = function() {
-
-		$('.officers').slideToggle(300);
-		$('div.officer-arrow').toggleClass('rotate');
-	}
-
-	$scope.toggleMembers = function() {
-
-		$('.members').slideToggle(300);
-		$('div.member-arrow').toggleClass('rotate');
-	}
+function LeaderCtrl($scope, $routeParams) {
+	$scope.setPageName('Leadership');
 
 	$scope.scrollTo = function(link) {
-		
 		link = 'jump-' + link.object.letter;
 		$('html, body').animate({
 			scrollTop: $('#' + link).offset().top
 		}, 500);
 	}
 	
-	$scope.members = [];
-	if(!$scope.hasMemberList())
+	$scope.leaders = [];
+	if(!$scope.hasLeaderList())
 	{
-		//TODO: update semester
-		$.ajax({ url: '/dashboard/member_list/11/', success:function(data) {
-
-				$scope.setMembers(data);
-				$scope.members = $scope.getMembers();
+		$.getJSON("js/officers.json").then(
+            function(data) {
+                $scope.setLeaders(data);
+			    $scope.leaders = $scope.getLeaders();
 				$scope.$digest();
-		}});
+		    }
+        );
 	} else {
-
-		$scope.members = $scope.getMembers();
+		$scope.leaders = $scope.getLeaders();
 	}
 
 }

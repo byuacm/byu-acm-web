@@ -87,6 +87,11 @@ p {
 
 .icon {
     color: #2D2C2D;
+    transition: color 200ms;
+}
+
+.icon:hover {
+    color: #2BBAE4;
 }
 
 .fa-instagram:before {

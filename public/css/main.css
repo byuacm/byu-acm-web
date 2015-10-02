@@ -85,6 +85,15 @@ p {
     text-align: center;
 }
 
+.icon {
+    color: #2D2C2D;
+}
+
+.fa-instagram:before {
+    position: relative;
+    top: -1px;
+}
+
 /*******************************************************
 ****	Header Styles
 *******************************************************/

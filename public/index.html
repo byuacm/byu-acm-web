@@ -58,13 +58,12 @@
 	<script src="js/bootstrap.min.js"></script>
 	
 	<title>BYU ACM - {{pageName}}</title>
-	<base href="/">
 </head>
 <body>
 	<div class="main-content">
 		<header>
 			<img id="acm-diamond-logo" src="img/acm_logo.png">
-			<a id="acm-logo" href="/home">
+			<a id="acm-logo" href="#home">
 				<h1><b>BYU</b>ACM</h1>
 				<p>Association for Computing Machinery</p>
 			</a>
@@ -79,11 +78,11 @@
 			</span>
 		</header>
 		<nav>
-			<a href="/home" ng-class="{selected: pageName == 'Home'}">Home</a>
-			<a href="/events" ng-class="{selected: pageName == 'Events'}">Events</a>
-			<a href="/contributors" ng-class="{selected: pageName == 'Contributors'}">Contributors</a>
-			<a href="/leaders" ng-class="{selected: pageName == 'Leadership'}">Leadership</a>
-			<a href="/about" ng-class="{selected: pageName == 'About'}">About</a>
+			<a href="#/home" ng-class="{selected: pageName == 'Home'}">Home</a>
+			<a href="#/events" ng-class="{selected: pageName == 'Events'}">Events</a>
+			<a href="#/contributors" ng-class="{selected: pageName == 'Contributors'}">Contributors</a>
+			<a href="#/leaders" ng-class="{selected: pageName == 'Leadership'}">Leadership</a>
+			<a href="#/about" ng-class="{selected: pageName == 'About'}">About</a>
 		</nav>
 		<div id="page-content" ng-view>
 		</div>

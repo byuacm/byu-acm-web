@@ -3,18 +3,20 @@
 //*****************************************************************************
 
 var app = angular.module('ACM', []);
-app.config(['$routeProvider', function($routeProvider,$locationProvider) {
+app.config(['$routeProvider', '$locationProvider', function($routeProvider,$locationProvider) {
   $routeProvider.
-  	  when('/', {templateUrl: 'html/home.html', controller: HomeCtrl}).
-  	  when('/home', {templateUrl: 'html/home.html', controller:HomeCtrl}).
-  	  when('/about', {templateUrl: 'html/about.html', controller:AboutCtrl}).
-  	  when('/contributors', {templateUrl: 'html/sponsors.html', controller:SponsorCtrl}).
-  	  when('/leaders', {templateUrl: 'html/leaders.html', controller:LeaderCtrl}).
-  	  when('/contributors/:id', {templateUrl: 'html/sponsors.html', controller:SponsorCtrl}).
-  	  when('/events', {templateUrl: 'html/events.html', controller:EventCtrl}).
-          // Temporary page. Remove after ICPC.
-          // when('/icpc', {templateUrl: 'html/icpc.html', controller:IcpcCtrl}).
-      when('/vote', {templateUrl: 'html/vote.html', controller:VoteCtrl});
+  	when('/', {templateUrl: 'html/home.html', controller: HomeCtrl}).
+  	when('/home', {templateUrl: 'html/home.html', controller:HomeCtrl}).
+  	when('/about', {templateUrl: 'html/about.html', controller:AboutCtrl}).
+  	when('/contributors', {templateUrl: 'html/sponsors.html', controller:SponsorCtrl}).
+  	when('/leaders', {templateUrl: 'html/leaders.html', controller:LeaderCtrl}).
+  	when('/contributors/:id', {templateUrl: 'html/sponsors.html', controller:SponsorCtrl}).
+  	when('/events', {templateUrl: 'html/events.html', controller:EventCtrl}).
+    // Temporary page. Remove after ICPC.
+    // when('/icpc', {templateUrl: 'html/icpc.html', controller:IcpcCtrl}).
+    when('/vote', {templateUrl: 'html/vote.html', controller:VoteCtrl});
+
+    $locationProvider.html5Mode(true);
 }]);
 
 //*****************************************************************************

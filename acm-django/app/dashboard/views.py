@@ -1,9 +1,8 @@
 from django.contrib.admin.views.decorators import staff_member_required
 from django.http import *
 from django.shortcuts import redirect, render
-import django.utils.simplejson as json
+import json
 from django.views.decorators.csrf import csrf_exempt
-import time
 from urlparse import urlparse
 
 from membership.models import (
@@ -77,11 +76,6 @@ def make_member_list(request):
     return render(request, 'dashboard/make_member_list.html', {
         'semesters': semesters,
     })
-
-
-def utc_millis(dt):
-    seconds = time.mktime(dt.now().timetuple())
-    return int(round(seconds * 1000))
 
 
 def member_list(request, semester_pk=None):

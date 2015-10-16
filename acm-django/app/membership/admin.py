@@ -23,7 +23,7 @@ make_admin.short_description = 'Make selected users Administrators'
 
 class MyUserAdmin(UserAdmin):
     inlines = [MemberInline]
-    actions = [make_admin,]
+    actions = [make_admin]
 
 
 def make_point_0(modeladmin, request, queryset):

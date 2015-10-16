@@ -11,6 +11,7 @@ class Attendance(models.Model):
     has_shirt = models.BooleanField('Wearing ACM Shirt')
     points = models.IntegerField('Points', default=1)
 
+    # TODO 10/16/2015 - only used by templates. Removed when we destroy templates
     def total_points(self):
         score = (
             problems.models.SubmissionStatus.objects
@@ -46,6 +47,8 @@ class Enrollment(models.Model):
     paid_dues = models.BooleanField('Paid Dues', default=False)
     received_shirt = models.BooleanField('Received Shirt', default=False)
 
+    # TODO 10/16/2015 - this is only used by a template. Removed when we
+    # destroy templates
     def can_change_shirt_size(self):
         return (
             not self.received_shirt
@@ -112,9 +115,6 @@ class Semester(models.Model):
     enrollment_start = models.DateTimeField('Enrollment Start')
     enrollment_end = models.DateTimeField('Enrollment End')
 
-    def can_enroll(self):
-        return self.enrollment_start <= timezone.now() < self.enrollment_end
-
     @staticmethod
     def most_recent():
         try:
@@ -128,7 +128,7 @@ class Semester(models.Model):
 
     class Meta:
         get_latest_by = 'enrollment_start'
-        ordering = ['enrollment_start', 'enrollment_end',]
+        ordering = ['enrollment_start', 'enrollment_end']
 
 
 class ShirtSize(models.Model):

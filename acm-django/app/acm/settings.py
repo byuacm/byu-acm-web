@@ -12,7 +12,9 @@ TEMPLATE_DEBUG = True
 
 # Receive errors from logging
 ADMINS = (
-    ('Paul', 'paulddraper@gmail.com'),
+    ('Jared Neil', 'jaredaneil@gmail.com'),
+    ('Connor Smith', 'connor.smith.256@gmail.com'),
+    ('Derek Argueta', 'darguetap@gmail.com')
 )
 MANAGERS = ADMINS
 

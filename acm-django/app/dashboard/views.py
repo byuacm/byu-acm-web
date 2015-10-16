@@ -1,16 +1,15 @@
 from django.contrib.admin.views.decorators import staff_member_required
-from django.contrib.auth.decorators import login_required
-from django.conf import settings
 from django.http import *
 from django.shortcuts import redirect, render
-from django.utils import timezone
 import django.utils.simplejson as json
 from django.views.decorators.csrf import csrf_exempt
 import time
 from urlparse import urlparse
 
-from membership.models import *
-from problems.models import SubmissionStatus
+from membership.models import (
+    Attendance, Enrollment, Meeting, Semester, ShirtSize
+)
+
 
 @staff_member_required
 def raffle(request, meeting_pk=None):
@@ -29,21 +28,19 @@ def raffle(request, meeting_pk=None):
             'attendances': attendances,
         })
 
+
 @staff_member_required
 def attendance(request, meeting_pk=None):
     if meeting_pk is None:
-        try:
-            default_meeting = Meeting.most_recent()
-        except Meeting.DoesNotExist:
-            default_meeting = None
         return render(request, 'dashboard/attendance.html', {
-            'attendances':[],
+            'attendances': [],
             })
     else:
         attendances = Attendance.objects.filter(meeting__pk=meeting_pk)
         return render(request, 'dashboard/attendance.html', {
             'attendances': attendances,
             })
+
 
 @staff_member_required
 def shirt_sizes(request, semester_pk=None):
@@ -73,16 +70,19 @@ def shirt_sizes(request, semester_pk=None):
         'shirt_sizes': shirt_sizes,
     })
 
+
 @staff_member_required
 def make_member_list(request):
     semesters = Semester.objects.all()
     return render(request, 'dashboard/make_member_list.html', {
-        'semesters' : semesters,
+        'semesters': semesters,
     })
+
 
 def utc_millis(dt):
     seconds = time.mktime(dt.now().timetuple())
     return int(round(seconds * 1000))
+
 
 def member_list(request, semester_pk=None):
     if semester_pk is None:
@@ -103,6 +103,7 @@ def member_list(request, semester_pk=None):
     response['Access-Control-Allow-Origin'] = '*'
     return response
 
+
 def clean_web_url(url):
     if url:
         parsed = urlparse(url)
@@ -111,6 +112,7 @@ def clean_web_url(url):
         elif parsed.scheme == 'javascript':
             url = None
     return url
+
 
 @csrf_exempt
 @staff_member_required
@@ -139,6 +141,6 @@ def points(request, meeting_pk=None):
     )
     d = {
         'meeting': meeting,
-        'attendances' : attendances,
+        'attendances': attendances,
     }
     return render(request, 'dashboard/points.html', d)

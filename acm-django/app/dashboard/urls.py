@@ -1,6 +1,7 @@
 from django.conf.urls import patterns, url
 
-urlpatterns = patterns('dashboard.views',
+urlpatterns = patterns(
+    'dashboard.views',
     url(r'^$', 'make_member_list'),
     url(r'^raffle/$', 'raffle'),
     url(r'^raffle/(?P<meeting_pk>\d+)/$', 'raffle'),

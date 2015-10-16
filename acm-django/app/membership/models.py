@@ -4,6 +4,7 @@ from django.utils import timezone
 
 import problems
 
+
 class Attendance(models.Model):
     member = models.ForeignKey('Member', verbose_name='Member')
     meeting = models.ForeignKey('Meeting', verbose_name='Meeting')
@@ -25,6 +26,7 @@ class Attendance(models.Model):
     class Meta:
         ordering = ['-pk']
 
+
 class Course(models.Model):
     name = models.CharField('Name', max_length=50)
     sequence = models.IntegerField('Sequence', unique=True)
@@ -32,9 +34,10 @@ class Course(models.Model):
 
     def __unicode__(self):
         return self.name
-    
+
     class Meta:
         ordering = ['sequence']
+
 
 class Enrollment(models.Model):
     member = models.ForeignKey('Member', verbose_name='Member')
@@ -68,12 +71,13 @@ class Enrollment(models.Model):
     class Meta:
         ordering = ['semester', 'member']
 
+
 class Meeting(models.Model):
     semester = models.ForeignKey('Semester', verbose_name='Semester')
     name = models.CharField('Name', max_length=40, blank=True, null=True)
     datetime = models.DateTimeField('Date/time')
     attendance_start = models.DateTimeField('Attendance Start', blank=True, null=True)
-    attendance_end= models.DateTimeField('Attendance End', blank=True, null=True)
+    attendance_end = models.DateTimeField('Attendance End', blank=True, null=True)
     password = models.CharField('Password', max_length=20, blank=True, null=True)
 
     def in_past(self):
@@ -102,6 +106,7 @@ class Meeting(models.Model):
         get_latest_by = 'datetime'
         ordering = ['datetime']
 
+
 class Semester(models.Model):
     name = models.CharField('Name', max_length=12)
     enrollment_start = models.DateTimeField('Enrollment Start')
@@ -125,6 +130,7 @@ class Semester(models.Model):
         get_latest_by = 'enrollment_start'
         ordering = ['enrollment_start', 'enrollment_end',]
 
+
 class ShirtSize(models.Model):
     abbr_name = models.CharField('Abbreviated Name', max_length=4)
     full_name = models.CharField('Full Name', max_length=20, blank=True, null=True)
@@ -136,6 +142,7 @@ class ShirtSize(models.Model):
 
     class Meta:
         ordering = ['sequence']
+
 
 class Member(models.Model):
     user = models.OneToOneField(User)

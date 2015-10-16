@@ -11,6 +11,7 @@ from mailsnake import MailSnake
 from membership.forms import *
 from membership.models import *
 
+
 def new_member(request):
     #auth.logout(request)
     if request.method == 'POST':
@@ -32,6 +33,7 @@ def new_member(request):
         'uform': uform,
         'pform': pform,
     })
+
 
 def signin(request, meeting_pk=None):
     now = timezone.now()
@@ -72,20 +74,22 @@ def signin(request, meeting_pk=None):
         'form': form
     })
 
+
 def __add_to_mailchimp(user):
     if settings.MAILCHIMP_AUTO_SUBSCRIBE:
         ms = MailSnake(settings.MAILCHIMP_API_KEY)
         ms.listSubscribe(
-            id = settings.MAILCHIMP_LIST_ID,
-            email_address = user.email,
-            merge_vars = {
+            id=settings.MAILCHIMP_LIST_ID,
+            email_address=user.email,
+            merge_vars={
                 'FNAME': user.first_name,
                 'LNAME': user.last_name,
             },
-            double_optin = False, #no confirm message
-            send_welcome = True, #if new, send welcome
-            update_existing = True, #if existing, update
+            double_optin=False,  # no confirm message
+            send_welcome=True,  # if new, send welcome
+            update_existing=True,  # if existing, update
         )
+
 
 @login_required
 def enrollment(request):
@@ -106,6 +110,7 @@ def enrollment(request):
         'available_semesters': available_semesters,
         'shirt_sizes': shirt_sizes,
     })
+
 
 @require_POST
 @login_required
@@ -128,6 +133,7 @@ def enroll(request):
     enrollment.save()
     return redirect(reverse('membership.views.enrollment'))
 
+
 @login_required
 def edit_member(request):
     user = request.user
@@ -146,6 +152,7 @@ def edit_member(request):
         'uform': uform,
         'pform': pform,
     })
+
 
 def logout(request):
     auth.logout(request)

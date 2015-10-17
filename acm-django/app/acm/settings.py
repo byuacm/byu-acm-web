@@ -68,7 +68,6 @@ STATIC_URL = '/static/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
-    # Always use forward slashes, even on Windows.
     ROOT('static'),
     ROOT('../../public'),
 )

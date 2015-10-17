@@ -20,15 +20,15 @@ MANAGERS = ADMINS
 
 # Email
 EMAIL_HOST      = 'smtp.gmail.com'
-EMAIL_HOST_PASSWORD = 'password' #redefind in settings_private
-EMAIL_HOST_USER = 'cs.byu.acm@gmail.com'
+EMAIL_HOST_PASSWORD = 'password'  # redefind in settings_private
+EMAIL_HOST_USER = 'cs.byu.acm@gmai l.com'
 EMAIL_PORT      = 587
 EMAIL_USE_TLS   = True
 DEFAULT_FROM_EMAIL  = 'acm@byu.edu'
 SERVER_EMAIL    = 'acm@byu.edu'
 
 MAILCHIMP_AUTO_SUBSCRIBE = False
-MAILCHIMP_API_KEY = 'key' #redefined in settings_private
+MAILCHIMP_API_KEY = 'key'  # redefined in settings_private
 MAILCHIMP_LIST_ID = 3411312468
 
 # Local time zone for this installation. Choices can be found here:
@@ -77,8 +77,6 @@ STATICFILES_DIRS = (
 # various locations.
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
-#    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-#    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
 # Security depends on this being secret
@@ -88,7 +86,6 @@ SECRET_KEY = 'secret' #redefined in settings_private
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
-#     'django.template.loaders.eggs.Loader',
 )
 
 PASSWORD_HASHERS = (
@@ -101,14 +98,12 @@ PASSWORD_HASHERS = (
 )
 
 MIDDLEWARE_CLASSES = (
-    # 'django.middleware.gzip.GZipMiddleware', # currently, web server does this
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    # Uncomment the next line for simple clickjacking protection:
-    # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
 ROOT_URLCONF = 'acm.urls'
@@ -127,7 +122,6 @@ INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
-#    'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.forms',
@@ -136,6 +130,7 @@ INSTALLED_APPS = (
     'membership',
     'dashboard',
     'problems',
+    'rest_framework'
 )
 
 APPEND_SLASH = True

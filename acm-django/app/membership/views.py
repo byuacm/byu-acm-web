@@ -7,9 +7,21 @@ from django.shortcuts import render, redirect
 from django.utils import timezone
 from django.views.decorators.http import require_POST
 from mailsnake import MailSnake
+from rest_framework import viewsets
+from membership.serializers import MemberSerializer
 
-from membership.forms import *
-from membership.models import *
+from membership.forms import (
+    MyUserCreationForm, MyUserChangeForm, MemberForm, AttendanceForm
+)
+from membership.models import (
+    Attendance, Enrollment, Meeting, Semester, ShirtSize, Member
+)
+
+
+class MemberViewSet(viewsets.ModelViewSet):
+
+    queryset = Member.objects.all()
+    serializer_class = MemberSerializer
 
 
 def new_member(request):
@@ -95,14 +107,10 @@ def __add_to_mailchimp(user):
 def enrollment(request):
     now = timezone.now()
     enrollments = (
-        Enrollment.objects
-            .filter(member__user=request.user)
-            .order_by('-semester__enrollment_start')
+        Enrollment.objects.filter(member__user=request.user).order_by('-semester__enrollment_start')
     )
     available_semesters = (
-        Semester.objects.filter(enrollment_start__lte=now)
-            .filter(enrollment_end__gt=now)
-            .exclude(member__user=request.user)
+        Semester.objects.filter(enrollment_start__lte=now).filter(enrollment_end__gt=now).exclude(member__user=request.user)
     )
     shirt_sizes = ShirtSize.objects.filter(is_active=True)
     return render(request, 'membership/enrollment.html', {
@@ -119,15 +127,14 @@ def enroll(request):
     try:
         semester = Semester.objects.get(pk=request.POST['semester_pk'])
         shirt_size = (
-            ShirtSize.objects.get(pk=request.POST['shirt_size_pk']) if request.POST['shirt_size_pk']
-            else None
+            ShirtSize.objects.get(pk=request.POST['shirt_size_pk']) if request.POST['shirt_size_pk'] else None
         )
     except (Semester.DoesNotExist, ShirtSize.DoesNotExist):
         response = HttpResponse()
         response.status_code = 422
         response.reason_phrase = 'Unprocessable Entry'
         return response
-    
+
     enrollment, _ = Enrollment.objects.get_or_create(member=member, semester=semester)
     enrollment.shirt_size = shirt_size
     enrollment.save()

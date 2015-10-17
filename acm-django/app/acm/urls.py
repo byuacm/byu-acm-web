@@ -30,8 +30,6 @@ urlpatterns = patterns('',
 
     # Dashboard
     url(r'^dashboard/', include('dashboard.urls')),
-
-    # Dashboard
     url(r'^problems/', include('problems.urls')),
 
     # Admin documentation:
@@ -39,6 +37,9 @@ urlpatterns = patterns('',
 
     # Admin
     url(r'^admin/', include(admin.site.urls)),
+
+    # API (yaaaaaayyy)
+    url(r'^api/membership/', include('membership.urls')),
 )
 
 # Startup code

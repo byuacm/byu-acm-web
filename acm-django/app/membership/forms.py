@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import widgets
-from django.contrib.auth.forms import *
+from django.contrib.auth.forms import UserChangeForm, UserCreationForm
 from django.contrib.auth.models import User
 from membership.models import *
 
@@ -16,7 +16,7 @@ class MyUserCreationForm(UserCreationForm):
         user.last_name = self.cleaned_data['last_name']
         user.email = self.cleaned_data['email']
         if commit:
-                user.save()
+            user.save()
         return user
 
 
@@ -29,7 +29,12 @@ class MyUserChangeForm(UserChangeForm):
     class Meta:
         model = User
         exclude = (
-            'is_active', 'is_staff', 'is_superuser', 'password', 'last_login', 'date_joined',
+            'is_active',
+            'is_staff',
+            'is_superuser',
+            'password',
+            'last_login',
+            'date_joined',
         )
 
 

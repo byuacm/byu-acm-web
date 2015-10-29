@@ -4,6 +4,7 @@ from django.contrib.auth.forms import *
 from django.contrib.auth.models import User
 from membership.models import *
 
+
 class MyUserCreationForm(UserCreationForm):
     first_name = forms.CharField(max_length=30)
     last_name = forms.CharField(max_length=30)
@@ -18,7 +19,10 @@ class MyUserCreationForm(UserCreationForm):
                 user.save()
         return user
 
+
 class MyUserChangeForm(UserChangeForm):
+
+    # TODO 10/16/2015 - investigate if this can be removed
     def clean_password(self):
         return '' # This is a temporary fix for a django 1.4 bug
         
@@ -28,21 +32,24 @@ class MyUserChangeForm(UserChangeForm):
             'is_active', 'is_staff', 'is_superuser', 'password', 'last_login', 'date_joined',
         )
 
+
 class MemberForm(forms.ModelForm):
     class Meta:
         model = Member
         exclude = ('user',)
 
+
 class AttendanceForm(forms.ModelForm):
     username = forms.ChoiceField(choices=(), widget=widgets.TextInput)
-    
+
     def __init__(self, *args, **kwargs):
         super(forms.ModelForm, self).__init__(*args, **kwargs)
-        self.fields['username'].choices = User.objects.values_list('username','username')
+        self.fields['username'].choices = User.objects.values_list('username', 'username')
         current_meetings = Meeting.current()
         self.fields['meeting'].queryset = current_meetings
         if current_meetings:
-            self.fields['meeting'].empty_label = None #http://stackoverflow.com/questions/739260/customize-remove-django-select-box-blank-option
+            # http://stackoverflow.com/questions/739260/customize-remove-django-select-box-blank-option
+            self.fields['meeting'].empty_label = None
 
     class Meta:
         model = Attendance

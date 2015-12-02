@@ -12,9 +12,9 @@ app.config(['$routeProvider', function($routeProvider,$locationProvider) {
   	  when('/leaders', {templateUrl: 'html/leaders.html', controller:LeaderCtrl}).
   	  when('/contributors/:id', {templateUrl: 'html/sponsors.html', controller:SponsorCtrl}).
   	  when('/events', {templateUrl: 'html/events.html', controller:EventCtrl}).
-          // Temporary page. Remove after ICPC.
+          // Temporary pages
           // when('/icpc', {templateUrl: 'html/icpc.html', controller:IcpcCtrl}).
-      when('/vote', {templateUrl: 'html/vote.html', controller:VoteCtrl});
+      		// when('/vote', {templateUrl: 'html/vote.html', controller:VoteCtrl});
 }]);
 
 //*****************************************************************************

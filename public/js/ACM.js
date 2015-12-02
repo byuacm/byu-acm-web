@@ -62,18 +62,17 @@ function HomeCtrl($scope, $routeParams) {
 	// slideshow
 	// 45 X 13 aspect ratio
 	$scope.photos = [
-
-		{ url: 'img/meetings/opening_social_winter_2013-1-cropped.jpg',
-			photoText: 'Come check out a meeting.  Food, prizes, awesome demos.  You will love it!' },
-		{ url: 'img/meetings/opening_social_winter_2013-4-cropped.jpg',
-			photoText: 'Google gave us an inside look at what it\'s like to work there!' }
+		{ url: 'img/misc/group-chat-2.jpg' },
+		{ url: 'img/meetings/opening_social_winter_2013-1-cropped.jpg' },
+		{ url: 'img/misc/prize-winner-2.jpg' },
+		{ url: 'img/meetings/opening_social_winter_2013-4-cropped.jpg' },
+		{ url: 'img/misc/coding-competition-W2015-2.jpg' }
 	];
 
 	$scope.count = 0;
 	$scope.total = $scope.photos.length;
 	$scope.delay = 7500;
 	$scope.photo = $scope.photos[$scope.count].url;
-	//$scope.photoText = $scope.photos[$scope.count].photoText;
 
 	$scope.changePhoto = function() {
 
@@ -85,8 +84,6 @@ function HomeCtrl($scope, $routeParams) {
 		}, 500, function() {
 			$('#photo-slide').children().first().remove();
 			$(this).removeClass('above');
-			//$scope.photoText = $scope.photos[$scope.count].photoText;
-			//$scope.$digest();
 		});
 		
 		$scope.setSlideshow(setTimeout(function() { $scope.changePhoto(); }, $scope.delay));
@@ -106,8 +103,6 @@ function HomeCtrl($scope, $routeParams) {
 
 		$("#photo-slide img").attr('src', $scope.photos[$scope.count].url);
 		$scope.setSlideshow(setTimeout(function() { $scope.changePhoto(); }, $scope.delay));
-		//$scope.photoText = $scope.photos[$scope.count].photoText;
-		//$scope.$digest();
 	}
 
 	$scope.setSlideshow(setTimeout(function() { $scope.changePhoto(); }, $scope.delay));

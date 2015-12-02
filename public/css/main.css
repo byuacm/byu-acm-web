@@ -3,7 +3,7 @@
 *******************************************************/
 
 html {
-	overflow-y:scroll;
+	overflow-y: scroll;
 }
 
 body {
@@ -113,7 +113,7 @@ header {
 }
 
 header span {
-	float:right;
+	float: right;
 	margin-right: 30px;
 	position: relative;
 }
@@ -195,12 +195,12 @@ nav a.selected {
 }
 
 nav.secondary {
-    height: 28px;
+  height: 28px;
 }
 
 nav.secondary a {
-    font-size: 18px;
-    line-height: 28px;
+  font-size: 18px;
+  line-height: 28px;
 }
 
 /*******************************************************
@@ -208,10 +208,10 @@ nav.secondary a {
 *******************************************************/
 
 #photo-slide {
-	height:260px;
-	width:inherit;
-	position:relative;
-	overflow:hidden;
+	height: 260px;
+	width: inherit;
+	position: relative;
+	overflow: hidden;
 }
 
 #photo-slide img {
@@ -226,26 +226,26 @@ nav.secondary a {
 }
 
 #photo-slide .photo-nav {
-	height:inherit;
-	width:5%;
-	background-color:rgba(255,255,255,0.7);
-	display:inline-block;
-	float:right;
+	background-color: rgba(255,255,255,0.7);
+	display: inline-block;
+	float: right;
+	height: inherit;
+	position: relative;
 	transition: background-color 1s;
 	-moz-transition: background-color 1s; /* Firefox 4 */
 	-webkit-transition: background-color 1s; /* Safari and Chrome */
 	-o-transition: background-color 1s; /* Opera */
 	-ms-transition: background-color 1s;
-	position: relative;
+	width: 5%;
 }
 
 #photo-slide .photo-nav:hover {
-	background-color:rgba(255,255,255,0.8);
-	cursor:pointer;
+	background-color: rgba(255,255,255,0.8);
+	cursor: pointer;
 }
 
 #photo-slide img + .photo-nav {
-	float:left;
+	float: left;
 }
 
 #photo-slide img + .photo-nav img {
@@ -269,8 +269,8 @@ nav.secondary a {
 }
 
 #extra-nav {
-	text-align: center;
 	height: 63px;
+	text-align: center;
 }
 
 #extra-nav .link {
@@ -278,11 +278,11 @@ nav.secondary a {
 }
 
 #real-acm {
-		width:85px;
-		height:85px;
-		position: relative;
-		top: 11px;
-		margin-right: 10px;
+	height: 85px;
+	margin-right: 10px;
+	position: relative;
+	top: 11px;
+	width: 85px;
 }
 
 
@@ -299,8 +299,8 @@ nav.secondary a {
 }
 
 .title {
-	padding: 4px;
 	margin-left: 20px;
+	padding: 4px;
 }
 
 .sponsor-container h3 {
@@ -397,11 +397,11 @@ nav.secondary a {
 }
 
 .officer img {
-	width: 150px;
-	height: 150px;
+	border-radius: 10px;
 	float: left;
+	height: 150px;
 	margin-right: 10px;
-	border-radius:10px;
+	width: 150px;
 }
 
 .officer h5 {
@@ -454,9 +454,9 @@ font-size: 22px;
 }
 
 .drop-arrow {
-	display: inline-block;
 	background: rgba(219,243,250,1);
 	border-radius: 40px;
+	display: inline-block;
 	padding: 5px;
 	width: 27px;
 	text-align: center;
@@ -483,7 +483,7 @@ font-size: 22px;
 }
 
 .nosite {
-	cursor:default;
+	cursor: default;
 	text-decoration: none;
 }
 
@@ -492,7 +492,7 @@ font-size: 22px;
 *******************************************************/
 footer {
 	color: #2BBAE4;
-	text-align:center;
+	text-align: center;
 }
 
 footer .gallery {
@@ -500,12 +500,12 @@ footer .gallery {
 }
 
 footer .copyright {
-	line-height:40px;
 	background-color: #2D2C2D;
 	height: 40px;
+	line-height:40px;
 	width: 900px;
 }
 
 footer h3 {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }

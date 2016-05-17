@@ -1,9 +1,8 @@
-from django.conf.urls import patterns, url
+from django.conf.urls import url
 
 from views import problem, problems
 
-urlpatterns = patterns(
-    'problems.views',
+urlpatterns = [
     url(r'^(\w+)/$', problem),
     url(r'^$', problems),
-)
+]

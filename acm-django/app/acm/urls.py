@@ -9,7 +9,7 @@ from membership.views import logout
 
 admin.autodiscover()
 
-urlpatterns = patterns('',
+urlpatterns = [
     # Static - there is a better way to do this, but it requires access to webserver
     url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {
         'document_root': settings.STATIC_ROOT,
@@ -42,7 +42,7 @@ urlpatterns = patterns('',
 
     # Admin
     url(r'^admin/', include(admin.site.urls)),
-)
+]
 
 # Startup code
 from startup import *

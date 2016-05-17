@@ -20,7 +20,7 @@ MANAGERS = ADMINS
 
 # Email
 EMAIL_HOST      = 'smtp.gmail.com'
-EMAIL_HOST_PASSWORD = 'password' #redefind in settings_private
+EMAIL_HOST_PASSWORD = 'password'  #redefind in settings_private
 EMAIL_HOST_USER = 'cs.byu.acm@gmail.com'
 EMAIL_PORT      = 587
 EMAIL_USE_TLS   = True
@@ -77,8 +77,6 @@ STATICFILES_DIRS = (
 # various locations.
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
-#    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-#    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
 # Security depends on this being secret
@@ -88,7 +86,6 @@ SECRET_KEY = 'secret' #redefined in settings_private
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
-#     'django.template.loaders.eggs.Loader',
 )
 
 PASSWORD_HASHERS = (
@@ -196,4 +193,4 @@ DATABASES = {
 try:
     from settings_private import *
 except ImportError:
-    print 'Private settings not found'
+    print('Private settings not found')

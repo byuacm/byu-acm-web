@@ -139,8 +139,7 @@ function LeaderCtrl($scope, $routeParams) {
 	}
 	
 	$scope.leaders = [];
-	if(!$scope.hasLeaderList())
-	{
+	if(!$scope.hasLeaderList()) {
 		$.getJSON("js/officers.json").then(
             function(data) {
                 $scope.setLeaders(data);

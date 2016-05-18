@@ -80,7 +80,7 @@ STATICFILES_FINDERS = (
 )
 
 # Security depends on this being secret
-SECRET_KEY = 'secret' #redefined in settings_private
+SECRET_KEY = 'secret'  # redefined in settings_private
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -115,16 +115,12 @@ WSGI_APPLICATION = 'acm.wsgi.application'
 
 TEMPLATE_DIRS = (
     ROOT('site-templates/'),
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
 )
 
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
-#    'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.forms',

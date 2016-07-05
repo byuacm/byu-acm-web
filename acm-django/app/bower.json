@@ -1,0 +1,18 @@
+{
+  "name": "BYU ACM",
+  "homepage": "https://github.com/byuacm/byu-acm-web",
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6"
+  }
+}

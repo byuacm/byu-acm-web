@@ -25,71 +25,69 @@ My Profile
 {% endif %}
 <form action="{{ request.url }}" method="post" class="form-horizontal"> {% csrf_token %}
 	<div style="width:30em;margin-left:4em;">
-		<div class="control-group">
+		<div class="form-group">
 			<label class="control-label" for="id_username">Username:</label>
 			&nbsp;
 			{{ uform.username }}
 		</div>
-		<div class="control-group">
+		<div class="form-group">
 			<label class="control-label" for="id_first_name">First name:</label>
 			&nbsp;
 			{{ uform.first_name }}
 		</div>
-		<div class="control-group">
+		<div class="form-group">
 			<label class="control-label" for="id_last_name">Last name:</label>
 			&nbsp;
 			{{ uform.last_name }}
 		</div>
-		<div class="control-group">
+		<div class="form-group">
 			<label class="control-label" for="id_email">Email:</label>
 			&nbsp;
 			{{ uform.email }}
 		</div>
-		<div class="control-group">
+		<div class="form-group">
 			<label class="control-label" for="id_website">Website:</label>
 			&nbsp;
 			{{ pform.website }}
 		</div>
-		<div class="control-group">
+		<div class="form-group">
 			<label class="control-label" for="id_password">Password:</label>
 			&nbsp;
 			<a href="{% url 'django.contrib.auth.views.password_change' %}">
 				<input type="text" value="Click here to change..." disabled>
 			</a>
 		</div>
-		<div class="control-group">
+		<div class="form-group">
 			<label class="control-label" for="id_is_byu">BYU Student:</label>
 			&nbsp;
 			{{ pform.is_byu }}
 		</div>
-		<div class="control-group">
+		<div class="form-group">
 			<label class="control-label" for="id_is_cs">CS Student:</label>
 			&nbsp;
 			{{ pform.is_cs }}
 		</div>
-		<div class="control-group">
+		<div class="form-group">
 			<label class="control-label" for="id_is_undergraduate">Undergraduate:</label>
 			&nbsp;
 			{{ pform.is_undergraduate }}
 		</div>
-		<div class="control-group">
+		<div class="form-group">
 			<label class="control-label" for="id_spoj_username"><a href="http://spoj.pl" target="_blank">SPOJ</a> username (if you have one):</label>
 			&nbsp;
 			{{ pform.spoj_username }}
 		</div>
-		<div class="control-group">
+		<div class="form-group">
 			<label class="control-label" for="id_highest_course">Highest CS course (current):</label>
 			&nbsp;
 			{{ pform.highest_course }}
 		</div>
-		<div class="control-group">
+		<div class="form-group">
 			<label class="control-label" for="id_graduation">Graduation:</label>
 			&nbsp;
 			{{ pform.graduation }}
 		</div>
 	</div>
-	<div class="pagination-centered">
-		<button class="btn btn-primary" type="submit">Save changes</button>
-	</div>
+	<button class="btn btn-primary center-block" type="submit">Save changes</button>
 </form>
 {% endblock %}

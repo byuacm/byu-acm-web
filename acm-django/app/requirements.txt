@@ -1,2 +1,2 @@
-django==1.9.6
+django==1.9.7
 mailsnake==1.6

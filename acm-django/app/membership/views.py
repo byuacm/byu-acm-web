@@ -13,7 +13,6 @@ from membership.models import *
 
 
 def new_member(request):
-    #auth.logout(request)
     if request.method == 'POST':
         uform = MyUserCreationForm(request.POST)
         pform = MemberForm(request.POST)
@@ -35,6 +34,7 @@ def new_member(request):
     })
 
 
+@login_required
 def signin(request, meeting_pk=None):
     now = timezone.now()
     initial = {}
@@ -59,8 +59,7 @@ def signin(request, meeting_pk=None):
             })
         initial['meeting'] = Meeting.objects.get(pk=form.data['meeting'])
     else:
-        if request.user.is_authenticated():
-            initial['username'] = request.user.username
+        initial['username'] = request.user.username
         try:
             initial['meeting'] = (
                 Meeting.objects.get(pk=meeting_pk) if meeting_pk is not None
@@ -108,7 +107,7 @@ def enrollment(request):
     return render(request, 'membership/enrollment.html', {
         'enrollments': enrollments,
         'available_semesters': available_semesters,
-        'shirt_sizes': shirt_sizes,
+        'shirt_sizes': shirt_sizes
     })
 
 

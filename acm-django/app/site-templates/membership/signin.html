@@ -25,26 +25,19 @@ Sign in for meeting
 {% if success %}
 Thanks for coming, {{ success }}.
 {% endif %}
-<form action="{{ request.url }}" method="post" class="form-horizontal"> {% csrf_token %}
+<form action="{{ request.url }}" method="post" class="form-horizontal center-block" style="width:350px"> {% csrf_token %}
 	<div style="width:30em;margin-left:4em;">
-		<div class="control-group">
+		<div class="form-group">
 			<label class="control-label" for="id_username">Username:</label>
 			&nbsp;
 			{{ form.username }}
 		</div>
-		<div class="control-group">
+		<div class="form-group">
 			<label class="control-label" for="id_meeting">Meeting:</label>
 			&nbsp;
 			{{ form.meeting }}
 		</div>
-		<div class="control-group" style="display:none">
-			<label class="control-label" for="id_has_shirt">Wearing your ACM shirt?</label>
-			&nbsp;
-			{{ form.has_shirt }}
-		</div>
 	</div>
-	<div class="pagination-centered">
-		<button class="btn btn-primary" type="submit">I was here!</button>
-	</div>
+	<button class="btn btn-primary center-block" type="submit">I was here!</button>
 </form>
 {% endblock %}

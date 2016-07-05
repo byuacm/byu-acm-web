@@ -8,13 +8,12 @@ ROOT = lambda base: os.path.join(os.path.dirname(__file__)+"/../", base)
 
 # Debugging
 DEBUG = True
-TEMPLATE_DEBUG = True
 
 # Receive errors from logging
 ADMINS = (
     ('Jared Neil', 'jaredaneil@gmail.com'),
-    ('Connor Smith', 'connor.smith.256@gmail.com'),
-    ('Derek Argueta', 'darguetap@gmail.com')
+    ('Derek Argueta', 'darguetap@gmail.com'),
+    ('Jordan Nielson', 'jnielson94@gmail.com')
 )
 MANAGERS = ADMINS
 
@@ -82,12 +81,6 @@ STATICFILES_FINDERS = (
 # Security depends on this being secret
 SECRET_KEY = 'secret'  # redefined in settings_private
 
-# List of callables that know how to import templates from various sources.
-TEMPLATE_LOADERS = (
-    'django.template.loaders.filesystem.Loader',
-    'django.template.loaders.app_directories.Loader',
-)
-
 PASSWORD_HASHERS = (
     'django.contrib.auth.hashers.PBKDF2PasswordHasher',
     'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
@@ -104,18 +97,12 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    # Uncomment the next line for simple clickjacking protection:
-    # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
 ROOT_URLCONF = 'acm.urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'acm.wsgi.application'
-
-TEMPLATE_DIRS = (
-    ROOT('site-templates/'),
-)
 
 INSTALLED_APPS = (
     'django.contrib.auth',
@@ -130,6 +117,24 @@ INSTALLED_APPS = (
     'dashboard',
     'problems',
 )
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [
+            ROOT('site-templates/')
+        ],
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+            'debug': True
+        }
+    }
+]
 
 APPEND_SLASH = True
 
@@ -168,15 +173,6 @@ LOGGING = {
         },
     }
 }
-
-TEMPLATE_CONTEXT_PROCESSORS = (
-    'django.core.context_processors.debug',
-    'django.core.context_processors.i18n',
-    'django.core.context_processors.media',
-    'django.core.context_processors.static',
-    'django.contrib.auth.context_processors.auth',
-    'django.contrib.messages.context_processors.messages',
-)
 
 DATABASES = {
     'default': {

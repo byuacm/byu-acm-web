@@ -22,9 +22,6 @@ SQLITE_DB := acm-django/app/acm/data.db
 
 ## Django dev ##
 
-dev-db:
-	$(DJANGO_MANAGE) syncdb
-
 dev-static:
 	$(DJANGO_MANAGE) collectstatic --noinput
 

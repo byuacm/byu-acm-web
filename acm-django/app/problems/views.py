@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.http import *
 from django.shortcuts import render
 from django.utils import timezone
@@ -7,6 +8,7 @@ from problems.models import Problem
 from problems.forms import ProblemForm
 
 
+@login_required
 def problem(request, code):
     try:
         problem = Problem.objects.get(code=code)
@@ -46,6 +48,7 @@ def problem(request, code):
     })
 
 
+@login_required
 def problems(request):
     problems = Problem.objects.filter(start__lte=timezone.now()).order_by('-start')
     return render(request, 'problems/problems.html', {

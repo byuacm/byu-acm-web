@@ -41,7 +41,6 @@ LANGUAGE_CODE = 'en-us'
 
 ALLOWED_HOSTS = [
     'acm.byu.edu',
-    'acm-new.byu.edu',
     'localhost',
 ]
 

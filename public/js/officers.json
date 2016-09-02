@@ -9,7 +9,7 @@
     "name": "Jordan Nielson",
     "title": "Vice President, Internal Operations",
     "img": "img/officer/web/jordan.png",
-    "bio": ""
+    "bio": "Jordan is working towards his Bachelors in Computer Science, with a minor in Business Management. He is currently a Teaching Assistant for CS201R. Outside of classes he enjoys playing tennis, spending time with family, and reading."
   },
   {
     "name": "Caleb Tonkinson",
@@ -32,6 +32,12 @@
   {
     "name": "Ben DeMann",
     "title": "Chief Marketing Officer",
+    "img": "http://placehold.it/150x150",
+    "bio": ""
+  },
+  {
+    "name": "Jacob Barzee",
+    "title": "Chief Experience Officer",
     "img": "http://placehold.it/150x150",
     "bio": ""
   }

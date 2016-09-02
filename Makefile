@@ -4,46 +4,20 @@ MAKEFLAGS := -j4
 HOSTNAME := $(shell hostname)
 
 PROD_USER := acm
-PROD_HOST := acm-new.byu.edu
 PROD_DB := acm
 
 PORT ?= 8000 # dev port
 
-PYTHON_VERSION := $(shell python -c 'import sys; print(".".join(map(str, sys.version_info[:2])))')
-ifneq ($(PYTHON_VERSION), '2.7')
-ENSURE_PYTHON := source /opt/rh/python27/enable &&
-endif
-
-DJANGO_MANAGE := $(ENSURE_PYTHON) acm-django/app/manage.py
-SUPERVISORCTL := $(ENSURE_PYTHON) supervisorctl
-
-SQL_DATA := acm-django/backup.sql
-SQLITE_DB := acm-django/app/acm/data.db
+DJANGO_MANAGE := python acm-django/app/manage.py
+SUPERVISORCTL := supervisorctl
 
 ## Django dev ##
 
 dev-static:
 	$(DJANGO_MANAGE) collectstatic --noinput
 
-dev-run: static db
+dev-run:
 	$(DJANGO_MANAGE) runserver $(PORT)
-
-## Data migration ##
-
-.PHONY: backup-prod
-backup-prod: $(SQL_DATA)
-
-.PHONY: import-prod
-import-prod: $(SQL_DATA)
-	util/mysql2sqlite.sh < $< | sqlite3 $(SQLITE_DB
-
-.PHONY: $(SQL_DATA)
-$(SQL_DATA):
-ifeq ($(HOSTNAME), $(PROD_HOST))
-	mysqldump $(PROD_DB) > $@
-else
-	ssh $(PROD_USER)@$(PROD_HOST) 'mysqldump $(PROD_DB)' > $@
-endif
 
 ## Deploy ##
 

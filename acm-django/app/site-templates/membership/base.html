@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block nav %}
-	{% if not request.user.is_authenticated %}
+	{% if not user.is_authenticated %}
 	<li class="{% ifequal nav_selection 'register' %}active{% endifequal %}">
 		<a href="{% url 'membership.views.new_member' %}">Register</a>
 	</li>

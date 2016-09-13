@@ -68,7 +68,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     # Always use forward slashes, even on Windows.
     ROOT('static'),
-    ROOT('../../public'),
+#    ROOT('../../public'),
 )
 
 # List of finder classes that know how to find static files in
@@ -123,6 +123,7 @@ TEMPLATES = [
         'DIRS': [
             ROOT('site-templates/')
         ],
+        'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',

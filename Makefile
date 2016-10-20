@@ -1,7 +1,4 @@
-SHELL := /bin/bash
 MAKEFLAGS := -j4
-
-HOSTNAME := $(shell hostname)
 
 PROD_USER := acm
 PROD_DB := acm

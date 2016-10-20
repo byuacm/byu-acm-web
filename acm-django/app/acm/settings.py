@@ -11,9 +11,18 @@ DEBUG = True
 
 # Receive errors from logging
 ADMINS = (
+    # It's Jared
     ('Jared Neil', 'jaredaneil@gmail.com'),
+
+    # CTO
     ('Derek Argueta', 'darguetap@gmail.com'),
-    ('Jordan Nielson', 'jnielson94@gmail.com')
+
+    # VP of Internal Affairs
+    ('Jordan Nielson', 'jnielson94@gmail.com'),
+
+    # tech team officers
+    ('Cody Harrison', 'cody.d.h.harrison@gmail.com'),
+    ('Naomi Johnson', 'snjohnson789@gmail.com')
 )
 MANAGERS = ADMINS
 

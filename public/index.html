@@ -12,37 +12,6 @@
 	<script src="js/vendor/angular.min.js"></script>
 	<script src="js/vendor/jquery1.8.3.min.js"></script>
 	<script src="js/jquery.slidingGallery-1.2.js"></script>
-    <script>
-        $(function() {
-            //randomize sponsor logos
-            var elems = $('div.gallery > *').detach().get().map(function(elem) {
-                return {elem:elem, rank:Math.random()};
-            }).sort(function(a, b) {
-                return a.rank - b.rank;
-            }).map(function(obj) {
-                return obj.elem;
-            });
-            $(elems).appendTo('div.gallery').first().find('img').addClass('start');
-
-			var zoomFunc = function(dimension) {
-                return dimension * 1.5;
-            }
-            var shrinkFunc = function(dimension) {
-                return dimension * 0.5;
-            }
-            $('div.gallery img').slidingGallery({
-				container: $('div.gallery'),
-				'Lzoom':zoomFunc,
-				'Pzoom':zoomFunc,
-				'Lshrink':shrinkFunc,
-				'Pshrink':shrinkFunc,
-				'Pheight':150,
-				'Pwidth':200,
-				'Lheight':150,
-				'Lwidth':200,
-			});
-        });
-    </script>
 	<script> 
 		//$.noConflict(); // Deactivate $ for jQuery, use for Angular
 		var MEMBERS;
@@ -91,23 +60,6 @@
 		<div id="page-content" ng-view>
 		</div>
 		<footer>
-			<h3>Thanks to those who have contributed:</h3>
-			<div class="gallery" style="width:900px; height:170px;">
-			<!--	<a href="http://www.exxonmobil.com" target="_blank"><img src="img/sponsor-logos/exxon.gif"></a> -->
-			    <a href="http://www.domo.com" target="_blank"><img src="img/sponsor-logos/domo.gif"></a>
-			<!--	<a href="http://www.adobe.com"><img src="img/sponsor-logos/adobe.png"></a> -->
-				<a href="http://www.epic.com" target="_blank"><img src="img/sponsor-logos/epic.jpg"></a>
-				<!-- <a href="http://www.fastenterprises.com" target="_blank"><img src="img/sponsor-logos/fastEnterprises.jpg"></a> -->
-			<!--	<a href="http://www.google.com" target="_blank"><img src="img/sponsor-logos/google.jpg"></a> -->
-				<a href="http://www.lucidchart.com" target="_blank"><img src="img/sponsor-logos/lucid-software.png"></a>
-				<a href="http://www.microsoft.com" target="_blank"><img src="img/sponsor-logos/microsoft.jpg"></a> 
-				<a href="http://www.parivedasolutions.com" target="_blank"><img src="img/sponsor-logos/pariveda-solutions.jpg"></a>
-			<!--	<a href="http://wwww.walmart.com" target="_blank"><img src="img/sponsor-logos/walmart.png"></a> -->
-				<a href="http://www.qualtrics.com" target="_blank"><img src="img/sponsor-logos/qualtrics.png"></a>
-				<a href="https://devmounta.in" target="_blank"><img src="img/sponsor-logos/dev-mountain.png"></a>
-        <a href="http://www.xactware.com/" target="_blank"><img src="img/sponsor-logos/xactware.png"></a>
-        <a href="http://www.goldmansachs.com/" target="_blank"><img src="img/sponsor-logos/goldman.jpeg"></a>
-			</div>
             <div class="center">
               <ul class="list-inline">
                 <li>

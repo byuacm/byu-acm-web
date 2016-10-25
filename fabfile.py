@@ -24,5 +24,5 @@ def prepare_deploy():
 def deploy():
 	with cd('byu-acm-web'):
 		run('git pull derek master')
-		run('make deploy-public')
+		run('sudo make deploy-public')
 	

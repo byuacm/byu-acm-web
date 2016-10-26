@@ -1,0 +1,50 @@
+{% extends 'membership/base.html' %}
+
+{% block title %}
+Attendance
+{% endblock %}
+
+{% block nav %}
+{% with nav_selection='signin' %}
+{{ block.super }}
+{% endwith %}
+{% endblock %}
+
+{% block content_title %}
+Sign in for meeting
+{% endblock %}
+
+{% block content %}
+{% if form.errors %}
+<div class="accordion-inner">
+	<div style="width:30em;margin-left:6em;margin-right:6em;color:#FF0000">
+	{{ form.errors }}
+	</div>
+</div>
+{% endif %}
+{% if success %}
+Thanks for coming, {{ success }}.
+{% endif %}
+<form action="{{ request.url }}" method="post" class="form-horizontal"> {% csrf_token %}
+	<div style="width:30em;margin-left:4em;">
+		<div class="control-group">
+			<label class="control-label" for="id_username">Username:</label>
+			&nbsp;
+			{{ form.username }}
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="id_meeting">Meeting:</label>
+			&nbsp;
+			{{ form.meeting }}
+		</div>
+		<div class="control-group" style="display:none">
+			<label class="control-label" for="id_has_shirt">Wearing your ACM shirt?</label>
+			&nbsp;
+			{{ form.has_shirt }}
+		</div>
+	</div>
+	<div class="pagination-centered">
+		<button class="btn btn-primary" type="submit">I was here!</button>
+	</div>
+</form>
+{% endblock %}

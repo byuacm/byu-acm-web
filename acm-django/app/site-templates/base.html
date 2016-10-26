@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>BYU ACM - {% block title %}{% endblock %}</title>
+		<link rel="shortcut icon" href="{{ STATIC_URL }}images/icons/acm_logo.ico">
+
+		<link href="{{ STATIC_URL }}bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<link href="{{ STATIC_URL }}byuacm/css/byuacm.css" rel="stylesheet">
+		{% block css %}{% endblock %}
+	</head>
+
+	<body>
+		<div class="container page-container">
+			<div class="navbar page-navbar">
+				<div class="navbar-inner">
+					<ul class="nav">
+						<a class="brand" style="color:#3355FF;" href="http://acm.byu.edu" target="_blank">
+							BYU ACM
+						</a>
+						{% block nav %}{% endblock %}
+					</ul>
+				</div>
+			</div>
+
+		  <div class="container" style="width:48em;">
+				<div class="pagination-right" style="margin:5px">
+					{% if user.is_authenticated %}
+					You are logged in as {{ user.username }} ({{ user.get_full_name }}).
+					{% if user.is_staff %}
+					- <a href="/membership/">Public Site</a>
+		  			- <a href="/dashboard/">Dashboard</a>
+		  			{% endif %}
+					- <a href="{% url 'membership.views.logout' %}" >Logout</a>
+					{% endif %}
+				</div>
+				<div class="accordion-group">
+			 		<div class="accordion-header pagination-centered">
+						<h2 class="title">
+							{% block content_title %}{% endblock %}
+						</h2>
+				 	</div>
+				 	<div class="accordion-inner">
+						{% block content %}{% endblock %}
+					</div>
+				</div>
+			</div>
+		</div>
+	    
+		<script src="{{ STATIC_URL }}jquery/js/jquery.js"></script>
+		<script src="{{ STATIC_URL }}bootstrap/js/bootstrap.min.js"></script>
+		{% block javascript %}{% endblock %}
+	</body>
+</html>

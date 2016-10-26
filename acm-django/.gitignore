@@ -1,0 +1,20 @@
+#data
+/app/acm/static/*
+*.db
+*.sql
+/deploy/supervisor/log
+
+#private
+/app/acm/settings_private.*
+
+#backup
+*.*~
+
+#binaries
+*.py[cod]
+
+#dev tools
+*.sublime-*
+.mr.developer.cfg
+.project
+.pydevproject

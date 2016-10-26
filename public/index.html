@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html ng-app="ACM">
+<head>
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+	<link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/main.css" rel="stylesheet">
+	<link rel="icon"  type="image/png" href="img/favicon.ico">
+	<meta name="google" content="notranslate">
+	<meta http-equiv="Content-Language" content="en">
+
+	<script src="js/vendor/angular.min.js"></script>
+	<script src="js/vendor/jquery1.8.3.min.js"></script>
+	<script src="js/jquery.slidingGallery-1.2.js"></script>
+    <script>
+        $(function() {
+            //randomize sponsor logos
+            var elems = $('div.gallery > *').detach().get().map(function(elem) {
+                return {elem:elem, rank:Math.random()};
+            }).sort(function(a, b) {
+                return a.rank - b.rank;
+            }).map(function(obj) {
+                return obj.elem;
+            });
+            $(elems).appendTo('div.gallery').first().find('img').addClass('start');
+
+			var zoomFunc = function(dimension) {
+                return dimension * 1.5;
+            }
+            var shrinkFunc = function(dimension) {
+                return dimension * 0.5;
+            }
+            $('div.gallery img').slidingGallery({
+				container: $('div.gallery'),
+				'Lzoom':zoomFunc,
+				'Pzoom':zoomFunc,
+				'Lshrink':shrinkFunc,
+				'Pshrink':shrinkFunc,
+				'Pheight':150,
+				'Pwidth':200,
+				'Lheight':150,
+				'Lwidth':200,
+			});
+        });
+    </script>
+	<script> 
+		//$.noConflict(); // Deactivate $ for jQuery, use for Angular
+		var MEMBERS;
+		jQuery(function() {
+			jQuery(window).resize(function(){
+				if(jQuery(window).height() > jQuery('html').height())
+					jQuery('html').height(jQuery(window).height());
+			});
+		});
+
+	</script> 
+	<script src="js/ACM.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	
+	<title>BYU ACM - {{pageName}}</title>
+</head>
+<body>
+	<div class="main-content">
+		<header>
+			<img id="acm-diamond-logo" src="img/acm_logo.png">
+			<a id="acm-logo" href="#home">
+				<h1><b>BYU</b>ACM</h1>
+				<p>Association for Computing Machinery</p>
+			</a>
+			<span>
+				<a href="/membership/signin/">
+					<h3>Meeting Check-in</h3>
+				</a>
+				&nbsp;|&nbsp;
+				<a href="/membership/enrollment/">
+					<h3>Member Login</h3>
+				</a>
+				&nbsp;|&nbsp;
+				<a href="/membership/new_user/">
+					<h3>Sign Up</h3>
+				</a>
+			</span>
+		</header>
+		<nav>
+			<a href="#/home" ng-class="{selected: pageName == 'Home'}">Home</a>
+			<a href="#/events" ng-class="{selected: pageName == 'Events'}">Events</a>
+			<a href="#/contributors" ng-class="{selected: pageName == 'Contributors'}">Contributors</a>
+			<a href="#/leaders" ng-class="{selected: pageName == 'Leadership'}">Leadership</a>
+			<a href="#/about" ng-class="{selected: pageName == 'About'}">About</a>
+		</nav>
+		<div id="page-content" ng-view>
+		</div>
+		<footer>
+			<h3>Thanks to those who have contributed:</h3>
+			<div class="gallery" style="width:900px; height:170px;">
+			<!--	<a href="http://www.exxonmobil.com" target="_blank"><img src="img/sponsor-logos/exxon.gif"></a> -->
+			    <a href="http://www.domo.com" target="_blank"><img src="img/sponsor-logos/domo.gif"></a>
+			<!--	<a href="http://www.adobe.com"><img src="img/sponsor-logos/adobe.png"></a> -->
+				<a href="http://www.epic.com" target="_blank"><img src="img/sponsor-logos/epic.jpg"></a>
+				<!-- <a href="http://www.fastenterprises.com" target="_blank"><img src="img/sponsor-logos/fastEnterprises.jpg"></a> -->
+			<!--	<a href="http://www.google.com" target="_blank"><img src="img/sponsor-logos/google.jpg"></a> -->
+				<a href="http://www.lucidchart.com" target="_blank"><img src="img/sponsor-logos/lucid-software.png"></a>
+				<a href="http://www.microsoft.com" target="_blank"><img src="img/sponsor-logos/microsoft.jpg"></a> 
+				<a href="http://www.parivedasolutions.com" target="_blank"><img src="img/sponsor-logos/pariveda-solutions.jpg"></a>
+			<!--	<a href="http://wwww.walmart.com" target="_blank"><img src="img/sponsor-logos/walmart.png"></a> -->
+				<a href="http://www.qualtrics.com" target="_blank"><img src="img/sponsor-logos/qualtrics.png"></a>
+				<a href="https://devmounta.in" target="_blank"><img src="img/sponsor-logos/dev-mountain.png"></a>
+        <a href="http://www.xactware.com/" target="_blank"><img src="img/sponsor-logos/xactware.png"></a>
+        <a href="http://www.goldmansachs.com/" target="_blank"><img src="img/sponsor-logos/goldman.jpeg"></a>
+			</div>
+            <div class="center">
+              <ul class="list-inline">
+                <li>
+                  <a href="https://plus.google.com/+BYUACM">
+                    <span class="icon fa-stack fa-2x">
+                      <i class="fa fa-stack-1x fa-google-plus"></i>
+                      <i class="fa fa-stack-2x fa-square-o"></i>
+                    </span>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.facebook.com/acmbyu">
+                    <span class="icon fa-stack fa-2x">
+                      <i class="fa fa-stack-1x fa-facebook"></i>
+                      <i class="fa fa-stack-2x fa-square-o"></i>
+                    </span>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://twitter.com/byuacm">
+                    <span class="icon fa-stack fa-2x">
+                      <i class="fa fa-stack-1x fa-twitter"></i>
+                      <i class="fa fa-stack-2x fa-square-o"></i>
+                    </span>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://instagram.com/byuacm/">
+                    <span class="icon fa-stack fa-2x">
+                      <i class="fa fa-stack-1x fa-instagram"></i>
+                      <i class="fa fa-stack-2x fa-square-o"></i>
+                    </span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+			<div class="copyright">
+				&copy; 2015 BYU Association for Computing Machinery
+			</div>
+		</footer>
+	</div>
+	<img src="https://commerce.cashnet.com/webagency" style="display:none;">
+</body>
+</html>

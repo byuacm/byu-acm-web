@@ -1,0 +1,511 @@
+/*******************************************************
+****	Main Styles
+*******************************************************/
+
+html {
+	overflow-y: scroll;
+}
+
+body {
+	font-family: Roboto, Arial, Helvetica, sans-serif;
+	margin:0;
+	padding:0;
+}
+
+.main-content {
+	width: 900px;
+	background: white;
+	margin:0 auto;
+	box-shadow: 0px 0px 10px 1px #2D2C2D;
+}
+
+.link {
+	font-size:20px;
+	color:#2BBAE4;
+	display:inline-block;
+	text-decoration:none;
+	-webkit-transition:all 1s;
+}
+
+.link h3 {
+	margin: 15px 0 0 0;
+	text-decoration:none;
+}
+
+.link:hover h3 {
+	text-decoration:underline;
+}
+
+hr {
+	width: 86%;
+	margin-top: 0;
+	margin-bottom: 0;
+	border-bottom: dashed 2px #999;
+	border-top: none;
+}
+
+h2 {
+	font-size: 28px;
+	color:#888;
+	display:inline-block;
+}
+
+h3 {
+	font-size: 20px;
+	color:#888;
+	display:inline-block;
+}
+
+h4 {
+	font-size:22px;
+	color:#2BBAE4;
+}
+
+h5 {
+    font-size:16px;
+    color:#2BBAE4;
+}
+
+article {
+    padding: 20px 20px 20px 40px;
+}
+
+p {
+    font-size:16px;
+    color:#777;
+    margin: 15px;
+    line-height: 22px;
+}
+
+.hide {
+	display: none;
+}
+
+.center {
+    text-align: center;
+}
+
+.icon {
+    color: #2D2C2D;
+    transition: color 200ms;
+}
+
+.icon:hover {
+    color: #2BBAE4;
+}
+
+.fa-instagram:before {
+    position: relative;
+    top: -1px;
+}
+
+/*******************************************************
+****	Header Styles
+*******************************************************/
+
+header {
+	width: inherit;
+	height: 170px;
+	background: #2D2C2D;
+	color: #AAA;
+	position: relative;
+    
+}
+
+header span {
+	float: right;
+	margin-right: 30px;
+	position: relative;
+}
+
+header span a {
+	text-decoration:none;
+	color:#777;
+}
+
+header span a:hover h3 {
+	text-decoration: underline;
+}
+
+header span h3 {
+	display:inline-block;
+	font-weight:100;
+	font-size: 18px;
+	color: #AAA;
+}
+
+#acm-diamond-logo {
+	float:left;
+	width: 170px; 
+	height: 170px;
+	margin-left: 10px;
+}
+
+#acm-logo {
+	float:left;
+	text-decoration: none;
+	width: 315px;
+	margin: 35px 0 0 20px;
+}
+
+#acm-logo h1 {
+	width:400px;
+	font-size: 70px;
+	color: #2BBAE4;
+	font-weight: 100;
+	margin:0;
+	filter:inherit;
+}
+
+#acm-logo b {
+	color:white;
+}
+
+#acm-logo p {
+	color: white;
+	padding-left: 5px;
+	font-size: 18px;
+	margin:0;
+	filter:inherit;
+}
+
+/*******************************************************
+****	Nav Bar Styles
+*******************************************************/
+
+nav {
+	background: #2D2C2D;
+	border-top-style: solid;
+	border-top-color: white;
+	border-top-width: 1px;
+	height: 34px;
+    text-align: center;
+}
+
+nav a {
+	text-decoration: none;
+	font-size:24px;
+	color:white;
+	line-height: 34px;
+	margin: 0 41px;
+}
+
+nav a.selected {
+	color:#AAA;
+}
+
+nav.secondary {
+  height: 28px;
+}
+
+nav.secondary a {
+  font-size: 18px;
+  line-height: 28px;
+}
+
+/*******************************************************
+****	Home Tab Styles
+*******************************************************/
+
+#photo-slide {
+	height: 260px;
+	width: inherit;
+	position: relative;
+	overflow: hidden;
+}
+
+#photo-slide img {
+	position:absolute;
+	height:260px;
+	width:900px;
+	left:0; /* Fixes firefox bug */
+}
+
+#photo-slide img.above {
+	bottom:260px;
+}
+
+#photo-slide .photo-nav {
+	background-color: rgba(255,255,255,0.7);
+	display: inline-block;
+	float: right;
+	height: inherit;
+	position: relative;
+	transition: background-color 1s;
+	-moz-transition: background-color 1s; /* Firefox 4 */
+	-webkit-transition: background-color 1s; /* Safari and Chrome */
+	-o-transition: background-color 1s; /* Opera */
+	-ms-transition: background-color 1s;
+	width: 5%;
+}
+
+#photo-slide .photo-nav:hover {
+	background-color: rgba(255,255,255,0.8);
+	cursor: pointer;
+}
+
+#photo-slide img + .photo-nav {
+	float: left;
+}
+
+#photo-slide img + .photo-nav img {
+	transform: rotate(-90deg);
+	-ms-transform: rotate(-90deg); /* IE 9 */
+	-webkit-transform: rotate(-90deg); /* Safari and Chrome */
+	-o-transform: rotate(-90deg); /* Opera */
+	-moz-transform: rotate(-90deg); /* Firefox */
+}
+
+#photo-slide .photo-nav img {
+	height:30px;
+	width: 50px;
+	margin-top: 107px;
+	margin-left: 5px;
+	transform: rotate(90deg);
+	-ms-transform: rotate(90deg); /* IE 9 */
+	-webkit-transform: rotate(90deg); /* Safari and Chrome */
+	-o-transform: rotate(90deg); /* Opera */
+	-moz-transform: rotate(90deg); /* Firefox */
+}
+
+#extra-nav {
+	height: 63px;
+	text-align: center;
+}
+
+#extra-nav .link {
+	margin: 0 60px;
+}
+
+#real-acm {
+	height: 85px;
+	margin-right: 10px;
+	position: relative;
+	top: 11px;
+	width: 85px;
+}
+
+
+/*******************************************************
+****	Sponsorship Styles
+*******************************************************/
+
+.sponsor-container {
+	min-height: 400px;
+}
+
+.sponsor-container li {
+	color:#888;
+}
+
+.title {
+	margin-left: 20px;
+	padding: 4px;
+}
+
+.sponsor-container h3 {
+	padding: 1px;
+	margin: 0 auto;
+	font-size:18px;
+}
+
+.sponsor-container > div {
+	padding: 4px;
+	margin-left: 5px;
+	width: 90%;
+	margin: 0 auto;
+}
+
+.sponsor-container h3:hover {
+	color:#777;
+	text-decoration: underline;
+}
+
+#current-contributors {
+	margin-bottom:40px;
+	text-align: center;
+}
+
+#current-contributors h4 {
+	display:block;
+	text-align:left;
+	padding-left: 40px;
+}
+
+#current-contributors img {
+	display:inline-block;
+	margin:20px;
+	max-height: 175px;
+	max-width: 300px;
+	vertical-align: top;
+}
+
+.less-defined {
+	font-style: italic;
+	color: rgb(168, 168, 168);
+}
+
+/*******************************************************
+****	Events Styles
+*******************************************************/
+
+#calendar {
+	padding: 50px;
+}
+
+#calendar a {
+	text-decoration: none;
+	color:#777;
+	font-size:20px;
+	margin-bottom:20px;
+}
+
+#calendar a:hover {
+	text-decoration: underline;
+}
+
+#calendar iframe {
+	margin-top:20px;
+}
+
+#icpc {
+	padding: 50px;
+}
+
+/*******************************************************
+****	Members Styles
+*******************************************************/
+
+.officer {
+	display: inline-block;
+	width: 45%;
+	margin: 20px;
+	height:275px;
+	vertical-align: top;
+}
+
+.move-right {
+	margin-left:20px;
+}
+
+.move-right:hover {
+	cursor:pointer;
+}
+
+.officers {
+	padding: 20px;
+}
+
+.officer img {
+	border-radius: 10px;
+	float: left;
+	height: 150px;
+	margin-right: 10px;
+	width: 150px;
+}
+
+.officer h5 {
+	margin-top: 0;
+	margin-bottom: 10px;
+}
+
+.officer h3 {
+	display: block;
+	margin: 0;
+}
+
+.officer h3 + h3 {
+	margin-bottom: 5px;
+	font-size: 17px;
+}
+
+.officer p {
+	font-size: 14px;
+	line-height: 18px;
+	margin: 2px 5px 0 0;
+}
+
+.members span {
+	text-align: center;
+	width: 100%;
+	padding-left: 35px;
+	color:#ACE4F2;
+}
+
+.members span label {
+	display: inline-block;
+	margin: 0 10px;
+}
+
+.members label a {
+color: inherit;
+font-size: 22px;
+}
+
+.members h3 {
+	margin-left:20px;
+}
+
+.member a {
+	color: #2BBAE4;
+	font-size: 20px;
+	margin: 5px 0 5px 30px;
+	text-transform: capitalize;
+}
+
+.drop-arrow {
+	background: rgba(219,243,250,1);
+	border-radius: 40px;
+	display: inline-block;
+	padding: 5px;
+	width: 27px;
+	text-align: center;
+	line-height: 29px;
+	transform: rotate(180deg);
+	-ms-transform: rotate(180deg); /* IE 9 */
+	-webkit-transform: rotate(180deg); /* Safari and Chrome */
+	-o-transform: rotate(180deg); /* Opera */
+	-moz-transform: rotate(180deg); /* Firefox */
+
+	transition: all 0.3s;
+	-moz-transition: all 0.3s; /* Firefox 4 */
+	-webkit-transition: all 0.3s; /* Safari and Chrome */
+	-o-transition: all 0.3s; /* Opera */
+	-ms-transition: all 0.3s; /* Opera */
+}
+
+.rotate {
+	transform: rotate(0deg);
+	-ms-transform: rotate(0deg); /* IE 9 */
+	-webkit-transform: rotate(0deg); /* Safari and Chrome */
+	-o-transform: rotate(0deg); /* Opera */
+	-moz-transform: rotate(0deg); /* Firefox */
+}
+
+.nosite {
+	cursor: default;
+	text-decoration: none;
+}
+
+/*******************************************************
+****	Footer Styles
+*******************************************************/
+footer {
+	color: #2BBAE4;
+	text-align: center;
+}
+
+footer .gallery {
+	padding-bottom:10px;
+}
+
+footer .copyright {
+	background-color: #2D2C2D;
+	height: 40px;
+	line-height:40px;
+	width: 900px;
+}
+
+footer h3 {
+  margin-bottom: 0;
+}

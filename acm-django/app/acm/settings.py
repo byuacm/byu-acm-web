@@ -84,6 +84,7 @@ STATICFILES_DIRS = (
 # various locations.
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
 
 # Security depends on this being secret
@@ -113,6 +114,7 @@ ROOT_URLCONF = 'acm.urls'
 WSGI_APPLICATION = 'acm.wsgi.application'
 
 INSTALLED_APPS = (
+    'suit', # third-party admin theme, must be before contrib.auth
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -121,6 +123,8 @@ INSTALLED_APPS = (
     'django.forms',
     'django.contrib.admin',
     'django.contrib.admindocs',
+
+    # Custom ACM apps
     'membership',
     'dashboard',
     'problems',
@@ -188,6 +192,11 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': ROOT('acm/data.db'),     # Path to database file with sqlite3.
     }
+}
+
+
+SUIT_CONFIG = {
+    'ADMIN_NAME': 'BYU ACM'
 }
 
 # Secure settings

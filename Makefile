@@ -1,5 +1,3 @@
-MAKEFLAGS := -j4
-
 PROD_USER := acm
 PROD_DB := acm
 
@@ -47,11 +45,8 @@ deploy-django: /var/www/acm-django /etc/supervisor/conf.d/acm-django.conf /var/l
 	mkdir $@
 
 .PHONY: deploy-public
-deploy-public: /var/www/acm-public
-
-.PHONY: /var/www/acm-public #for now
-/var/www/acm-public:
-	rsync -r --update --delete public/ $@/
+deploy-public:
+	rsync -r --update --delete public/ /var/www/acm-public/
 
 .PHONY: tail-log
 tail-log:

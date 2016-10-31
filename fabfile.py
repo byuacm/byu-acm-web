@@ -19,7 +19,7 @@ except ImportError:
     REMOTE_AVAIL = False
 
 
-from fabric.api import local, env, run, cd, lcd
+from fabric.api import local, env, run, cd, lcd, sudo
 
 
 # Settings for remote commands
@@ -60,5 +60,5 @@ def deploy():
         return
     with cd('byu-acm-web'):
         run('git pull derek master')
-        run('sudo make deploy-public')
+        sudo('make deploy-public')
 

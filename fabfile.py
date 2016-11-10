@@ -59,6 +59,6 @@ def deploy():
         print(TERM_RED + 'Cannot deploy - secrets unavailable' + TERM_NOCOL)
         return
     with cd('byu-acm-web'):
-        run('git pull derek master')
+        run('git pull origin master')
         sudo('make deploy-public')
 

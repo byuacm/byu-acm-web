@@ -35,7 +35,7 @@ class SubmissionStatus(models.Model):
     score = models.IntegerField()
 
     def __unicode__(self):
-        return u'%s - %s'.format(self.problem_set, self.member)
+        return u'{0} - {1}'.format(self.problem_set, self.member)
 
     class Meta:
         verbose_name_plural = 'Submission statuses'

@@ -4,7 +4,7 @@ from django.shortcuts import render
 from django.utils import timezone
 
 from membership.models import Member
-from problems.models import Problem
+from problems.models import Problem, SubmissionStatus
 from problems.forms import ProblemForm
 
 

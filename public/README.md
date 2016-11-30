@@ -1,6 +1,6 @@
 BYU ACM Website
 =============
 
-Contains all the code for the BYU ACM Website.
+This code is the public-facing portion of the website that doesn't require
+logging in.
 
-//TODO this repo should be moved to an ACM github account. 

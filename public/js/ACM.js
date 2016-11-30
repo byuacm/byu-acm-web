@@ -5,16 +5,16 @@
 var app = angular.module('ACM', []);
 app.config(['$routeProvider', function($routeProvider,$locationProvider) {
   $routeProvider.
-  	  when('/', {templateUrl: 'html/home.html', controller: HomeCtrl}).
-  	  when('/home', {templateUrl: 'html/home.html', controller:HomeCtrl}).
-  	  when('/about', {templateUrl: 'html/about.html', controller:AboutCtrl}).
-  	  when('/contributors', {templateUrl: 'html/sponsors.html', controller:SponsorCtrl}).
-  	  when('/leaders', {templateUrl: 'html/leaders.html', controller:LeaderCtrl}).
-  	  when('/contributors/:id', {templateUrl: 'html/sponsors.html', controller:SponsorCtrl}).
-  	  when('/events', {templateUrl: 'html/events.html', controller:EventCtrl});
+      when('/', {templateUrl: 'html/home.html', controller: HomeCtrl}).
+      when('/home', {templateUrl: 'html/home.html', controller:HomeCtrl}).
+      when('/about', {templateUrl: 'html/about.html', controller:AboutCtrl}).
+      when('/contributors', {templateUrl: 'html/sponsors.html', controller:SponsorCtrl}).
+      when('/leaders', {templateUrl: 'html/leaders.html', controller:LeaderCtrl}).
+      when('/contributors/:id', {templateUrl: 'html/sponsors.html', controller:SponsorCtrl}).
+      when('/events', {templateUrl: 'html/events.html', controller:EventCtrl});
           // Temporary pages
           // when('/icpc', {templateUrl: 'html/icpc.html', controller:IcpcCtrl}).
-      		// when('/vote', {templateUrl: 'html/vote.html', controller:VoteCtrl})
+          // when('/vote', {templateUrl: 'html/vote.html', controller:VoteCtrl})
 }]);
 
 //*****************************************************************************
@@ -22,32 +22,27 @@ app.config(['$routeProvider', function($routeProvider,$locationProvider) {
 //*****************************************************************************
 app.run(function($rootScope) {
 
-	// NavBar & Page Title (for highlighting currently selected)
-	$rootScope.pageName = '';
-	$rootScope.setPageName = function(name) {
-		$rootScope.pageName = name;
-		$rootScope.clearSlideshow();
-	}
-	$rootScope.slideshow;
-	$rootScope.setSlideshow = function(show) {
-		$rootScope.slideshow = show;
-	}
-	$rootScope.clearSlideshow = function() {
-		clearTimeout($rootScope.slideshow);
-	}
+  // NavBar & Page Title (for highlighting currently selected)
+  $rootScope.slideshow;
+  $rootScope.setSlideshow = function(show) {
+    $rootScope.slideshow = show;
+  }
+  $rootScope.clearSlideshow = function() {
+    clearTimeout($rootScope.slideshow);
+  }
 
     $rootScope.leaders = [];
-	$rootScope.hasList = false;
-	$rootScope.setLeaders = function(list) {
+  $rootScope.hasList = false;
+  $rootScope.setLeaders = function(list) {
         $rootScope.leaders = list;
-		$rootScope.hasList = true;
-	}
-	$rootScope.getLeaders = function() {
-		return $rootScope.leaders;
-	}
-	$rootScope.hasLeaderList = function() {
-		return $rootScope.hasList;
-	}
+    $rootScope.hasList = true;
+  }
+  $rootScope.getLeaders = function() {
+    return $rootScope.leaders;
+  }
+  $rootScope.hasLeaderList = function() {
+    return $rootScope.hasList;
+  }
 
 });
 
@@ -57,55 +52,50 @@ app.run(function($rootScope) {
 
 function HomeCtrl($scope, $routeParams) {
 
-	$scope.setPageName('Home');
+  // slideshow
+  // 45 X 13 aspect ratio
+  // $scope.photos = [
+  //   { url: 'img/misc/group-chat-2.jpg' },
+  //   { url: 'img/meetings/opening_social_winter_2013-1-cropped.jpg' },
+  //   { url: 'img/misc/prize-winner-2.jpg' },
+  //   { url: 'img/meetings/opening_social_winter_2013-4-cropped.jpg' },
+  //   { url: 'img/misc/coding-competition-W2015-2.jpg' }
+  // ];
 
-	// slideshow
-	// 45 X 13 aspect ratio
-	$scope.photos = [
-		{ url: 'img/misc/group-chat-2.jpg' },
-		{ url: 'img/meetings/opening_social_winter_2013-1-cropped.jpg' },
-		{ url: 'img/misc/prize-winner-2.jpg' },
-		{ url: 'img/meetings/opening_social_winter_2013-4-cropped.jpg' },
-		{ url: 'img/misc/coding-competition-W2015-2.jpg' }
-	];
+  // $scope.count = 0;
+  // $scope.total = $scope.photos.length;
+  // $scope.delay = 7500;
+  // $scope.photo = $scope.photos[$scope.count].url;
 
-	$scope.count = 0;
-	$scope.total = $scope.photos.length;
-	$scope.delay = 7500;
-	$scope.photo = $scope.photos[$scope.count].url;
+  // $scope.changePhoto = function() {
 
-	$scope.changePhoto = function() {
+  //   $scope.count = ($scope.count + 1 == $scope.total) ? 0 : $scope.count + 1;
 
-		$scope.count = ($scope.count + 1 == $scope.total) ? 0 : $scope.count + 1;
+  //   $('#photo-slide img').after('<img src="' + $scope.photos[$scope.count].url + '" class="above">');
+  //   $('#photo-slide img + img').animate({
+  //     bottom: '0px'
+  //   }, 500, function() {
+  //     $('#photo-slide').children().first().remove();
+  //     $(this).removeClass('above');
+  //   });
+    
+  //   $scope.setSlideshow(setTimeout(function() { $scope.changePhoto(); }, $scope.delay));
+  // }
 
-		$('#photo-slide img').after('<img src="' + $scope.photos[$scope.count].url + '" class="above">');
-		$('#photo-slide img + img').animate({
-			bottom: '0px'
-		}, 500, function() {
-			$('#photo-slide').children().first().remove();
-			$(this).removeClass('above');
-		});
-		
-		$scope.setSlideshow(setTimeout(function() { $scope.changePhoto(); }, $scope.delay));
-	}
+  // $scope.clickBar = function(direction) {
 
-	$scope.clickBar = function(direction) {
+  //   $scope.clearSlideshow();
+  //   if (direction == 'right') {
+  //     $scope.count = ($scope.count + 1 == $scope.total) ? 0 : $scope.count + 1;
+  //   } else {
+  //     $scope.count = ($scope.count - 1 < 0) ? $scope.total - 1 : $scope.count - 1;
+  //   }
 
-		$scope.clearSlideshow();
-		if (direction == 'right') {
+  //   $("#photo-slide img").attr('src', $scope.photos[$scope.count].url);
+  //   $scope.setSlideshow(setTimeout(function() { $scope.changePhoto(); }, $scope.delay));
+  // }
 
-			$scope.count = ($scope.count + 1 == $scope.total) ? 0 : $scope.count + 1;
-
-		} else {
-
-			$scope.count = ($scope.count - 1 < 0) ? $scope.total - 1 : $scope.count - 1;
-		}
-
-		$("#photo-slide img").attr('src', $scope.photos[$scope.count].url);
-		$scope.setSlideshow(setTimeout(function() { $scope.changePhoto(); }, $scope.delay));
-	}
-
-	$scope.setSlideshow(setTimeout(function() { $scope.changePhoto(); }, $scope.delay));
+  // $scope.setSlideshow(setTimeout(function() { $scope.changePhoto(); }, $scope.delay));
 }
 
 //*****************************************************************************
@@ -113,7 +103,7 @@ function HomeCtrl($scope, $routeParams) {
 //*****************************************************************************
 
 function AboutCtrl($scope, $routeParams) {
-	$scope.setPageName('About');
+
 }
 
 //*****************************************************************************
@@ -121,7 +111,7 @@ function AboutCtrl($scope, $routeParams) {
 //*****************************************************************************
 
 function SponsorCtrl($scope, $routeParams) {
-	$scope.setPageName('Contributors');
+
 }
 
 //*****************************************************************************
@@ -129,27 +119,25 @@ function SponsorCtrl($scope, $routeParams) {
 //*****************************************************************************
 
 function LeaderCtrl($scope, $routeParams) {
-	$scope.setPageName('Leadership');
 
-	$scope.scrollTo = function(link) {
-		link = 'jump-' + link.object.letter;
-		$('html, body').animate({
-			scrollTop: $('#' + link).offset().top
-		}, 500);
-	}
-	
-	$scope.leaders = [];
-	if(!$scope.hasLeaderList()) {
-		$.getJSON("js/officers.json").then(
-            function(data) {
-                $scope.setLeaders(data);
-			    $scope.leaders = $scope.getLeaders();
-				$scope.$digest();
-		    }
-        );
-	} else {
-		$scope.leaders = $scope.getLeaders();
-	}
+  $scope.scrollTo = function(link) {
+    link = 'jump-' + link.object.letter;
+    $('html, body').animate({
+      scrollTop: $('#' + link).offset().top
+    }, 500);
+  }
+  
+  $scope.leaders = [];
+  if (!$scope.hasLeaderList()) {
+    $.getJSON("js/officers.json").then(function(data) {
+        $scope.setLeaders(data);
+        $scope.leaders = $scope.getLeaders();
+        $scope.$digest();
+      }
+    );
+  } else {
+    $scope.leaders = $scope.getLeaders();
+  }
 
 }
 
@@ -159,7 +147,6 @@ function LeaderCtrl($scope, $routeParams) {
 
 function EventCtrl($scope, $routeParams) {
 
-	$scope.setPageName('Events');
 }
 
 //*****************************************************************************
@@ -168,7 +155,6 @@ function EventCtrl($scope, $routeParams) {
 
 function IcpcCtrl($scope, $routeParams) {
 
-	$scope.setPageName('ICPC');
 }
 
 //*****************************************************************************
@@ -177,5 +163,4 @@ function IcpcCtrl($scope, $routeParams) {
 
 function VoteCtrl($scope, $routeParams) {
 
-	$scope.setPageName('Voting');
 }

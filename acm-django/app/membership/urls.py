@@ -1,7 +1,7 @@
 from django.conf.urls import url
 from util.views import redirect_view
 
-from views import enroll, new_member, edit_member, signin, enrollment
+from .views import enroll, new_member, edit_member, signin, enrollment
 
 urlpatterns = [
     url(r'^$', redirect_view('membership.views.enrollment')),

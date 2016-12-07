@@ -12,7 +12,7 @@ class Attendance(models.Model):
     points = models.IntegerField('Points', default=1)
 
     # TODO 10/16/2015 - only used by templates. Removed when we destroy templates
-    def total_points(self):
+    def total_points(self) -> int:
         score = (
             problems.models.SubmissionStatus.objects
                 .filter(problem_set__meeting=self.meeting, member=self.member)
@@ -20,7 +20,7 @@ class Attendance(models.Model):
         )
         return max(self.points, score + 1) if score else self.points
 
-    def __unicode__(self):
+    def __unicode__(self) -> str:
         date = timezone.localtime(self.meeting.datetime)
         return u'{1:%Y-%m-%d} - {0.member}'.format(self, date)
 
@@ -33,7 +33,7 @@ class Course(models.Model):
     sequence = models.IntegerField('Sequence', unique=True)
     is_active = models.BooleanField('Active', default=True)
 
-    def __unicode__(self):
+    def __unicode__(self) -> str:
         return self.name
 
     class Meta:
@@ -49,13 +49,13 @@ class Enrollment(models.Model):
 
     # TODO 10/16/2015 - this is only used by a template. Removed when we
     # destroy templates
-    def can_change_shirt_size(self):
+    def can_change_shirt_size(self) -> bool:
         return (
             not self.received_shirt
             and self.semester.enrollment_start <= timezone.now() < self.semester.enrollment_end
         )
 
-    def attendance_proportion(self):
+    def attendance_proportion(self) -> str:
         num_attended = (
             Attendance.objects
                 .filter(member=self.member, meeting__semester=self.semester)
@@ -68,7 +68,7 @@ class Enrollment(models.Model):
         )
         return '{0}/{1}'.format(num_attended, num_meetings)
 
-    def __unicode__(self):
+    def __unicode__(self) -> str:
         return u'{0.semester} - {0.member}'.format(self)
 
     class Meta:
@@ -83,10 +83,10 @@ class Meeting(models.Model):
     attendance_end = models.DateTimeField('Attendance End', blank=True, null=True)
     password = models.CharField('Password', max_length=20, blank=True, null=True)
 
-    def in_past(self):
+    def in_past(self) -> bool:
         return self.datetime < timezone.now()
 
-    def can_attend(self):
+    def can_attend(self) -> bool:
         return self.attendance_start <= timezone.now() < self.attendance_end
 
     @staticmethod
@@ -102,7 +102,7 @@ class Meeting(models.Model):
         now = timezone.now()
         return Meeting.objects.filter(attendance_start__lte=now, attendance_end__gt=now)
 
-    def __unicode__(self):
+    def __unicode__(self) -> str:
         return u'{1:%Y-%m-%d %a} ({0.name})'.format(self, timezone.localtime(self.datetime))
         
     class Meta:
@@ -123,7 +123,7 @@ class Semester(models.Model):
             raise Semester.DoesNotExist
         #TODO: In 1.6, use Semester.objects.filter(enrollment_start__lte=timezone.now()).latest()
 
-    def __unicode__(self):
+    def __unicode__(self) -> str:
         return self.name
 
     class Meta:
@@ -137,7 +137,7 @@ class ShirtSize(models.Model):
     sequence = models.IntegerField('Sequence', unique=True)
     is_active = models.BooleanField('Active', default=True)
 
-    def __unicode__(self):
+    def __unicode__(self) -> str:
         return self.full_name
 
     class Meta:
@@ -160,5 +160,5 @@ class Member(models.Model):
     )
     website = models.CharField('Website', max_length=200, blank=True, null=True)
 
-    def __unicode__(self):
+    def __unicode__(self) -> str:
         return self.user.get_full_name()

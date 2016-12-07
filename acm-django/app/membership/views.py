@@ -136,6 +136,12 @@ def enroll(request):
 @login_required
 def edit_member(request):
     user = request.user
+    print(user)
+    """
+        WARNING: if the user was created with `python3 manage.py createsuperuser`
+        then the user won't have a corresponding member object and this will
+        fail.
+    """
     member = Member.objects.get(user=user)
     if request.method == 'POST':
         uform = MyUserChangeForm(request.POST, instance=user)

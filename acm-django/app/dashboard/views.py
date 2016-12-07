@@ -3,7 +3,7 @@ from django.http import *
 from django.shortcuts import redirect, render
 import json
 from django.views.decorators.csrf import csrf_exempt
-from urlparse import urlparse
+from urllib.parse import urlparse
 
 from membership.models import (
     Attendance, Enrollment, Meeting, Semester, ShirtSize

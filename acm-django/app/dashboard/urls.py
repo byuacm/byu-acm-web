@@ -1,6 +1,6 @@
 from django.conf.urls import url
 
-from views import make_member_list, raffle, attendance, shirt_sizes, member_list, points
+from .views import make_member_list, raffle, attendance, shirt_sizes, member_list, points
 
 urlpatterns = [
     url(r'^$', make_member_list),

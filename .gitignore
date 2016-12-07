@@ -3,3 +3,7 @@
 *.pyc
 bower_components/
 secrets.py
+
+# python3
+__pycache__
+

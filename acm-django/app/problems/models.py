@@ -12,10 +12,10 @@ class Problem(models.Model):
     body = models.CharField(max_length=32000)
     meeting = models.ForeignKey(Meeting)
 
-    def is_active(self):
+    def is_active(self) -> bool:
         return self.start <= timezone.now() < self.end
 
-    def __unicode__(self):
+    def __unicode__(self) -> str:
         return self.name
 
 
@@ -25,7 +25,7 @@ class Question(models.Model):
     judge = models.CharField(max_length=32000)
     seq = models.IntegerField()
 
-    def __unicode__(self):
+    def __unicode__(self) -> str:
         return u'{0.problem_set.name} {0.field}'.format(self)
 
 
@@ -34,7 +34,7 @@ class SubmissionStatus(models.Model):
     member = models.ForeignKey(Member)
     score = models.IntegerField()
 
-    def __unicode__(self):
+    def __unicode__(self) -> str:
         return u'{0} - {1}'.format(self.problem_set, self.member)
 
     class Meta:

@@ -23,18 +23,18 @@ def problem(request, code):
             return HttpResponseForbidden()
 
         score = sum(eval(question.judge)(request.POST[question.field]) for question in questions)
-        for username in request.POST['usernames'].split():
-            try:
-                member = Member.objects.get(user__username=username)
-            except Member.DoesNotExist:
-                invalid_names.append(username)
-            else:
-                status, _ = SubmissionStatus.objects.get_or_create(
-                    problem_set=problem, member=member, defaults={'score': score}
-                )
-                if score > status.score:
-                    status.score = score
-                    status.save()
+        # for username in request.POST['usernames'].split():
+        try:
+            member = Member.objects.get(user__username=request.user.username)
+        except Member.DoesNotExist:
+            invalid_names.append(username)
+        else:
+            status, _ = SubmissionStatus.objects.get_or_create(
+                problem_set=problem, member=member, defaults={'score': score}
+            )
+            if score > status.score:
+                status.score = score
+                status.save()
 
     fields = {question.field: request.POST.get(question.field, '') for question in sorted(questions, key=lambda q: q.seq)}
     form = ProblemForm(fields)

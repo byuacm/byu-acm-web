@@ -18,6 +18,3 @@ exec gunicorn acm.wsgi:application  \
   --user acm                   \
   --log-level debug            \
   --bind unix:"$SOCK"
-#  --bind 0.0.0.0:$DJANGO_PORT
-
-

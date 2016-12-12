@@ -1,6 +1,6 @@
 from django.conf.urls import url
 
-from .views import make_member_list, raffle, attendance, shirt_sizes, member_list, points
+from .views import make_member_list, raffle, attendance, shirt_sizes, member_list
 
 urlpatterns = [
     url(r'^$', make_member_list),
@@ -13,5 +13,4 @@ urlpatterns = [
     url(r'^member_list/create/$', make_member_list),
     url(r'^member_list/$', member_list),
     url(r'^member_list/(?P<semester_pk>\d+)/$', member_list),
-    url(r'^points/(?P<meeting_pk>\d+/)?$', points),
 ]

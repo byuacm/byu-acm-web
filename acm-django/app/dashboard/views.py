@@ -106,35 +106,3 @@ def clean_web_url(url):
         elif parsed.scheme == 'javascript':
             url = None
     return url
-
-
-@csrf_exempt
-@staff_member_required
-def points(request, meeting_pk=None):
-    if request.method == 'POST':
-        try:
-            a = Attendance.objects.get(pk=request.POST['attendance_pk'])
-        except Attendance.DoesNotExist:
-            return HttpResponseNotFound()
-        a.points = request.POST['points']
-        a.save()
-        return HttpResponse()
-
-    try:
-        meeting = (
-            Meeting.objects.get(pk=meeting_pk) if meeting_pk is not None
-            else Meeting.most_recent()
-        )
-    except Meeting.DoesNotExist:
-        return HttpResponseNotFound()
-
-    attendances = (
-        Attendance.objects
-            .filter(meeting=meeting)
-            .order_by('member__user__first_name', 'member__user__last_name')
-    )
-    d = {
-        'meeting': meeting,
-        'attendances': attendances,
-    }
-    return render(request, 'dashboard/points.html', d)

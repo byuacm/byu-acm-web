@@ -195,6 +195,7 @@ DATABASES = {
 }
 
 
+# Configurations for the django-suit library, the UI for the Admin panel
 SUIT_CONFIG = {
     'ADMIN_NAME': 'BYU ACM'
 }

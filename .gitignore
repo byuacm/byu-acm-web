@@ -1,6 +1,7 @@
 *.sublime-*
 .DS_Store
 *.pyc
+*.pyo
 bower_components/
 secrets.py
 

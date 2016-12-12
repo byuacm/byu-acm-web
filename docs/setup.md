@@ -52,7 +52,7 @@ To run the front-end, enter the `public` folder and run a local HTTP server
 like-so:
 ```
 cd public
-python3 -m SimpleHTTPServer 8000
+python3 -m http.server 8000
 ```
 
 This will start a local HTTP server from this folder, serving `index.html`.

@@ -11,6 +11,7 @@ app.config(['$routeProvider', function($routeProvider,$locationProvider) {
       when('/contributors', {templateUrl: 'html/sponsors.html', controller:SponsorCtrl}).
       when('/leaders', {templateUrl: 'html/leaders.html', controller:LeaderCtrl}).
       when('/contributors/:id', {templateUrl: 'html/sponsors.html', controller:SponsorCtrl}).
+      when('/jobs', {templateUrl: 'html/jobs.html'}).
       when('/events', {templateUrl: 'html/events.html', controller:EventCtrl});
           // Temporary pages
           // when('/icpc', {templateUrl: 'html/icpc.html', controller:IcpcCtrl}).

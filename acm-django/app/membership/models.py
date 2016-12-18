@@ -146,8 +146,8 @@ class ShirtSize(models.Model):
 
 class Member(models.Model):
     user = models.OneToOneField(User)
-    memberships = models.ManyToManyField('Semester', through='Enrollment', blank=True, null=True)
-    attendances = models.ManyToManyField('Meeting', through='Attendance', blank=True, null=True)
+    memberships = models.ManyToManyField('Semester', through='Enrollment', blank=True)
+    attendances = models.ManyToManyField('Meeting', through='Attendance', blank=True)
     graduation = models.ForeignKey(
         'Semester', verbose_name='Graduating', blank=True, null=True, related_name='graduation'
     )

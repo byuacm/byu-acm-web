@@ -36,6 +36,8 @@ urlpatterns = [
     # Admin documentation:
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
+    url(r'^api/jobs/', include('jobs.urls')),
+
     # Admin
     url(r'^admin/', include(admin.site.urls)),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

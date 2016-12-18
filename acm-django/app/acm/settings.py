@@ -124,10 +124,14 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.admindocs',
 
+    # third-party
+    'rest_framework',
+
     # Custom ACM apps
     'membership',
     'dashboard',
     'problems',
+    'jobs',
 )
 
 TEMPLATES = [

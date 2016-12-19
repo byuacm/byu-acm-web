@@ -1,9 +1,9 @@
 [
   {
-    "name": "Kevin Reece",
+    "name": "Christian Riboldi",
     "title": "President",
     "img": "img/officer/web/kevin.jpg",
-    "bio": "Kevin is a Senior studying Computer Science with a minor in Business Management. He has worked as Head TA for CS 428 (Software Engineering) and as a Program Manager Intern for Microsoft. He is currently working as an Associate for Ironwood Experts, LLC assisting with software patent litigation cases. After he graduates, Kevin will pursue a double Master's degree in Software Engineering and Business Administration."
+    "bio": ""
   },
   {
     "name": "Jordan Nielson",
@@ -24,10 +24,10 @@
     "bio": "Derek is a fourth-year computer science major. His interests lay in distributed systems, system programming, performance engineering, production engineering, and infastructure design. He frequently attends hackathons and enjoys reading, playing the upright bass, and traveling. His favorite books are the Pragmatic Programmer and CLRS. He also wants a Tesla. Really badly. 🚗"
   },
   {
-    "name": "Andrew Tate",
+    "name": "Naomi Johnson",
     "title": "Chief Networking Officer",
     "img": "img/officer/web/andrew.jpg",
-    "bio": "Andrew is a sophomore who loves traveling, reading, snow skiing, and coding.  He's particularly interested in web technologies, web scraping, and is fascinated by data visualizations and analysis.  He currently works as a developer for the MTC and loves it."
+    "bio": ""
   },
   {
     "name": "Ben DeMann",

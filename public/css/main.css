@@ -289,8 +289,9 @@ nav.secondary a {
 ****  Sponsorship Styles
 *******************************************************/
 
-.sponsor-container li {
-  color:#888;
+.sponsor-container {
+  color: #888;
+  padding-bottom: 50px;
 }
 
 .title {
@@ -298,17 +299,10 @@ nav.secondary a {
   padding: 4px;
 }
 
-.sponsor-container h3 {
-  padding: 1px;
-  margin: 0 auto;
-  font-size:18px;
-}
-
-.sponsor-container > div {
-  padding: 4px;
-  margin-left: 5px;
-  width: 90%;
-  margin: 0 auto;
+.sponsor-container > p {
+  text-align: center;
+  font-size: 25px;
+  margin-top: 50px;
 }
 
 .sponsor-container h3:hover {
@@ -324,7 +318,7 @@ nav.secondary a {
 #current-contributors h4 {
   display:block;
   text-align:left;
-  padding-left: 40px;
+  padding-left: 150px;
 }
 
 #current-contributors img {

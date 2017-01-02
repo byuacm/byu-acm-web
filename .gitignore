@@ -8,3 +8,23 @@ secrets.py
 # python3
 __pycache__
 
+
+#data
+acm-django/acm/static/*
+*.db
+*.sql
+
+#private
+acm-django/acm/settings_private.*
+
+#backup
+*.*~
+
+#binaries
+*.py[cod]
+
+#dev tools
+*.sublime-*
+.mr.developer.cfg
+.project
+.pydevproject

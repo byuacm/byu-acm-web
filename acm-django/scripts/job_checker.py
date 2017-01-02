@@ -21,5 +21,4 @@ for job in jobs:
     r = requests.get(job.link)
     if r.status_code != 200:
         print('Invalid job')
-    else:
-        print('Valid job')
+        job.delete()

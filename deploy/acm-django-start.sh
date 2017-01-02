@@ -4,11 +4,8 @@ NAME=acm-django
 
 DJANGO_DIR=/var/www/acm-django
 SOCK=/var/run/acm-django.sock
-#DJANGO_PORT=13300
 
 WORKERS=4
-
-source /opt/rh/python27/enable
 
 export PYTHONPATH=$DJANGO_DIR:$PYTHONPATH
 

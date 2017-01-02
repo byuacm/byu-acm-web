@@ -1,6 +1,9 @@
 
 # BYU ACM Website Setup
 
+This assumes you have at least basic web development experience. For a more
+extensive list of resources/tutorials and background on the tools being used,
+please see resources.md.
 
 ### Setting up your system
 The ACM website runs on Python 3.5. Please make sure it is installed on your

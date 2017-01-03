@@ -8,11 +8,13 @@ Checklist:
 - Minimal ports are open externally (22, 80, etc)
 - NO sensitive files are in version control i.e. files containing configuration
 passwords.
-- Use latest versions of Django and Nginx (after testing)
+- Use latest versions of Django and [Nginx](https://www.nginx.com/)
+(after testing)
 - Keep system packages updated, esp. if they involve security patches
 - Keep server OS up to date
-- Nginx server tokens are off
+- [Nginx server tokens are off](https://www.scalescale.com/tips/nginx/how-to-hide-nginx-version/)
 - Disable password SSH login (must use SSH keys)
+- Django is running with `DEBUG` set to `False`
 
 
 

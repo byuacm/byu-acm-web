@@ -6,6 +6,7 @@ This is a brain-dump of every tool being used on the website with links to
 tutorials and short blurb of how/why the tool is being used.
 
 ### [Python](https://www.python.org/)
+Programming language used for the internal website and misc. scripting.
 
 ### [NPM](https://www.npmjs.com/)
 
@@ -63,5 +64,9 @@ restart. Other alternatives include [forever](https://github.com/foreverjs/forev
 - [Example Supervisord Configuration](https://gist.github.com/didip/802561)
 
 ### Linux
+The server that hosts the website runs Linux. CentOS to be specific.
 
 ### SSH
+Protocol used to access the server. SSHing via passwords is disabled for
+security reasons. To obtain SSH access, generate an SSH key for your machine
+and provide it to someone who does have access.

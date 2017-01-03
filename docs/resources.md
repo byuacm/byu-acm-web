@@ -2,6 +2,9 @@
 Before working with a tool please ensure that you *thoroughly* understand how
 the tool works, its purpose, and how to configure it.
 
+This is a brain-dump of every tool being used on the website with links to
+tutorials and short blurb of how/why the tool is being used.
+
 ### [Python](https://www.python.org/)
 
 ### [NPM](https://www.npmjs.com/)

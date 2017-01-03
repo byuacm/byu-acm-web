@@ -75,11 +75,12 @@ cd acm-django/app
 bower install
 ```
 Without this command, the website will still run but the JavaScript and CSS
-will be fairly broken.
+will be fairly broken, as [bower](https://bower.io/) is used to download the
+front-end libraries such as Bootstrap.
 
 Now we need to run a [schema migration](https://docs.djangoproject.com/en/1.10/topics/migrations/).
-This will populate the initial database with the basic tables it needs to things
-like authentication.
+This will populate the initial database with the basic tables it needs to do
+things like authentication.
 ```
 python3 manage.py migrate
 ```

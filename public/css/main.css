@@ -350,21 +350,23 @@ nav.secondary a {
 
 #calendar {
   padding: 50px;
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#calendar h5 {
+  color: #888;
 }
 
 #calendar a {
   text-decoration: none;
-  color:#777;
   font-size:20px;
   margin-bottom:20px;
 }
 
 #calendar a:hover {
   text-decoration: underline;
-}
-
-#calendar iframe {
-  margin-top:20px;
 }
 
 /*******************************************************

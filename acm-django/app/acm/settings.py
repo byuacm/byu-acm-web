@@ -35,7 +35,7 @@ EMAIL_USE_TLS   = True
 DEFAULT_FROM_EMAIL  = 'acm@byu.edu'
 SERVER_EMAIL    = 'acm@byu.edu'
 
-MAILCHIMP_AUTO_SUBSCRIBE = False
+MAILCHIMP_AUTO_SUBSCRIBE = True
 MAILCHIMP_API_KEY = 'key' #redefined in settings_private
 MAILCHIMP_LIST_ID = 3411312468
 

@@ -8,7 +8,7 @@
 var inProgress = false;
 var size = 60;
 function map(a, f){
-	for(var i=0; i<a.length; i++){
+	for(var i = 0; i < a.length; i++){
 		f(a[i], i);
 	}
 }
@@ -36,10 +36,10 @@ function getWinners() {
 	return parseInt(window.location.hash.substring(1)) || 1;
 }
 
-function process(){
+function process() {
 	var names = $('.name-text-field').val().split('\n');
 	imported = [];
-	map(getNames(), function(name){
+	map(getNames(), function(name) {
 		imported.push({'name':name});
 	});
 	$('.enter-names').hide(500, function(){
@@ -47,7 +47,7 @@ function process(){
 	});
 }
 
-$(document).ready(function(){
+$(document).ready(function() {
 	if(imported && imported.length > 0) {
 		$('.enter-names').hide();
 		setTimeout(function() {
@@ -68,7 +68,7 @@ function elementInViewport(el) {
   var width = el.offsetWidth;
   var height = el.offsetHeight;
 
-  while(el.offsetParent) {
+  while (el.offsetParent) {
     el = el.offsetParent;
     top += el.offsetTop;
     left += el.offsetLeft;
@@ -82,14 +82,15 @@ function elementInViewport(el) {
   );
 }
 
-function Ticket(name, points){
+function Ticket(name, points) {
 	this.name = name;
-	if(typeof(points) == "number")
+	if(typeof(points) == "number") {
 		this.points = points;
-	else
+	} else {
 		this.points = 1;
+	}
 	this.dom = $("<div class='ticket'>").text(name);
-	this.fixPosition = function(){
+	this.fixPosition = function() {
 		var me = this;
 		this.dom.css({
 			'position':'absolute',
@@ -98,17 +99,16 @@ function Ticket(name, points){
 			'background': colors.length > me.points ? colors[me.points] : "rgb(" + Math.floor(Math.random()*256) + "," + Math.floor(Math.random()*256) + "," + Math.floor(Math.random()*256) + ")" 
 		});
 	};
-	this.decrement = function(length, callback){
+	this.decrement = function(length, callback) {
 		var me = this;
 		this.points--;
-		if(this.points == 0){
+		if(this.points == 0) {
 			var directions = ['up', 'down', 'left', 'right'];
 			this.dom.css({'background-color':colors[0]}).hide('drop', {direction:directions[length%directions.length]}, length == 2 ? 1000 : 3000/length, function(){
 				callback();
 			});
 			$('#participant-number').text(length - 1 + '/' + tickets.length);
-		}
-		else{
+		} else {
 			this.dom.css({
 				'background-color':colors.length > me.points ? colors[me.points] : "rgb(" + Math.floor(Math.random()*256) + "," + Math.floor(Math.random()*256) + "," + Math.floor(Math.random()*256) + ")"
 			})
@@ -121,29 +121,30 @@ function Ticket(name, points){
 
 var tickets = [];
 
-var makeTicketsWithPoints = function(){
+var makeTicketsWithPoints = function() {
 	tickets = [];
 	$('.ticket').remove();
-	map(imported, function(tdata){
+	map(imported, tdata => {
 		var t = new Ticket(tdata.name, tdata.points);
-		if(t.points > 0)
+		if(t.points > 0) {
 			t.dom.appendTo($('body'));
+		}
 		tickets.push(t);
 	});
 	tickets.reverse();
 	size = 40;
 	$('.ticket').css('font-size', size + 'px');
-	while(!elementInViewport(tickets[0].dom.get(0)) && size > 10){
+	while(!elementInViewport(tickets[0].dom.get(0)) && size > 10) {
 		size--;
 		$('.ticket').css('font-size', size + 'px');
 	}
 
 	$('#participant-number').css('width', '').text(tickets.length);
 	setTimeout(function() {
-		map(tickets, function(ticket){
+		map(tickets, ticket => {
 			ticket.fixPosition();
 		});
-		$('body').unbind('click').click(function(){
+		$('body').unbind('click').click(function() {
 			var width = $('#participant-number').text(tickets.length + '/' + tickets.length).width();
 			$('#participant-number').css('width', width + 'px'); //keep position consistent during countdown
 			pickName();
@@ -151,22 +152,23 @@ var makeTicketsWithPoints = function(){
 	}, 500);
 }
 
-var getChoices = function(){
+var getChoices = function() {
 	var result = [];
-	map(tickets, function(ticket){
+	map(tickets, ticket => {
 		if(ticket.points > 0)
 			result.push(ticket)
 	});
 	return result;
 }
 
-$(window).resize(function(){
-	if(!inProgress)
+$(window).resize(function() {
+	if(!inProgress) {
 		makeTicketsWithPoints(tickets);
+	}
 });
 
 
-var pickName = function(){
+var pickName = function() {
 	inProgress = true;
 	$('.ticket').unbind('click');
 	$('body').unbind('click');
@@ -174,34 +176,33 @@ var pickName = function(){
 	var choices = getChoices();
 	if(choices.length > getWinners()){
 		var remove = Math.floor(Math.random()*choices.length);
-		choices[remove].decrement(choices.length, function(){
+		choices[remove].decrement(choices.length, function() {
 			pickName();
 		});
-	}
-	else{
+	} else {
 		if (getWinners() == 1) {
 			choices = $(choices[0].dom);
 			var top = choices.css('top');
 			var left = choices.css('left');
 			var fontsize = choices.css('font-size');
 			var width = choices.width();
-			choices.click(function(){
+			choices.click(function() {
 				inProgress = false;
 				choices.animate({'font-size':fontsize,'top':top,'left':left},'slow');
 				$('.ticket').show(500).unbind('click');
-				setTimeout(function(){
+				setTimeout(function() {
 					makeTicketsWithPoints(ticketNames, ticketPoints);
 				}, 700);
 			});
-			choices.animate({'font-size':3*size +'px','top':(window.innerHeight/5) + 'px','left':(window.innerWidth/2 - width) + 'px'},1500, function(){
+			choices.animate({'font-size':3*size +'px','top':(window.innerHeight/5) + 'px','left':(window.innerWidth/2 - width) + 'px'},1500, function() {
 				choices.animate({'left':(window.innerWidth/2 - choices.width()/2) + 'px'}, 'slow');
 			});
 		} else {
-			$(".ticket").click(function(){
+			$(".ticket").click(function() {
 				inProgress = false;
 				// choices.animate({'font-size':fontsize,'top':top,'left':left},'slow');
 				$('.ticket').show(500).unbind('click');
-				setTimeout(function(){
+				setTimeout(function() {
 					makeTicketsWithPoints(ticketNames, ticketPoints);
 				}, 700);
 			});

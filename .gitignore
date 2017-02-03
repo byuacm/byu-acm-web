@@ -3,3 +3,4 @@
 *.pyc
 bower_components/
 secrets.py
+.vagrant/

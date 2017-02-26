@@ -16,4 +16,4 @@ Or you can deploy only certain parts:
 
 ## TLS Certificate
 
-We get our certificates for HTTPS from [LetsEncrypt](https://letsencrypt.org/).  These are free and are renewed automatically.  If you have questions about this process, talk to @krrg.
+We get our certificates for HTTPS from [LetsEncrypt](https://letsencrypt.org/).  These are free and are renewed automatically.  If you have questions about this process, talk to @krrg

@@ -16,4 +16,4 @@ Or you can deploy only certain parts:
 
 ## TLS Certificate
 
-We get our certificates for HTTPS from [LetsEncrypt](https://letsencrypt.org/).  These are free, but have to be renewed every 3 months.  Right now, that is done manually with `./certbot-auto`, but we're working on a way to automate the script. 
+We get our certificates for HTTPS from [LetsEncrypt](https://letsencrypt.org/).  These are free and are renewed automatically.  If you have questions about this process, talk to @krrg.

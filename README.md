@@ -17,3 +17,7 @@ Or you can deploy only certain parts:
 ## TLS Certificate
 
 We get our certificates for HTTPS from [LetsEncrypt](https://letsencrypt.org/).  These are free and are renewed automatically.  If you have questions about this process, talk to @krrg
+
+## Running Locally
+
+If you want to only run the public pages, go into the public folder and use the command "python3 -m http.server --bind localhost 8080" to run it locally. 

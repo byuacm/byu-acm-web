@@ -27,7 +27,13 @@
     "name": "Vance Lee",
     "title": "Chief Experience Officer",
     "img": "img/officer-headshots/vance.png",
-    "bio": "Pursuing a Bachelors in Computer Science, a minor in Business Management, and a Language Certificate in Portuguese. Vance loves rock climbing, cooking, sudoku, and deep discussions about questions that don't have answers. Works as a Quality Assurance Engineer, but is fascinated by Artificial Intelligence."
+    "bio": "Pursuing a Bachelors in Computer Science, a minor in Business Management, and a Language Certificate in Portuguese. Vance loves rock climbing, cooking, sudoku, and deep discussions about questions that don't have answers. He works as a Quality Assurance Engineer, but is fascinated by Artificial Intelligence."
+  },
+  {
+    "name": "Nathan Geronimo",
+    "title": "Chief Financial Officer",
+    "img": "img/officer-headshots/nathan.jpg",
+    "bio": "Nathan is a junior in the Computer Science program. He started programming once he switched from being a chemistry major back in 2015, and he never regrets the switch. He loves music, anime, and of course learning about how technology is evolving."
   },
   {
     "name": "Jacob Crandall, PhD",

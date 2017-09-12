@@ -7,7 +7,7 @@ import sys
 ROOT = lambda base: os.path.join(os.path.dirname(__file__)+"/../", base)
 
 # Debugging
-DEBUG = True
+DEBUG = False
 
 # Receive errors from logging
 ADMINS = (

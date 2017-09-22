@@ -1,0 +1,56 @@
+@import "colors.scss";
+@import "variables.scss";
+
+// $foundation-palette: (
+//   primary: $darkHighlight,
+//   secondary: #767676,
+//   success: #3adb76,
+//   warning: #ffae00,
+//   alert: #cc4b37,
+// );
+// @import "~foundation-sites/scss/foundation";
+// @include foundation-everything;
+
+
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans');
+@import url('https://fonts.googleapis.com/css?family=Cabin');
+
+html {
+}
+
+body {
+    background-color: $lightBackground;
+    font-family: 'Noto Sans', sans-serif;
+    // min-height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.ResponsivePageLayout {
+
+    .PageContent {
+        @media(min-width: $responsiveWidth) {
+            margin-left: 34em;
+            margin-right: 4em;
+            margin-top: 3em;
+        }
+        @media(max-width: $responsiveWidth) {
+            margin-left: 2em;
+            margin-right: 2em;
+        }
+    }
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: 'Cabin', sans-serif;
+    font-weight: 200;
+}
+
+h1 {
+    font-size: 36pt;
+}
+
+.button {
+    // background-color: $darkHighlight;
+    // color: whitesmoke;
+}

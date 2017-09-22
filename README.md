@@ -1,5 +1,1 @@
-
-
-
-
-
+See README.md in frontend directory for now.

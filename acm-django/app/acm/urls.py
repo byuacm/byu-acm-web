@@ -18,11 +18,11 @@ urlpatterns = [
     url(r'^accounts/password_change/', password_change, {
         'post_change_redirect': 'django.contrib.auth.views.login',
     }),
-    url(r'^accounts/password_reset_confirm/(?P<uidb36>\w+)-(?P<token>\w+-\w+)/$', password_reset_confirm),
+    url(r'^accounts/password_reset_confirm/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>.+)/$', password_reset_confirm),
     url(r'^accounts/password_reset/', password_reset, {
         'post_reset_redirect': reverse_lazy('membership.views.edit_member'),
     }),
-    url(r'^accounts/password_reset_complete/', password_reset_complete),
+    url(r'^accounts/password_reset_complete/', password_reset_complete, name='password_reset_complete'),
 
     # Membership
     url(r'^membership/', include('membership.urls')),

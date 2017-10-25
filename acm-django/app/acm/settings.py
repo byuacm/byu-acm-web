@@ -19,7 +19,6 @@ ADMINS = (
 
     # tech team officers
     ('Cody Harrison', 'cody.d.h.harrison@gmail.com'),
-    ('Ken Reese', 'krr428@gmail.com'),
 )
 MANAGERS = ADMINS
 

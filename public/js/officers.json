@@ -2,13 +2,13 @@
   {
     "name": "Christian Riboldi",
     "title": "President",
-    "img": "../img/officer-headshots/christian.png",
+    "img": "img/officer-headshots/christian.png",
     "bio": "Christian Riboldi is a senior in the Computer Science program and has been a member of BYU ACM since his Freshman year. His professional interests include iOS development, web development, and machine learning. He loves cycling, theatre and most of all his little family."
   },
   {
     "name": "Naomi Johnson",
     "title": "Vice President",
-    "img": "../img/officer-headshots/naomi_capitol.jpg",
+    "img": "img/officer-headshots/naomi_capitol.jpg",
     "bio": "Naomi Johnson is currently a research assistant in the HCI and AML labs at BYU. She is double majoring in computer science and Japanese. After graduating in 2020, she wants to get her doctorate and become a CS professor."
   },
   {
@@ -21,7 +21,7 @@
     "name": "Alex Boswell",
     "title": "Chief Networking Officer",
     "img": "img/officer-headshots/alex.jpg",
-    "bio": "Alex is a junior in the computer science major with a minor in mathematics. His interests are of iOS and android development and material design. He currently works on campus at BYU for the McKay School of Education on the MSEDEV team."
+    "bio": "Alex is a junior in the Computer Science major with a minor in Mathematics. His interests are of iOS and Android development and material design. He currently works on campus at BYU for the McKay School of Education on the MSEDEV team."
   },
   {
     "name": "Vance Lee",
@@ -34,6 +34,12 @@
     "title": "Chief Financial Officer",
     "img": "img/officer-headshots/nathan.jpg",
     "bio": "Nathan is a junior in the Computer Science program. He started programming once he switched from being a chemistry major back in 2015, and he never regrets the switch. He loves music, anime, and of course learning about how technology is evolving."
+  },
+  {
+    "name": "Alyssa Haroldsen",
+    "title": "Chief Technology Officer",
+    "img": "img/officer-headshots/alyssa.jpg",
+    "bio": "Alyssa is a senior in the Computer Science major with minors in Mathematics and Physics. Her interests are computer security, data analytics, and performance analysis. She enjoys television, videogames, and keeping up with Hacker News. She wants to join industry and change the world."
   },
   {
     "name": "Frank Jones, PhD",

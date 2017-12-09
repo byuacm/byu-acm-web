@@ -108,6 +108,15 @@ dt {
     top: -1px;
 }
 
+.flyer {
+    width: 800px;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    font-size: 20px;
+}
+
 /*******************************************************
 ****  Header Styles
 *******************************************************/
@@ -118,7 +127,6 @@ header {
   background: #2D2C2D;
   color: #AAA;
   position: relative;
-    
 }
 
 header span {

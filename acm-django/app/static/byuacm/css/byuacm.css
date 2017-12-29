@@ -1,0 +1,18 @@
+a:focus {
+	outline: none;
+}
+
+button:focus {
+	outline: none;
+}
+/*
+.page-container {
+	width: 56em;
+}*/
+
+
+/* Bootstrap */
+
+.title {
+	color: #444;
+}

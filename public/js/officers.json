@@ -1,0 +1,56 @@
+[
+  {
+    "name": "Christian Riboldi",
+    "title": "President",
+    "img": "img/officer-headshots/christian.png",
+    "bio": "Christian Riboldi is a senior in the Computer Science program and has been a member of BYU ACM since his Freshman year. His professional interests include iOS development, web development, and machine learning. He loves cycling, theatre and most of all his little family."
+  },
+  {
+    "name": "Naomi Johnson",
+    "title": "Vice President",
+    "img": "img/officer-headshots/naomi_capitol.jpg",
+    "bio": "Naomi Johnson is currently a research assistant in the HCI and AML labs at BYU. She is double majoring in computer science and Japanese. After graduating in 2020, she wants to get her doctorate and become a CS professor."
+  },
+  {
+    "name": "Ben DeMann",
+    "title": "Chief Marketing Officer",
+    "img": "img/officer-headshots/ben.png",
+    "bio": "Ben is studying Computer Science (Animation) with a Creative Writing minor. He is a devoted follower of Google and looks forward anxiouly to the day Google actually takes over the world. In his free time he likes to consume good stories regardless of the medium. He is a Software Engineer for a small startup company."
+  },
+  {
+    "name": "Alex Boswell",
+    "title": "Chief Networking Officer",
+    "img": "img/officer-headshots/alex.jpg",
+    "bio": "Alex is a junior in the Computer Science major with a minor in Mathematics. His interests are of iOS and Android development and material design. He currently works on campus at BYU for the McKay School of Education on the MSEDEV team."
+  },
+  {
+    "name": "Vance Lee",
+    "title": "Chief Experience Officer",
+    "img": "img/officer-headshots/vance.png",
+    "bio": "Pursuing a Bachelors in Computer Science, a minor in Business Management, and a Language Certificate in Portuguese. Vance loves rock climbing, cooking, sudoku, and deep discussions about questions that don't have answers. He works as a Quality Assurance Engineer, but is fascinated by Artificial Intelligence."
+  },
+  {
+    "name": "Nathan Geronimo",
+    "title": "Chief Financial Officer",
+    "img": "img/officer-headshots/nathan.jpg",
+    "bio": "Nathan is a junior in the Computer Science program. He started programming once he switched from being a chemistry major back in 2015, and he never regrets the switch. He loves music, anime, and of course learning about how technology is evolving."
+  },
+  {
+    "name": "Alyssa Haroldsen",
+    "title": "Chief Technology Officer",
+    "img": "img/officer-headshots/alyssa.jpg",
+    "bio": "Alyssa is a senior in the Computer Science major with minors in Mathematics and Physics. Her interests are computer security, data analytics, and performance analysis. She enjoys television, videogames, and keeping up with Hacker News. She wants to join industry and change the world."
+  },
+  {
+    "name": "Sierra Davis",
+    "title": "Marketing Officer",
+    "img": "img/officer-headshots/sierra.jpg",
+    "bio": "Sierra Davis is studying Computer Science with an Animation emphasis. She loves the outdoors, music, prank wars, watermelon, and creating cool things. She is a huge BYU fan and goes to way too many sporting events. Her dream is to create amazing procedural special effects for blockbuster action films or video games."
+  },
+  {
+    "name": "Frank Jones, PhD",
+    "title": "Faculty Sponsor",
+    "img": "img/officer-headshots/jones.jpg",
+    "bio": "Dr. Jones received his B.S. and M.S. degrees in Computer Science from University of Idaho, investigating investigating high-performance architectures and compilers. He then received a Ph.D. at University of Colorado Boulder, additionally focusing on wearable computing and assistive technology. Prior to joining the Computer Science faculty at BYU, he spent time revitalizing the College of Idaho CS curriculum and working with the Naval Air Systems Command (NAVAIR) at China Lake California."
+  }
+]

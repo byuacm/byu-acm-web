@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'social_django',
+    'byu_auth.apps.ByuAuthConfig',
 ]
 
 MIDDLEWARE = [
@@ -48,6 +50,19 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+AUTHENTICATION_BACKENDS = (
+    'byu_auth.backend.ByuOpenIdConnectAuth',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+SOCIAL_AUTH_ADMIN_USER_SEARCH_FIELDS = ['username', 'first_name', 'email']
+# Set in secrets.py
+SOCIAL_AUTH_BYU_KEY = None
+SOCIAL_AUTH_BYU_SECRET = None
+SOCIAL_AUTH_BYU_ID_TOKEN_AUDIENCE = SOCIAL_AUTH_BYU_KEY
+SOCIAL_AUTH_URL_NAMESPACE = 'byu_auth:social'
+LOGOUT_REDIRECT_URL = '/'
 
 ROOT_URLCONF = 'byu_acm.urls'
 
@@ -62,6 +77,9 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
             ],
         },
     },

@@ -1,0 +1,92 @@
+- model: home.officerbio
+  pk: 1
+  fields:
+    name:  Christian Riboldi
+    title: President
+    image: christian.jpg
+    bio:   Christian Riboldi is a senior in the Computer Science program and has been a member of BYU ACM since his Freshman year.
+           His professional interests include iOS development, web development, and machine learning.
+           He loves cycling, theatre and most of all his little family.
+           
+- model: home.officerbio
+  pk: 2
+  fields:
+    name:  Naomi Johnson
+    title: Vice President
+    image: naomi.jpg
+    bio:   Naomi Johnson is currently a research assistant in the HCI and AML labs at BYU.
+           She is double majoring in computer science and Japanese.
+           After graduating in 2020, she wants to get her doctorate and become a CS professor.
+           
+- model: home.officerbio
+  pk: 3
+  fields:
+    name:  Ben DeMann
+    title: Chief Marketing Officer
+    image: ben.jpg
+    bio:   Ben is studying Computer Science (Animation) with a Creative Writing minor.
+           He is a devoted follower of Google and looks forward anxiouly to the day Google actually takes over the world.
+           In his free time he likes to consume good stories regardless of the medium.
+           He is a Software Engineer for a small startup company.
+           
+- model: home.officerbio
+  pk: 4
+  fields:
+    name:  Alex Boswell
+    title: Chief Networking Officer
+    image: alex.jpg
+    bio:   Alex is a junior in the Computer Science major with a minor in Mathematics.
+           His interests are of iOS and Android development and material design.
+           He currently works on campus at BYU for the McKay School of Education on the MSEDEV team.
+           
+- model: home.officerbio
+  pk: 5
+  fields:
+    name:  Vance Lee
+    title: Chief Experience Officer
+    image: vance.jpg
+    bio:   Pursuing a Bachelors in Computer Science, a minor in Business Management, and a Language Certificate in Portuguese.
+           Vance loves rock climbing, cooking, sudoku, and deep discussions about questions that don't have answers.
+           He works as a Quality Assurance Engineer, but is fascinated by Artificial Intelligence.
+           
+- model: home.officerbio
+  pk: 6
+  fields:
+    name:  Nathan Geronimo
+    title: Chief Financial Officer
+    image: nathan.jpg
+    bio:   Nathan is a junior in the Computer Science program.
+           He started programming once he switched from being a chemistry major back in 2015, and he never regrets the switch.
+           He loves music, anime, and of course learning about how technology is evolving.
+           
+- model: home.officerbio
+  pk: 7
+  fields:
+    name:  Alyssa Haroldsen
+    title: Chief Technology Officer
+    image: alyssa.jpg
+    bio:   Alyssa is a senior in the Computer Science major with minors in Mathematics and Physics.
+           Her interests are computer security, data analytics, and performance analysis.
+           She enjoys television, videogames, and keeping up with Hacker News.
+           She wants to join industry and change the world.
+           
+- model: home.officerbio
+  pk: 8
+  fields:
+    name:  Sierra Davis
+    title: Marketing Officer
+    image: sierra.jpg
+    bio:   Sierra Davis is studying Computer Science with an Animation emphasis.
+           She loves the outdoors, music, prank wars, watermelon, and creating cool things.
+           She is a huge BYU fan and goes to way too many sporting events.
+           Her dream is to create amazing procedural special effects for blockbuster action films or video games.
+           
+- model: home.officerbio
+  pk: 9
+  fields:
+    name:  Frank Jones, PhD
+    title: Faculty Sponsor
+    image: jones.jpg
+    bio:   Dr. Jones received his B.S. and M.S. degrees in Computer Science from University of Idaho, investigating investigating high-performance architectures and compilers.
+           He then received a Ph.D. at University of Colorado Boulder, additionally focusing on wearable computing and assistive technology.
+           Prior to joining the Computer Science faculty at BYU, he spent time revitalizing the College of Idaho CS curriculum and working with the Naval Air Systems Command (NAVAIR) at China Lake California.

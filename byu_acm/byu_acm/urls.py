@@ -15,8 +15,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.contrib.staticfiles.views import serve
+from django.contrib.staticfiles.templatetags.staticfiles import static
+
+from . import views
 
 urlpatterns = [
     path('accounts/', include('byu_auth.urls', namespace='auth')),
+    path('membership/', include('membership.urls', namespace='membership')),
+    path('staff/', include('staff.urls', namespace='staff')),
     path('admin/', admin.site.urls),
+
+    path('favicon.ico', serve, kwargs={'path': static('img/favicon.ico')}),
+    path('', views.index)
 ]

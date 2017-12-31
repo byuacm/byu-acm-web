@@ -129,26 +129,29 @@ header {
   position: relative;
 }
 
-header span {
+.account-bar {
+  font-size: 18px;
   float: right;
   margin-right: 30px;
+  margin-top: 5px;
   position: relative;
-}
-
-header span a {
-  text-decoration:none;
-  color:#777;
-}
-
-header span a:hover h3 {
-  text-decoration: underline;
-}
-
-header span h3 {
   display:inline-block;
   font-weight:100;
-  font-size: 18px;
   color: #AAA;
+}
+
+.account-bar span:not(:first-child) {
+  border-left: #AAA thin solid;
+  padding-left: 5px;
+}
+
+.account-bar a {
+  text-decoration:none;
+  color: inherit;
+}
+
+.account-bar a:hover {
+  text-decoration: underline;
 }
 
 #acm-diamond-logo {
@@ -219,6 +222,7 @@ nav.secondary a {
   font-size: 18px;
   line-height: 28px;
 }
+
 
 /*******************************************************
 ****  Home Tab Styles

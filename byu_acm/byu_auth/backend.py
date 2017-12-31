@@ -24,14 +24,14 @@ class ByuOpenIdConnectAuth(OpenIdConnectAuth):
             'last_name': self.id_token['surname'],
         }
 
-        coursework = self.get_json(
-            '{}domains/legacy/academic/records/stdcoursework/'.format(
-                self.API_ENDPOINT),
-            headers={
-                'Authorization': 'Bearer {0}'.format(
-                    response['access_token']
-                )
-            })
+        # coursework = self.get_json(
+        #     '{}domains/legacy/academic/records/stdcoursework/'.format(
+        #         self.API_ENDPOINT),
+        #     headers={
+        #         'Authorization': 'Bearer {0}'.format(
+        #             response['access_token']
+        #         )
+        #     })
 
         return values
 

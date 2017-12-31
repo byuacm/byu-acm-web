@@ -1,8 +1,8 @@
 <div class="officers">
-  <div class="officer" ng-repeat="officer in leaders">
+  <div class="officer" ng-repeat="officer in officers">
 	<h3>{{officer.name}}</h3>
 	<h3>{{officer.title}}</h3>
-	<img ng-src="{{officer.img}}">
+	<img ng-src="/static/img/officer-headshots/{{officer.img}}">
 	<p>{{officer.bio}}</p>
   </div>
 </div>

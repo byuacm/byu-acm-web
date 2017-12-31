@@ -1,0 +1,134 @@
+{% load static %}
+<!DOCTYPE html>
+<html ng-app="ACM">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+  <link href="{% static "css/main.css" %}" rel="stylesheet">
+  <link rel="icon" href="/favicon.ico">
+  <meta name="google" content="notranslate">
+  <meta http-equiv="Content-Language" content="en">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular-route.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script>
+      //$.noConflict(); // Deactivate $ for jQuery, use for Angular
+      var MEMBERS;
+      jQuery(function () {
+          jQuery(window).resize(function () {
+              if (jQuery(window).height() > jQuery('html').height()) {
+                  jQuery('html').height(jQuery(window).height());
+              }
+          });
+      });
+
+  </script>
+  <script src="{% static "js/main.js" %}"></script>
+
+  <title>BYU ACM</title>
+</head>
+<body>
+<div class="main-content">
+  <header>
+    <img id="acm-diamond-logo" src="{% static "img/acm_logo.png" %}">
+    <a id="acm-logo" href="#home">
+      <h1><b>BYU</b>ACM</h1>
+      <p>Association for Computing Machinery</p>
+    </a>
+    <span class="account-bar">
+      {% if user.is_authenticated %}
+        {% spaceless %}
+        <span>
+          Welcome
+          {% if user.first_name %}
+            {{ user.first_name }} {{ user.last_name }}
+          {% else %}
+            {{ user.username }}
+          {% endif %}
+        </span>
+        {% endspaceless %}
+        <span><a href="{% url "membership:index" %}">My Membership</a></span>
+        {% if user.is_staff %}
+          <span><a href="{% url "staff:index" %}">Leadership</a></span>
+          <span><a href="{% url "admin:index" %}">Site Administration</a></span>
+        {% endif %}
+        <span><a href="{% url "auth:logout" %}">Logout</a></span>
+      {% else %}
+        <span><a href="{% url "membership:index" %}">Member Login</a></span>
+      {% endif %}
+    </span>
+  </header>
+  <nav>
+    <a href="#!/home" ng-class="{selected: pageName == 'Home'}">Home</a>
+    <a href="#!/events" ng-class="{selected: pageName == 'Events'}">Events</a>
+    <a href="#!/contributors" ng-class="{selected: pageName == 'Contributors'}">Contributors</a>
+    <a href="#!/officers" ng-class="{selected: pageName == 'Leadership'}">Leadership</a>
+    <a href="#!/about" ng-class="{selected: pageName == 'About'}">About</a>
+  </nav>
+
+  <div id="page-content" ng-view>
+  </div>
+  <footer>
+    <div class="center">
+      <ul class="list-inline">
+        <li>
+          <a href="https://plus.google.com/+BYUACM">
+              <span class="icon fa-stack fa-2x">
+                <i class="fa fa-stack-1x fa-google-plus"></i>
+                <i class="fa fa-stack-2x fa-square-o"></i>
+              </span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.facebook.com/acmbyu">
+              <span class="icon fa-stack fa-2x">
+                <i class="fa fa-stack-1x fa-facebook"></i>
+                <i class="fa fa-stack-2x fa-square-o"></i>
+              </span>
+          </a>
+        </li>
+        <li>
+          <a href="https://twitter.com/byuacm">
+              <span class="icon fa-stack fa-2x">
+                <i class="fa fa-stack-1x fa-twitter"></i>
+                <i class="fa fa-stack-2x fa-square-o"></i>
+              </span>
+          </a>
+        </li>
+        <li>
+          <a href="https://instagram.com/byuacm/">
+              <span class="icon fa-stack fa-2x">
+                <i class="fa fa-stack-1x fa-instagram"></i>
+                <i class="fa fa-stack-2x fa-square-o"></i>
+              </span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="copyright">
+      &copy; 2018 BYU Association for Computing Machinery
+    </div>
+  </footer>
+</div>
+
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-91763400-1', 'auto');
+    ga('send', 'pageview');
+</script>
+</body>
+</html>

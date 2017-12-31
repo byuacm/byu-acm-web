@@ -12,8 +12,6 @@
   <meta name="google" content="notranslate">
   <meta http-equiv="Content-Language" content="en">
 
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular-route.js"></script>
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script>
       //$.noConflict(); // Deactivate $ for jQuery, use for Angular
@@ -27,15 +25,14 @@
       });
 
   </script>
-  <script src="{% static "js/main.js" %}"></script>
 
-  <title>BYU ACM</title>
+  <title>{% block title %}BYU ACM{% endblock %}</title>
 </head>
 <body>
 <div class="main-content">
   <header>
     <img id="acm-diamond-logo" src="{% static "img/acm_logo.png" %}">
-    <a id="acm-logo" href="#home">
+    <a id="acm-logo" href="">
       <h1><b>BYU</b>ACM</h1>
       <p>Association for Computing Machinery</p>
     </a>
@@ -63,14 +60,19 @@
     </span>
   </header>
   <nav>
-    <a href="#!/home" ng-class="{selected: pageName == 'Home'}">Home</a>
-    <a href="#!/events" ng-class="{selected: pageName == 'Events'}">Events</a>
-    <a href="#!/contributors" ng-class="{selected: pageName == 'Contributors'}">Contributors</a>
-    <a href="#!/officers" ng-class="{selected: pageName == 'Leadership'}">Leadership</a>
-    <a href="#!/about" ng-class="{selected: pageName == 'About'}">About</a>
+    {% with 'home events sponsors officers about' as tabs %}
+    {% for tab in tabs.split %}
+      <a {% if tab == current_tab %}class="current-tab"{% endif %}
+         href="{% if tab == 'home' %}{% url "home:index" %}{% else %}{% url "home:page" tab %}{% endif %}">
+        {{ tab.title }}
+      </a>
+    {% endfor %}
+    {% endwith %}
   </nav>
 
-  <div id="page-content" ng-view>
+  <div id="page-content">
+    {% block content %}
+    {% endblock %}
   </div>
   <footer>
     <div class="center">

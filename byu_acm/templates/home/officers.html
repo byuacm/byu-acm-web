@@ -1,0 +1,15 @@
+{% extends "home/base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="officers">
+  {% for officer in officers %}
+  <div class="officer">
+    <h3>{{ officer.name }}</h3>
+    <h3>{{ officer.title }}</h3>
+    <img src="{% get_static_prefix %}img/officer-headshots/{{ officer.image|urlencode }}">
+    <p>{{ officer.bio }}</p>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

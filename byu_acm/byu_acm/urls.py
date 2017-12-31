@@ -18,14 +18,16 @@ from django.urls import path, include
 from django.contrib.staticfiles.views import serve
 from django.contrib.staticfiles.templatetags.staticfiles import static
 
+import home.views
 from . import views
 
 urlpatterns = [
+    path('admin/', admin.site.urls),
     path('accounts/', include('byu_auth.urls', namespace='auth')),
+    path('home/', include('home.urls', namespace='home')),
     path('membership/', include('membership.urls', namespace='membership')),
     path('staff/', include('staff.urls', namespace='staff')),
-    path('admin/', admin.site.urls),
 
+    path('', home.views.homepage),
     path('favicon.ico', serve, kwargs={'path': static('img/favicon.ico')}),
-    path('', views.index)
 ]

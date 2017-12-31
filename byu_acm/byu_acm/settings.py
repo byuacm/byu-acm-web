@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'byu_auth.apps.ByuAuthConfig',
     'membership.apps.MembershipConfig',
     'staff.apps.StaffConfig',
+    'home.apps.HomeConfig',
 ]
 
 MIDDLEWARE = [

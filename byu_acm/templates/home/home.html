@@ -1,5 +1,7 @@
-<br>
+{% extends "home/base.html" %}
+{% load static %}
 
+{% block content %}
 <div class="flyer">
 If you're interested in becoming an ACM officer, email us at <a href="mailto:cs.byu.acm@gmail.com">cs.byu.acm@gmail.com</a>!
 <br/>
@@ -22,6 +24,5 @@ Any of the following roles can be filled:
     </dd>
 </dl>
 </div>
-<img src="/static/flyers/slack_instructions.png" class="flyer"/>
-
-<br>
+<img src="{% static "flyers/slack_instructions.png" %}" class="flyer"/>
+{% endblock %}

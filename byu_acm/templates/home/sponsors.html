@@ -1,3 +1,7 @@
+{% extends "home/base.html" %}
+{% load static %}
+
+{% block content %}
 <div class="sponsor-container" id='contributor-tasks'>
 	<article>
 		<h4>2017 Contribution Model</h4>
@@ -42,7 +46,7 @@
 			We are always open to more ideas for events. Please <a href="mailto:acm@byu.edu">contact us</a> if you are coming to campus for an event.
 		</p>
 		<p>
-			Please contact BYU ACM leadership (<a href=" mailto:acm@byu.edu">acm@byu.edu</a>) or Lynette Nelson (<a href="mailto:lnelson@cs.byu.edu">lnelson@cs.byu.edu</a>) in the CS department for more information about setting up an event on campus.
+			Please contact BYU ACM leadership (<a href="mailto:acm@byu.edu">acm@byu.edu</a>) or Lynette Nelson (<a href="mailto:lnelson@cs.byu.edu">lnelson@cs.byu.edu</a>) in the CS department for more information about setting up an event on campus.
 		</p>
 		<p class="less-defined">
 			Please keep in mind that your company is not required to give a contribution to BYU ACM in order to arrange an information session or other on-campus event with the Computer Science department.
@@ -54,11 +58,12 @@
 </div>
 <div id='current-contributors'>
 	<h4>Recent Contributors</h4>
-	<a href="http://www.domo.com" target="_blank"><img src="/static/img/sponsor-logos/domo.gif"></a>
-	<a href="http://www.epic.com" target="_blank"><img src="/static/img/sponsor-logos/epic.jpg"></a>
-	<a href="http://www.lucidchart.com" target="_blank"><img src="/static/img/sponsor-logos/lucid-software.png"></a>
-	<a href="http://www.qualtrics.com" target="_blank"><img src="/static/img/sponsor-logos/qualtrics.png"></a>
-	<a href="https://devmounta.in" target="_blank"><img src="/static/img/sponsor-logos/dev-mountain.png"></a>
-	<a href="http://www.goldmansachs.com/" target="_blank"><img src="/static/img/sponsor-logos/goldman.jpeg"></a>
-	<a href="http://www.xactware.com/" target="_blank"><img src="/static/img/sponsor-logos/xactware.png"></a>
+	<a href="http://www.domo.com" target="_blank"><img src="{% static "img/sponsor-logos/domo.gif" %}"></a>
+	<a href="http://www.epic.com" target="_blank"><img src="{% static "img/sponsor-logos/epic.jpg" %}"></a>
+	<a href="http://www.lucidchart.com" target="_blank"><img src="{% static "img/sponsor-logos/lucid-software.png" %}"></a>
+	<a href="http://www.qualtrics.com" target="_blank"><img src="{% static "img/sponsor-logos/qualtrics.png" %}"></a>
+	<a href="https://devmounta.in" target="_blank"><img src="{% static "img/sponsor-logos/dev-mountain.png" %}"></a>
+	<a href="http://www.goldmansachs.com/" target="_blank"><img src="{% static "img/sponsor-logos/goldman.jpeg" %}"></a>
+	<a href="http://www.xactware.com/" target="_blank"><img src="{% static "img/sponsor-logos/xactware.png" %}"></a>
 </div>
+{% endblock %}

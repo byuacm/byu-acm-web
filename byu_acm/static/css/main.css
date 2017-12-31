@@ -1,6 +1,7 @@
 /*******************************************************
 ****  Main Styles
 *******************************************************/
+/* TODO: Optimize for mobile */
 
 html {
   overflow-y: scroll;
@@ -195,11 +196,8 @@ header {
 
 nav {
   background: #2D2C2D;
-  border-top-style: solid;
-  border-top-color: white;
-  border-top-width: 1px;
-  height: 34px;
-    text-align: center;
+  border-top: 1px solid white;
+  text-align: center;
 }
 
 nav a {
@@ -207,11 +205,12 @@ nav a {
   font-size:24px;
   color:white;
   line-height: 34px;
-  margin: 0 41px;
+  padding: 0 41px;
+  display: inline-block;
 }
 
-nav a.selected {
-  color:#AAA;
+nav a.current-tab {
+  border-bottom: #2BBAE4 4px solid;
 }
 
 nav.secondary {
@@ -413,6 +412,8 @@ nav.secondary a {
 
 .officers {
   padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .officer img {

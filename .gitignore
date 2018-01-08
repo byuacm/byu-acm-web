@@ -5,3 +5,6 @@ bower_components/
 secrets.py
 .vagrant/
 naomi.txt
+.idea
+.venv
+byu_acm

@@ -1,0 +1,65 @@
+[
+	{
+		"name": "Opening Social",
+		"location": "TCMB 1170",
+		"date": "Jan 16, 2018",
+		"time": "6:00 pm - 7:30 pm",
+		"description": null
+	},
+	{
+		"name": "Lunch meeting",
+		"location": "TMCB 3rd floor",
+		"date": "Jan 31, 2018",
+		"time": "12:00 am - 12:50 am",
+		"description": null
+	},
+	{
+		"name": "Resume Workshop",
+		"location": "WILK 3rd Floor",
+		"date": "Feb 6, 2018",
+		"time": "6:00 pm - 7:30 pm",
+		"description": null
+	},
+	{
+		"name": "Recruitment Dinner",
+		"location": "WILK",
+		"date": "Feb 7, 2018",
+		"time": "6:00 pm - 7:00 pm",
+		"description": null
+	},
+	{
+		"name": "Programming Competition",
+		"location": "TMCB 1170 & Basement",
+		"date": "Mar 3, 2018",
+		"time": "9:00 am - 9:00 am",
+		"description": null
+	},
+	{
+		"name": "The YHack",
+		"location": "Clyde Step-down Lounge",
+		"date": "Mar 23-24, 2018",
+		"time": "5:00 pm - 5:00 pm",
+		"description": null
+	},
+	{
+		"name": "Open Source Night",
+		"location": "TNRB W408 & W410 (main room), 482 & 484 (workshops)",
+		"date": "TBD",
+		"time": null,
+		"description": null
+	},
+	{
+		"name": "Closing Social",
+		"location": "TMCB 1170",
+		"date": "TBD",
+		"time": "6:00 pm - 7:30 pm",
+		"description": null
+	},
+	{
+		"name": "Pirate Challenge",
+		"location": null,
+		"date": "Apr 26, 2018 - Sep 4, 2018",
+		"time": null,
+		"description": null
+	}
+]

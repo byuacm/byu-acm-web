@@ -524,3 +524,20 @@ footer .copyright {
 footer h3 {
   margin-bottom: 0;
 }
+
+/**
+Event styles
+**/
+.events {
+  padding: 15px;
+}
+
+.event {
+  padding: 10px 10px;
+  font-size: 14pt;
+}
+
+.event-name {
+  font-weight: bold;
+  margin: 0 -10px;
+}

@@ -23,6 +23,7 @@ app.config(['$routeProvider', function($routeProvider,$locationProvider) {
 app.run(function($rootScope) {
   $rootScope.leaders = [];
   $rootScope.events = [];
+  $rootScope.sponsors = [];
 });
 
 //*****************************************************************************
@@ -46,7 +47,13 @@ function AboutCtrl($scope, $routeParams) {
 //*****************************************************************************
 
 function SponsorCtrl($scope, $routeParams) {
-
+  if ($scope.sponsors.length === 0) {
+    $.getJSON("js/sponsors.json").then(function(data) {
+        $scope.sponsors = data;
+        $scope.$digest();
+      }
+    );
+  }
 }
 
 //*****************************************************************************
@@ -61,7 +68,7 @@ function LeaderCtrl($scope, $routeParams) {
       scrollTop: $('#' + link).offset().top
     }, 500);
   }
-  
+
   if ($scope.leaders.length === 0) {
     $.getJSON("js/officers.json").then(function(data) {
         $scope.leaders = data;

@@ -1,0 +1,47 @@
+[
+  {
+    "name": "Domo",
+    "url": "https://www.domo.com/",
+    "logo": "domo.gif"
+  },
+  {
+    "name": "Epic",
+    "url": "https://www.epic.com/",
+    "logo": "epic.jpg"
+  },
+  {
+    "name": "Lucidchart",
+    "url": "https://www.lucidchart.com/",
+    "logo": "lucid-software.png"
+  },
+  {
+    "name": "Qualtrics",
+    "url": "https://www.qualtrics.com/",
+    "logo": "qualtrics.png"
+  },
+  {
+    "name": "Goldman Sachs",
+    "url": "https://www.goldmansachs.com/",
+    "logo": "goldman.jpeg"
+  },
+  {
+    "name": "Xactware",
+    "url": "https://www.xactware.com/",
+    "logo": "xactware.png"
+  },
+  {
+    "name": "Microsoft",
+    "url": "https://www.microsoft.com/",
+    "logo": "microsoft.jpg"
+  },
+  {
+    "name": "Google",
+    "url": "https://www.google.com/",
+    "logo": "google.png"
+  },
+  {
+    "name": "Vivint",
+    "url": "https://www.vivint.com/",
+    "logo": "vivint.png"
+  }
+]

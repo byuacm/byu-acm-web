@@ -338,18 +338,18 @@ nav.secondary a {
   text-decoration: underline;
 }
 
-#current-contributors {
+#sponsors {
   margin-bottom:40px;
   text-align: center;
 }
 
-#current-contributors h4 {
+#sponsors h4 {
   display:block;
   text-align:left;
   padding-left: 40px;
 }
 
-#current-contributors img {
+#sponsors img {
   display:inline-block;
   margin:20px;
   max-height: 175px;

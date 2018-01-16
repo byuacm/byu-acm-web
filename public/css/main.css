@@ -117,6 +117,12 @@ dt {
     font-size: 20px;
 }
 
+.flyer img {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
 /*******************************************************
 ****  Header Styles
 *******************************************************/

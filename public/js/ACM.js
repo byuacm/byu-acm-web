@@ -2,8 +2,11 @@
 //  ANGULAR MODULE SETUP
 //*****************************************************************************
 
-var app = angular.module('ACM', []);
-app.config(['$routeProvider', function($routeProvider,$locationProvider) {
+var app = angular.module('ACM', ['ngRoute', 'ngSanitize']);
+app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+  $locationProvider
+      .html5Mode(false)
+      .hashPrefix('!');
   $routeProvider.
       when('/', {templateUrl: 'html/home.html', controller: HomeCtrl}).
       when('/home', {templateUrl: 'html/home.html', controller:HomeCtrl}).

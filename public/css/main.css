@@ -541,11 +541,17 @@ Event styles
 }
 
 .event {
-  padding: 10px 10px;
+  padding: 15px 10px;
   font-size: 14pt;
 }
 
 .event-name {
   font-weight: bold;
   margin: 0 -10px;
+}
+
+.event-description {
+  font-size: 14pt;
+  padding-top: 10px;
+  padding-left: 20px;
 }

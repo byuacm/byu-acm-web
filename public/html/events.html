@@ -6,7 +6,7 @@
       <div ng-hide="event.date == null" class="event-date">{{event.date}}</div>
       <div ng-hide="event.time == null" class="event-time">{{event.time}}</div>
       <div ng-hide="event.location == null" class="event-location">{{event.location}}</div>
-      <div ng-hide="event.description == null" class="event-description">{{event.description}}</div>
+      <div ng-hide="event.description == null" class="event-description" ng-bind-html="event.description"></div>
     </div>
   </div>
 </div>

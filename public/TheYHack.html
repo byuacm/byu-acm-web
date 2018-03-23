@@ -22,6 +22,9 @@
       text-shadow: 0px 1px 5px black;
       /* box-shadow: 0px 0px 8px 0px black inset; */
       position: relative;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position-y: -200px;
     }
 
     main {
@@ -36,6 +39,31 @@
       display: block;
       color: #888888;
     }
+
+    .time {
+      font-size: 20px;
+      font-weight: bold;
+      margin: 10px;
+    }
+
+    .event {
+      display: inline-block;
+      margin: 10px 50px;
+    }
+
+    .event-title {
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .event-host {
+      font-style: italic;
+    }
+
+    .event-loc {
+      font-style: italic;
+    }
+
 
     /* .jumbotron h1 {
         font-size: 90px;
@@ -117,6 +145,245 @@
     <p>
       You can email us at <a class="link" href="mailto:acm@byu.edu?Subject=TheYHack">acm@byu.edu</a>
     </p>
+  </section>
+  <section>
+    <h1>Schedule</h1>
+    <div class="time-block">
+        <span class="time">5:00 PM</span>
+    <div class="events">
+    <div class="event">
+        <div class="event-title">Kick-off &amp; Sponsor plugs</div>
+        <div class="event-loc">Stepdown Lounge</div>
+        <div class="event-descr"></div>
+    </div>
+    </div>
+    </div>
+    <div class="time-block">
+        <span class="time">5:30 PM</span>
+    <div class="events">
+    <div class="event">
+        <div class="event-title">Start Hacking!</div>
+        <div class="event-loc">Stepdown Lounge</div>
+        <div class="event-descr"></div>
+    </div>
+    </div>
+    </div>
+    <div class="time-block">
+        <span class="time">6:00 PM</span>
+    <div class="events">
+    <div class="event">
+        <div class="event-title">Dinner</div>
+        <div class="event-loc">Stepdown Lounge</div>
+        <div class="event-descr"></div>
+    </div>
+    </div>
+    </div>
+    <div class="time-block">
+        <span class="time">7:00 PM</span>
+    <div class="events">
+    <div class="event">
+        <div class="event-title">Intro to Swift and App Development</div>
+        <div class="event-host">Apple</div>
+        <div class="event-loc">CTB 256</div>
+        <div class="event-descr">Come learn about Swift, app development and core Apple technologies.</div>
+    </div>
+    <div class="event">
+        <div class="event-title">Intro to Git</div>
+        <div class="event-host">Brennon Brimhall</div>
+        <div class="event-loc">CTB 406</div>
+        <div class="event-descr">Git is a version control system to manage code, documents, or anything else super fast! Come to learn about basic Git skills, such as committing and collaborating with teams.</div>
+    </div>
+    </div>
+    </div>
+    <div class="time-block">
+        <span class="time">8:00 PM</span>
+    <div class="events">
+    <div class="event">
+        <div class="event-title">Robotics Programming</div>
+        <div class="event-host">Brennon Brimhall</div>
+        <div class="event-loc">CTB 406</div>
+        <div class="event-descr">A brief survey of robotics-related topics, such as control theory, numerical methods, image processing, etc.</div>
+    </div>
+    <div class="event">
+        <div class="event-title">Google Assistant - Building a Conversational Agent</div>
+        <div class="event-host">Google</div>
+        <div class="event-loc">CTB 256</div>
+        <div class="event-descr">Learn about how Google creates the conversational agent Google Assistant</div>
+    </div>
+    </div>
+    </div>
+    <div class="time-block">
+        <span class="time">9:00 PM</span>
+    <div class="events">
+    <div class="event">
+        <div class="event-title">Networking Your Way to Success</div>
+        <div class="event-host">Rebeca Hernandez</div>
+        <div class="event-loc">CTB 256</div>
+        <div class="event-descr">Networking tips and tricks designed for CS people.</div>
+    </div>
+    <div class="event">
+        <div class="event-title">Starting with Python 3</div>
+        <div class="event-host">Alyssa Haroldsen</div>
+        <div class="event-loc">CTB 406</div>
+        <div class="event-descr">Learn about Python 3, the dynamic and powerful programming language.</div>
+    </div>
+    </div>
+    </div>
+    <div class="time-block">
+        <span class="time">11:00 PM</span>
+    <div class="events">
+    <div class="event">
+        <div class="event-title">Microcontroller Programming Overview</div>
+        <div class="event-host">John Webster</div>
+        <div class="event-loc">CTB 256</div>
+        <div class="event-descr">Super basic intro to transistor-transistor logic and semiconductors</div>
+    </div>
+    <div class="event">
+        <div class="event-title">Super Smash Bros. Tournament</div>
+        <div class="event-loc">CTB 406</div>
+        <div class="event-descr">Settle your programming fury in a game of Smash Bros (for Wii U)</div>
+    </div>
+    </div>
+    </div>
+    <div class="time-block">
+        <span class="time">12:00 AM</span>
+    <div class="events">
+    <div class="event">
+        <div class="event-title">Midnight Snack</div>
+        <div class="event-loc">Stepdown Lounge</div>
+        <div class="event-descr">Have some late-night snacks!</div>
+    </div>
+    </div>
+    </div>
+    <div class="time-block">
+        <span class="time">1:00 AM</span>
+    <div class="events">
+    <div class="event">
+        <div class="event-title">Code in the Dark</div>
+        <div class="event-loc">Stepdown Lounge</div>
+        <div class="event-descr">Code in the Dark is about recreating a website as closely as you can without any editors, or previews! The best website wins!</div>
+    </div>
+    </div>
+    </div>
+    <div class="time-block">
+        <span class="time">9:00 AM</span>
+    <div class="events">
+    <div class="event">
+        <div class="event-title">Breakfast</div>
+        <div class="event-loc">Stepdown Lounge</div>
+        <div class="event-descr"></div>
+    </div>
+    </div>
+    </div>
+    <div class="time-block">
+        <span class="time">10:00 AM</span>
+    <div class="events">
+    <div class="event">
+        <div class="event-title">The Basics of Vue</div>
+        <div class="event-host">Arthur Buck</div>
+        <div class="event-loc">CTB 393</div>
+        <div class="event-descr">Learn about the basics of Vue: a hip new front-end framework</div>
+    </div>
+    <div class="event">
+        <div class="event-title">Next Gen Texting Talk/Job Opportunities</div>
+        <div class="event-host">Google</div>
+        <div class="event-loc">CTB 406</div>
+        <div class="event-descr"></div>
+    </div>
+    </div>
+    </div>
+    <div class="time-block">
+        <span class="time">11:00 AM</span>
+    <div class="events">
+    <div class="event">
+        <div class="event-title">Pwnage is Power</div>
+        <div class="event-host">Jordan Whitehead</div>
+        <div class="event-loc">CTB 406</div>
+        <div class="event-descr">Join us in this workshop to learn the very basics of binary exploitation! We will talk about how modern compiled code is organized, some advanced topics in C programming, and about how the stack is used. We will actually be exploiting a program on a remote server, so get ready to cause some chaos!</div>
+    </div>
+    </div>
+    </div>
+    <div class="time-block">
+        <span class="time">12:00 PM</span>
+    <div class="events">
+    <div class="event">
+        <div class="event-title">Why Go?</div>
+        <div class="event-host">David Corey</div>
+        <div class="event-loc">CTB 393</div>
+        <div class="event-descr">Intro to the Go Programming Language and some of its most powerful features.</div>
+    </div>
+    <div class="event">
+        <div class="event-title">Google Cloud Platform</div>
+        <div class="event-host">Eunice Tan</div>
+        <div class="event-loc">CTB 406</div>
+        <div class="event-descr">Introduction to Google Cloud Platform and how it can transform businesses </div>
+    </div>
+    </div>
+    </div>
+    <div class="time-block">
+        <span class="time">1:00 PM</span>
+    <div class="events">
+    <div class="event">
+        <div class="event-title">Lunch</div>
+        <div class="event-loc">Stepdown Lounge</div>
+        <div class="event-descr"></div>
+    </div>
+    </div>
+    </div>
+    <div class="time-block">
+        <span class="time">2:00 PM</span>
+    <div class="events">
+    <div class="event">
+        <div class="event-title">Cup Stacking Challenge (Nathan)</div>
+        <div class="event-loc">Stepdown Lounge</div>
+        <div class="event-descr"></div>
+    </div>
+    </div>
+    </div>
+    <div class="time-block">
+        <span class="time">3:00 PM</span>
+    <div class="events">
+    <div class="event">
+        <div class="event-title">Intro to Elixir and Phoenix</div>
+        <div class="event-host">Dennis Beatty</div>
+        <div class="event-loc">CTB 406</div>
+        <div class="event-descr">Elixir is a language built on top of the Erlang VM that allows for very cheap concurrency and works really well for web languages. Phoenix is a framework on top of Elixir that makes it incredibly easy to built performing, fault-tolerant web applications.
+
+I graduated from BYU last year, and now work primarily in Elixir. My brother told me you’re looking for workshops, so I’d be happy to teach this. If there are enough workshops given by students though, I would give them preference.</div>
+    </div>
+    <div class="event">
+        <div class="event-title">Crash Course on Natural Language Processing / CS 479</div>
+        <div class="event-host">Jeffrey Lund</div>
+        <div class="event-loc">CTB 393</div>
+        <div class="event-descr">We'll introduce statistical natural language processing (NLP) with a language model built using Markov chains. We'll cover roughly a week or two of material from CS 479 (the now defunct NLP class). By the end of the workshop, we'll having a working procedural name generator, and hopefully a glimpse into what NLP is all about. My goal is to make the material accessible to all, but familiarity with Python will help.</div>
+    </div>
+    <div class="event">
+        <div class="event-title">Cougar Tech Snack Break</div>
+        <div class="event-loc">Stepdown Lounge</div>
+        <div class="event-descr"></div>
+    </div>
+    </div>
+    </div>
+    <div class="time-block">
+        <span class="time">5:00 PM</span>
+    <div class="events">
+    <div class="event">
+        <div class="event-title">Kick-off & Sponsor plugs</div>
+        <div class="event-loc">Stepdown Lounge</div>
+        <div class="event-descr"></div>
+    </div>
+    </div>
+    </div>
+    <div class="time-block">
+        <span class="time">5:30 PM</span>
+    <div class="events">
+    <div class="event">
+        <div class="event-title">Presentation of Awards</div>
+        <div class="event-loc">Stepdown Lounge</div>
+        <div class="event-descr"></div>
+    </div>
+    </div>
+    </div>
   </section>
 </main>
 <footer class="footer">

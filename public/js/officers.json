@@ -1,13 +1,7 @@
 [
   {
-    "name": "Naomi Johnson",
-    "title": "President",
-    "img": "naomi_capitol.jpg",
-    "bio": "Naomi Johnson is currently a research assistant in the HCI and AML labs at BYU. She is double majoring in computer science and Japanese. After graduating in 2020, she wants to get her doctorate and become a CS professor."
-  },
-  {
     "name": "Nathan Geronimo",
-    "title": "Vice President/Coordinator",
+    "title": "President",
     "img": "nathan.jpg",
     "bio": "Nathan is a junior in the Computer Science program. He started programming once he switched from being a chemistry major back in 2015, and he never regrets the switch. He loves music, anime, and of course learning about how technology is evolving."
   },
@@ -36,10 +30,10 @@
     "bio": "Kate is a junior in the Computer Science major. She comes from the small town of Walla Walla, WA. Her hobbies include long-distance running with her husband, reading, piano playing, and trying out new recipes. As the finance officer in ACM she hopes to impact BYU’s campus by helping students find their place in the tech world and feel included in the programs we have here."
   },
   {
-    "name": "Alyssa Haroldsen",
+    "name": "Eden Knudson",
     "title": "Technology Officer",
-    "img": "alyssa.jpg",
-    "bio": "Alyssa is a senior in the Computer Science major with minors in Mathematics and Physics. Her interests are computer security, data analytics, and performance analysis. She enjoys television, videogames, and keeping up with Hacker News. She wants to join industry and change the world."
+    "img": "EdenKnudson.jpg",
+    "bio": "Eden is a junion in the Computer Science major with a minor in Astronomy. Her interests are graphic design and watching the Amazing Race."
   },
   {
     "name": "Corey Woodfield",

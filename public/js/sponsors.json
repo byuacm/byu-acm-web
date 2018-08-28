@@ -25,9 +25,9 @@
     "logo": "goldman.jpeg"
   },
   {
-    "name": "Xactware",
-    "url": "https://www.xactware.com/",
-    "logo": "xactware.png"
+    "name": "Apple",
+    "url": "https://www.apple.com/",
+    "logo": "apple.jpg"
   },
   {
     "name": "Microsoft",
@@ -40,8 +40,8 @@
     "logo": "google.png"
   },
   {
-    "name": "Vivint",
-    "url": "https://www.vivint.com/",
-    "logo": "vivint.png"
+    "name": "Canopy",
+    "url": "https://www.canopytax.com/",
+    "logo": "canopy.png"
   }
 ]

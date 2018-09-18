@@ -32,11 +32,7 @@
 		"location": "Conference Center Atrium",
 		"date": "Sep 25, 2018",
 		"time": "6:00 pm - 7:00 pm",
-<<<<<<< HEAD
-		"description": "Sit down and enjoy a catered meal with industry recruiters. This is a great opportunity to network! Register <a href=\"https://byu.az1.qualtrics.com/jfe/form/SV_ddkWLDQuV5enjaR\">here</a> before spots run out! You must <a href=\"#!/about#paying_club_dues\">pay your dues</a> before attending the event. Recruiters are coming from Lawrence Livermore National Laboratory, Chicago Venture Partners, Facebook, Microsoft, ExxonMobil, Qualtrics. Please dress business casual."
-=======
-		"description": "Sit down and enjoy a catered meal with industry recruiters. This is a great opportunity to network! Register <a href=\"https://byu.az1.qualtrics.com/jfe/form/SV_bxOricY7nHWsZ0h\">here</a> before spots run out! You must <a href=\"#!/about#paying_club_dues\">pay your dues</a> before attending the event. At least 24 recruiters are coming from companies like Sandia National Laboratories, Chicago Venture Partners, Facebook, Microsoft, ExxonMobil, Qualtrics, Zion's Bank, Pariveda, Lucidchart, SimpleNexus, Goldman Sachs, Chief Architect, & Rincon Research."
->>>>>>> 9fe5c884d6cc5e4952a3544dea34b84c4bd2ea51
+		"description": "Sit down and enjoy a catered meal with industry recruiters. This is a great opportunity to network! Register <a href=\"https://byu.az1.qualtrics.com/jfe/form/SV_bxOricY7nHWsZ0h\">here</a> before spots run out! You must <a href=\"#!/about#paying_club_dues\">pay your dues</a> before attending the event. At least 24 recruiters are coming from companies like Sandia National Laboratories, Chicago Venture Partners, Facebook, Microsoft, ExxonMobil, Qualtrics, Zion's Bank, Pariveda, Lucidchart, SimpleNexus, Goldman Sachs, Chief Architect, & Rincon Research. Dress business casual."
 	},
 	{
 		"name": "Programming Competition: Sponsored by Lucid Software",

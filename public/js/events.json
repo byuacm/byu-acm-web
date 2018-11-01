@@ -42,6 +42,13 @@
 		"description": "This is a contest between BYU, USU, and the U of U. Check back for updates as we get closer to the event. <a href=\"https://docs.google.com/forms/d/e/1FAIpQLScv2usuyRjWVSin5jjN5ZEBEw9OcjxDUTuYP88Df_QAqcIi8A/viewform\">Register here!</a>"
 	},
 	{
+		"name": "CS Research Round-Up",
+		"location": "1170 TMCB",
+		"date": "Nov 6, 2018",
+		"time": "6:00 pm - 7:00 pm",
+		"description": "Learn about CS research opportunities and careers, and find out how to get involved in the research field you've always wanted.</a>"
+	},
+	{
 		"name": "12-hour Hackathon",
 		"location": "To be determined",
 		"date": "Nov 10, 2018",

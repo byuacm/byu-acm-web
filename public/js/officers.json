@@ -11,7 +11,12 @@
     "img": "JohnWebsterSquare.jpg",
     "bio": "John Webster is a junior in computer engineering with a minor in computer science. His interests include hacking on microcontrollers and hardware design. His favorite font is Ubuntu Monospace. In his free time he enjoys spending time outdoors, swimming, and hiking."
   },
-
+  {
+   "name": "Kevin Thompson",
+   "title": "MLH Officer",
+   "img": "kevinThompson.jpg",
+   "bio": "Kevin switched to studying Computer Science after his Freshman year and has never looked back.  He is a native of California and loves the outdoors.  His hobbies include reading, movies, and tennis.  Kevin enjoys good food and good company.  He hopes one day to create SpaceY, a bigger better SpaceX."
+  },
   {
     "name": "Sierra Davis",
     "title": "Marketing Officer",
@@ -35,12 +40,6 @@
     "title": "Faculty Sponsor",
     "img": "jones.jpg",
     "bio": "Dr. Jones received his B.S. and M.S. degrees in Computer Science from University of Idaho, investigating investigating high-performance architectures and compilers. He then received a Ph.D. at University of Colorado Boulder, additionally focusing on wearable computing and assistive technology. Prior to joining the Computer Science faculty at BYU, he spent time revitalizing the College of Idaho CS curriculum and working with the Naval Air Systems Command (NAVAIR) at China Lake California."
-  },
-  {
-   "name": "Kevin Thompson",
-   "title": "MLH Officer",
-   "img": "kevinThompson.jpg",
-   "bio": "Kevin switched to studying Computer Science after his Freshman year and has never looked back.  He is a native of California and loves the outdoors.  His hobbies include reading, movies, and tennis.  Kevin enjoys good food and good company.  He hopes one day to create SpaceY, a bigger better SpaceX."
   },
   {
    "name": "Braden Watkins",

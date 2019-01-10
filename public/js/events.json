@@ -13,8 +13,6 @@
 		"time": "6:00 pm - 7:30 pm",
 		"description": "Sit down and enjoy a catered meal with industry recruiters. This is a great opportunity to network! Information will come out later about how to register. Register before spots run out! You must <a href=\"#!/about#paying_club_dues\">pay your dues</a> before attending the event. Dress business casual."
 	},
-	// <a href=\"https://byu.az1.qualtrics.com/jfe/form/SV_ddkWLDQuV5enjaR\">here</a>
-	// At least 24 recruiters are coming from companies like Sandia National Laboratories, Chicago Venture Partners, Facebook, Microsoft, ExxonMobil, Qualtrics, Zion's Bank, Pariveda, Lucidchart, SimpleNexus, Goldman Sachs, Chief Architect, & Rincon Research.
 	{
 		"name": "Hack the Y",
 		"location": "TBA",
@@ -30,3 +28,7 @@
 		"description": "Winter Semester's closing social."
 	}
 ]
+
+// <a href=\"https://byu.az1.qualtrics.com/jfe/form/SV_ddkWLDQuV5enjaR\">here</a>
+	// At least 24 recruiters are coming from companies like Sandia National Laboratories, Chicago Venture Partners, Facebook, Microsoft, ExxonMobil, Qualtrics, Zion's Bank, Pariveda, Lucidchart, SimpleNexus, Goldman Sachs, Chief Architect, & Rincon Research.
+	

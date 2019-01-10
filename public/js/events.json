@@ -1,72 +1,32 @@
 [
         {
-		"name": "Opening Social: Sponsored by Canopy Tax",
+		"name": "Opening Social: Sponsored by Lucid Chart",
 		"location": "1170 TMCB",
-		"date": "Sep 11, 2018",
-		"time": "6:00 pm - 8:00 pm",
-		"description": "Our first event of the semester! Come listen to an awesome presentation by Canopy to kick of the new school year. As always, there will be food and door prizes."
-	},
-	{
-		"name": "Resume Workshop: Sponsored by Microsoft",
-		"location": "New Engineering Building Room 321",
-		"date": "Sep 13, 2018",
+		"date": "Tuesday Jan 15, 2019",
 		"time": "6:00 pm - 7:30 pm",
-		"description": "This resume workshop is sponsored by Microsoft. Come learn from the Microsoft recruiter what companies look for when they first see your resume."
-	},
-	{
-		"name": "Programming Competition: Sponsored by Google",
-		"location": "Clyde Step-Down Lounge",
-		"date": "Sep 19, 2018",
-		"time": "6:00 pm - 8:00 pm",
-		"description": "This programming competition will be a little bit different from the Google Games that were hosted last year, but still a lot of fun! If you can't find a team, no worries, just hop on the Slack channel and make new friends."
-	},
-	{
-		"name": "Bowling Social: Sponsored by Pariveda",
-		"location": "BYU Bowling Alley",
-		"date": "Sep 21, 2018",
-		"time": "5:00 pm - 7:00 pm",
-		"description": "Pariveda sponsors this super fun event where students and recruiters can kick back and get to know each other in a very relaxed way."
+		"description": "Our first event of the semester! Come listen to an awesome presentation by Lucid Chart to kick of the new semester. As always, there will be food and door prizes."
 	},
 	{
 		"name": "Recruitment Dinner",
-		"location": "Conference Center Atrium",
-		"date": "Sep 25, 2018",
-		"time": "6:00 pm - 7:00 pm",
-		"description": "Sit down and enjoy a catered meal with industry recruiters. This is a great opportunity to network! Register <a href=\"https://byu.az1.qualtrics.com/jfe/form/SV_ddkWLDQuV5enjaR\">here</a> before spots run out! You must <a href=\"#!/about#paying_club_dues\">pay your dues</a> before attending the event. At least 24 recruiters are coming from companies like Sandia National Laboratories, Chicago Venture Partners, Facebook, Microsoft, ExxonMobil, Qualtrics, Zion's Bank, Pariveda, Lucidchart, SimpleNexus, Goldman Sachs, Chief Architect, & Rincon Research. Dress business casual."
-	},
-	{
-		"name": "Programming Competition: Sponsored by Lucid Software",
-		"location": "TMCB",
-		"date": "Oct 27, 2018",
-		"time": "8:00 am - 2:00 pm",
-		"description": "This is a contest between BYU, USU, and the U of U. Check back for updates as we get closer to the event. <a href=\"https://docs.google.com/forms/d/e/1FAIpQLScv2usuyRjWVSin5jjN5ZEBEw9OcjxDUTuYP88Df_QAqcIi8A/viewform\">Register here!</a>"
-	},
-	{
-		"name": "CS Research Round-Up",
-		"location": "1170 TMCB",
-		"date": "Nov 6, 2018",
-		"time": "6:00 pm - 7:00 pm",
-		"description": "Learn about CS research opportunities and careers, and find out how to get involved in the research field you've always wanted.</a>"
-	},
-	{
-		"name": "Tech Talk: Web Security Threat Research",
-		"location": "JKB 2107",
-		"date": "Wednesday 14 Nov, 2018",
+		"location": "TBA",
+		"date": "Wednesday Feb 6, 2019",
 		"time": "6:00 pm - 7:30 pm",
-		"description": "Tech Talk by Symantic. There will be Brick Oven Pizza and door amazing prizes!"
+		"description": "Sit down and enjoy a catered meal with industry recruiters. This is a great opportunity to network! Information will come out later about how to register. Register before spots run out! You must <a href=\"#!/about#paying_club_dues\">pay your dues</a> before attending the event. Dress business casual."
+	},
+	// <a href=\"https://byu.az1.qualtrics.com/jfe/form/SV_ddkWLDQuV5enjaR\">here</a>
+	// At least 24 recruiters are coming from companies like Sandia National Laboratories, Chicago Venture Partners, Facebook, Microsoft, ExxonMobil, Qualtrics, Zion's Bank, Pariveda, Lucidchart, SimpleNexus, Goldman Sachs, Chief Architect, & Rincon Research.
+	{
+		"name": "Hack the Y",
+		"location": "TBA",
+		"date": "Friday Mar 22 through Saturday Mar 23, 2018",
+		"time": "5:00 pm - 5:00 pm",
+		"description": "ACM's annual overnight event! There will be a lot of food to eat, games to play, prizes to be won, and things to learn."
 	},
 	{
 		"name": "Closing Social: Sponsored by Apple",
 		"location": "TMCB 1170",
-		"date": "11 Dec, 2018",
+		"date": "Tuesday Apr 9, 2018",
 		"time": "6:00 pm - 7:30 pm",
-		"description": "Fall Semester's closing social will be hosted by Apple. They are super excited to bring a presentation on personal branding and storytelling. This will be the last event of the semester."
-	},
-	{
-		"name": "Ninja Challenge",
-		"location": null,
-		"date": "Dec 21, 2018 - Jan 7 2019",
-		"time": null,
-		"description": "A series of difficult challenges for the winter break designed to test your skills! Finish all of them for a prize."
+		"description": "Winter Semester's closing social."
 	}
 ]

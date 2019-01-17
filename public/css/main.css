@@ -143,6 +143,11 @@ header span {
 
 header span a {
   text-decoration:none;
+  color:#777;
+}
+
+header span a h3 {
+  text-decoration:none;
   color:#FFFFFF;
 }
 

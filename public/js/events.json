@@ -14,9 +14,23 @@
 		"description": "Sit down and enjoy a catered meal with industry recruiters. This is a great opportunity to network! <a href=\"https://byu.az1.qualtrics.com/jfe/form/SV_8H9Dz9YT52WHTJX\">Register</a> before spots run out! You must <a href=\"#!/about#paying_club_dues\">pay your dues</a> before attending the event. Arrive early and dress business casual."
 	},
 	{
+		"name": "Google Games",
+		"location": "CB Step-down Lounge",
+		"date": "Tuesday Feb 12, 2019",
+		"time": "6:00 pm - 7:30 pm",
+		"description": "Puzzle competition sponsored by Google."
+	},
+	{
+		"name": "Qualtrics Club Meeting",
+		"location": "TMCB 1170",
+		"date": "Tuesday Feb 26, 2019",
+		"time": "6:00 pm - 7:00 pm",
+		"description": "Tech talk sponsored by Qualtrics. There will be door prizes and dinner provided like always!"
+	},
+	{
 		"name": "Hack the Y",
-		"location": "TBA",
-		"date": "Friday Mar 29 through Saturday Mar 30, 2019",
+		"location": "CB Step-down Lounge",
+		"date": "Friday Mar 29 - Saturday Mar 30, 2019",
 		"time": "5:00 pm - 5:00 pm",
 		"description": "ACM's annual overnight event! There will be a lot of food to eat, games to play, prizes to be won, and things to learn."
 	},

@@ -28,6 +28,20 @@
 		"description": "Tech talk sponsored by Qualtrics. There will be door prizes and dinner provided like always!"
 	},
 	{
+		"name": "Walmart Club Meeting",
+		"location": "TMCB 1170",
+		"date": "Tuesday Mar 5, 2019",
+		"time": "6:00 pm - 7:00 pm",
+		"description": "Tech talk sponsored by Walmart. There will be door prizes and dinner provided like always!"
+	},
+	{
+		"name": "ExxonMobil Club Meeting",
+		"location": "TMCB 1170",
+		"date": "Thursday Mar 21, 2019",
+		"time": "6:00 pm - 7:00 pm",
+		"description": "Tech talk sponsored by ExxonMobil. There will be door prizes and dinner provided like always!"
+	},
+	{
 		"name": "Hack the Y",
 		"location": "CB Step-down Lounge",
 		"date": "Friday Mar 29 - Saturday Mar 30, 2019",
